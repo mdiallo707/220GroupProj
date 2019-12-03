@@ -5,18 +5,20 @@
 #ifndef LINKEDNODE_H
 #define LINKEDNODE_H
 
+#include <string>
+
 class LinkedNode {
 
 private:
-    int item;
+    std::string *item;
     LinkedNode* next;
 
 public:
-    LinkedNode(int item);
+    LinkedNode(std::string *item);
     LinkedNode(const LinkedNode& nodeToCopy); //only copies item, next is set to nullptr
-    int getItem();
+    std::string* getItem();
     LinkedNode* getNext();
-    void setItem(int newItem);
+    void setItem(std::string *newItem);
     void setNext(LinkedNode* newNext);
 };
 

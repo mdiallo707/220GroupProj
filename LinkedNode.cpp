@@ -3,7 +3,7 @@
 //
 #include "LinkedNode.h"
 
-LinkedNode::LinkedNode(int item){
+LinkedNode::LinkedNode(std::string *item){
     this->item = item;
     next = nullptr;
 }
@@ -13,7 +13,7 @@ LinkedNode::LinkedNode(const LinkedNode& nodeToCopy){
     next = nullptr;
 }
 
-int LinkedNode::getItem(){
+std::string* LinkedNode::getItem(){
     return item;
 }
 
@@ -21,7 +21,7 @@ LinkedNode* LinkedNode::getNext(){
     return next;
 }
 
-void LinkedNode::setItem(int newItem){
+void LinkedNode::setItem(std::string *newItem){
     item = newItem;
 }
 
