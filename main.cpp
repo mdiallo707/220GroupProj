@@ -1,6 +1,16 @@
 #include <iostream>
+#include "UserInfo.h"
+#include<string>
+#include "UserInfo.h"
+
+
 
 int main() {
-    std::cout << "Hello, class220!" << std::endl;
-    return 0;
+    John.setUserInfo();
+    std::string name;
+    std::cout << "Enter your name: ";
+
 }
+
+
+
