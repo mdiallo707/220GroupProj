@@ -20,11 +20,16 @@ playlists::playlists(){
  * create array under queue
  * include name, duration, and address
  */
-std::string playlists::createArray(std::string Name, std::string Duration,char* aPlaylist){
-    aList[0]=Name;
-    aList[1]=Duration;
-    aList[2]=aPlaylist;
-    return "";
+std::string playlists::createArray(std::string Name, double Duration,std::string *aPlaylist){
+
+}
+/**
+* using to string in ArrayLib.cpp and change Mariama's Duration to string
+* @return string
+*/
+std::string DurationToString(double duration){
+    std::string result = std::to_string(duration);
+    return result;
 }
 /**
  * create a queue
@@ -45,9 +50,9 @@ bool playlists::isQueueEmpty(){
  * count the time
  * @return new time
  */
-std::string playlists::countDuration(){
-    auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
-    return ctime(&timenow);
+std::string playlists::countTime(){
+    auto timeNow = chrono::system_clock::to_time_t(chrono::system_clock::now());
+    return ctime(&timeNow);
 }
 /**
  * order the list in alphbet order

@@ -33,7 +33,12 @@ public:
     /**
      * create array under queue
      */
-    std::string createArray(std::string Name, std::string Duration,char* aPlaylist);
+    std::string createArray(std::string Name, double Duration,std::string *aPlaylist)
+    /**
+     * using to string in ArrayLib.cpp and change Mariama's Duration to string
+     * @return string
+     */
+    std::string DurationToString(double duration);
     /**
     * create a queue
     * include array with name, duration, and address
@@ -49,7 +54,7 @@ public:
      * count the time
      * @return new time
      */
-    std::string countDuration();
+    std::string countTime();
     /**
      * order the list in alphbet order
      * @return new list

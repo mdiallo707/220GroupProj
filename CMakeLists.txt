@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
-project(personalGroupProj)
+project(Project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(personalGroupProj playlistTest.cpp PlayList.cpp LinkedNode1.cpp TestLib.cpp)
+add_executable(Project PlaylistsLinkedNode.cpp TestLib.cpp ArrayLib.cpp playlists.cpp playlistsTest.cpp LinkedQueue.cpp LinkedQueue.h)

@@ -1,3 +1,13 @@
-
+------------------My Problem-----------------
+1.
+------------------My file-----------------
+ArrayLib.cpp/ArrayLib.h
+LinkNode.cpp/LinkNode.h [UPDATE:My Update 1]
+LinkQueue.cpp/LinkQueue.h [UPDATE:My Update 2]
+Playlists.cpp/Playlists.h
+playlistsTest.cpp
+------------------My Update---------------
+Plan: Playlists -> Queue(item stores string type array)
 1. change item in LinkNode form (int) to address
-2. change
+2. change operator in LinkQueue
+3. Count the current time and store as string
