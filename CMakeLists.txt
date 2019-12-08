@@ -3,4 +3,4 @@ project(personalGroupProj)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(personalGroupProj playlistTest.cpp PlayList.cpp LinkedNode1.cpp TestLib.cpp)
+add_executable(personalGroupProj playlistTest.cpp PlayList.cpp LinkedNode1.cpp TestLib.cpp UserInteraction.h)

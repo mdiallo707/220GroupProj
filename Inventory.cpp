@@ -40,3 +40,7 @@ void Inventory::enqueue(std::string artistName,std::string title, double duratio
         end = newNode;
     }
 }
+
+void addToLibrary(std::string artistName,std::string artistSong, int duration){
+
+}
