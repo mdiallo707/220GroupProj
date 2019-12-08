@@ -5,7 +5,33 @@
 #ifndef PERSONALGROUPPROJ_USERINTERACTION_H
 #define PERSONALGROUPPROJ_USERINTERACTION_H
 // this is going to be the interface that is inherited
+#include <stdexcept>
+#include <string>
+// method names are generic because they will be implemented differently
+// for a playlist,collection and the inventory
 class UserInteraction{
+// delete is predefined which is I put stuff implement delete for
+// collections,playlists and songs in the inventory
+ virtual void deleteStuff()=0;
+ virtual void add()=0;
+ virtual void incrementPlay()=0;
+ // print everything in a collection,playlist and
+ //inventory
+ virtual void displayAll()=0;
+ // print a particular song,playlist and collection
+ virtual void displaySelect()=0;
+ // delete everything in inventory,playlist and collection
+ virtual void clearAll()=0;
+ virtual void deleteFromFile()=0;
+ virtual void addToFile()=0;
+
+
+
+
+
+
+
+
 
 
 };
