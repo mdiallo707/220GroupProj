@@ -49,6 +49,6 @@ class UserInteraction {
 
 
 
-};
+
 
 #endif //PERSONALGROUPPROJ_USERINTERACTION_H
