@@ -8,6 +8,7 @@ Songs::Songs(std::string artistN,std::string songN,int duration){
  this->artistName=artistN;
  this->songName=songN;
  this->duration=duration;
+ this->playCount=0;
 
 
 
