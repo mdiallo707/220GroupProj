@@ -1,12 +1,22 @@
 //
-// Created by emurray2 on 11/19/2019.
+// Created by emurray2 on 12/8/2019.
 //
-//UserName will add a number if the
+#include <string>
+
 #include "UserInfo.h"
-#include<string>
+UserInfo::UserInfo(std::string userName, std:: string firstName, std::string lastName) {
+this->userName=userName;
+this->firstName=firstName;
+this->lastName=lastName;
 
- UserInfo::UserInfo( std::string name, int num){
-    this->userName = name;
-    this->userAge = num;
-
+// a file should be created for the user if they are new
+}
+std::string UserInfo::getUserName(){
+    return userName;
+}
+std::string UserInfo::getFirstName(){
+    this->firstName;
+}
+std::string UserInfo::getLasName(){
+    this->lastName;
 }
