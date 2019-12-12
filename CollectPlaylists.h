@@ -11,40 +11,36 @@
 #include "CollectLinkedList.h"
 using namespace std;
 
-class CollPlaylists {
+class CollectPlaylists {
 private:
-
-    //number of song list
-    int size = 0;
+    //list of playlist name in txt file
+    //Private to disable copying and assigning from outside class, don't implement these methods
+    CollectPlaylists(const CollectPlaylists& listToCopy);
 
 
 public:
-//
-    //pointer to the playlist
-    CollectLinkedList listPlaylists = CollectLinkedList();
 
+//    //pointer to the playlist
+//    CollectLinkedList listPlaylists = CollectLinkedList();
+    CollectPlaylists(){}
 
-    /**
-    * count the duration in the playlist
-    * @return total duration
-    */
-    std::string countDuration();
+    virtual ~ CollectPlaylists() {}
 
     /**
-     * check if queue is empty
-     * @return ture if queue is empty
+     * check if the collection of playlist is empty
+     * @return
      */
-    bool isLinkEmpty();
+    virtual bool isLinkEmpty() = 0;
 
     /**
-     * display playList name and duration
+     * display all the songs - title and duration
      */
-    virtual void displayAll() = 0;
+    virtual std::string displayAll() = 0;
 
     /**
-     * display selected playlist
+     * display selected playlist - song title and duration
      */
-    virtual void displaySelect(std::string playlistTitleIn) = 0;
+    virtual std::string displaySelect(std::string playlistTitleIn) = 0;
 
     /**
      * clear entire playlist
@@ -57,16 +53,16 @@ public:
     virtual void addToFile(std::string playlistTitleIn,SongsLinkedNode *aPointerIn) = 0;
 
     /**
-     * remove a playlist
+     * remove a playlist if it's empty
      */
-    virtual void deleteFromFile(std::string playlistTitleIn) = 0;
+    virtual CollectLinkedNode* deleteFromFile() = 0;
 
 
     /**
      * create a random list with random songs in other list
      * @param listName
      */
-    void RandomList(std::string playlistTitleIn);
+    virtual std::string RandomList(std::string playlistTitleIn) = 0;
 
 };
 
