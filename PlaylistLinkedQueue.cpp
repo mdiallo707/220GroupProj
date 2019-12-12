@@ -1,8 +1,8 @@
 //
-// Created by Toby Dragon on 10/24/17.
+// Created by Mariama Diallo on 12/9/19.
 //
 #include <string>
-
+#include <fstream>
 #include <iostream>
 #include "PlaylistLinkedQueue.h"
 #include "SongsLinkedNode.h"
@@ -99,4 +99,29 @@ void PlaylistLinkedQueue ::  allSongsInPlaylist(std::string namePL){
     }
 
 }
+
+void PlaylistLinkedQueue :: WriteToFile(){
+
+}
+
+void PlaylistLinkedQueue ::ReadFromFile(){
+    std::ifstream in;
+    in.open("ListofSongs.txt") ;
+
+    std::string songTitle, artistName, duration;
+
+    while (!in.eof())
+    {
+        getline(in, songTitle, '\n');
+        getline(in, artistName, '\n');
+        getline(in, duration, '\n');
+
+
+        SongsLinkedNode newSong(songTitle, artistName, std::stod(duration));
+
+    }
+
+
+}
+
 

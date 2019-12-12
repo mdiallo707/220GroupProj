@@ -1,48 +1,43 @@
 #include <iostream>
-#include "LinkedPlaylist.h"
+
 #include "TestLib.h"
-#include "PlayList.h"
+#include "PlaylistLinkedQueue.h"
 
 
 
-void insertSongTest( ) {
-    {
-        std::string title;
-        do {
-            int i = 1;
-            std::cout << "\nplease insert new song into playlist"
-                         " - leave title empty to end insertion."
-                         "\nEnter the title of song# " << i << ": ";
-            std::getline(std::cin, title);
-            if (title.empty()) { break; }
-
-            std::cout << "Please enter artist for this song: ";
-            std::string artist;
-            std::getline(std::cin, artist);
+void EnqueueAndCalcDurationTest(){
+    std::cout << "-------EnqueueAndCalcDurationTest---------" <<std::endl;
+    PlaylistLinkedQueue testQueue;
 
 
-            std::cout << "Enter the duration(in mins) for this song: ";
-            double songLength = 0.0;
-            std::cin >> songLength;
-            std::cin.ignore(1);
 
-            std::cout << "\nAdding " << " song \"" << title
-                      << "\" by " << artist << ". Running time: "
-                      << songLength << " mins \n";
-            i++;
-            LinkedNode( title,artist, songLength);
-            LinkedPlaylist* playlist;
-            playlist->insertAtEnd(title, artist, songLength);
+    testQueue.enqueue("Fruit","Abra",5.41);
+    printAssertEquals(5.41,testQueue.calcDuration());
+    testQueue.enqueue("Nice","The Carters",3.53);
+    printAssertEquals("Fruit", testQueue.dequeue());
+    testQueue.enqueue("There will be Sunshine","Snoh",3.36);
+    testQueue.enqueue("Energy","Sampa",4.58);
+    printAssertEquals(11.47,testQueue.calcDuration());
+    printAssertEquals("Nice", testQueue.dequeue());
+    printAssertEquals("There will be Sunshine", testQueue.dequeue());
+    printAssertEquals("Energy", testQueue.dequeue());
+    printAssertEquals(0.0,testQueue.calcDuration());
+    printAssertEquals(true, testQueue.isEmpty());
 
-        }
-        while (not title.empty());
 
+    try {
+        testQueue.dequeue();
+        std::cout << "FAIL: should have thrown exception from dequeue"<< std::endl;
     }
-
+    catch(std::out_of_range& e){
+        printAssertEquals("Can't dequeue from an empty queue", e.what());
+    }
+    std::cout << "--done--" <<std::endl;
 }
 
 
+
 int main() {
-    insertSongTest( );
+    EnqueueAndCalcDurationTest( );
 
 }
