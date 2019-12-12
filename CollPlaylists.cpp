@@ -24,9 +24,9 @@ int CollPlaylists::countSize(){
  */
 int* CollPlaylists::createArray(){
     countSize();//count the size of the linkNode
-    int* array = new int[size];
+    int *array = new int[size];
     for (int i = 0; i<size;i++){
-        array[i] = songList->playNext();
+        array[i] = *songList->playNext();
     }
 }
 
