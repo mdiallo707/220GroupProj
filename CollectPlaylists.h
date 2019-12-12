@@ -14,12 +14,8 @@ using namespace std;
 class CollPlaylists {
 private:
 
-
-
     //number of song list
     int size = 0;
-
-
 
 
 public:
