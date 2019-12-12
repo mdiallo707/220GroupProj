@@ -1,6 +1,5 @@
 ------------------My Problem-----------------
-1.need get item function
-2.need print info function
+1.array of link list/ Hash Tables
 ------------------My file-----------------
 ArrayLib.cpp/ArrayLib.h
 Playlists.cpp/Playlists.h

@@ -6,30 +6,27 @@
 #define INC_220GROUPPROJ_COLLPLAYLISTS_H
 #include <string>
 #include <stdexcept>
-#include "ArrayLib.h"
 #include "Playlist.h"
-#include "UserInteraction.h"
-#include "LinkedPlaylist.h"
-#include "LinkedNode.h"
 #include "PlaylistLinkedQueue.h"
+#include "CollectLinkedList.h"
 using namespace std;
 
 class CollPlaylists {
 private:
 
-    //pointer to the playlist
-    PlaylistLinkedQueue *songList;
+
+
     //number of song list
     int size = 0;
 
 
-public:
-    int countSize();
 
-    /**
-     * create array under queue
-     */
-     int* createArray();
+
+public:
+//
+    //pointer to the playlist
+    CollectLinkedList listPlaylists = CollectLinkedList();
+
 
     /**
     * count the duration in the playlist
@@ -41,7 +38,7 @@ public:
      * check if queue is empty
      * @return ture if queue is empty
      */
-    bool isArrayEmpty();
+    bool isLinkEmpty();
 
     /**
      * display playList name and duration
@@ -51,7 +48,7 @@ public:
     /**
      * display selected playlist
      */
-    virtual void displaySelect(std::string nameToFind) = 0;
+    virtual void displaySelect(std::string playlistTitleIn) = 0;
 
     /**
      * clear entire playlist
@@ -61,26 +58,20 @@ public:
     /**
      * add a playlist
      */
-    virtual void addToFile() = 0;
+    virtual void addToFile(std::string playlistTitleIn,SongsLinkedNode *aPointerIn) = 0;
 
     /**
      * remove a playlist
      */
-    virtual void deleteFromFile(std::string PlaylistName) = 0;
+    virtual void deleteFromFile(std::string playlistTitleIn) = 0;
 
-    /**
-     * add a new play list
-     * @param playList
-     */
-    void addNewList(int *playList);
 
     /**
      * create a random list with random songs in other list
      * @param listName
      */
-    void RandomList(std::string listName);
+    void RandomList(std::string playlistTitleIn);
 
-    virtual void saveFile() = 0;
 };
 
 
