@@ -1,9 +1,8 @@
 ------------------My Problem-----------------
-1.
+1.need get item function
+2.need print info function
 ------------------My file-----------------
 ArrayLib.cpp/ArrayLib.h
-LinkNode.cpp/LinkNode.h [UPDATE:My Update 1]
-LinkQueue.cpp/LinkQueue.h [UPDATE:My Update 2]
 Playlists.cpp/Playlists.h
 playlistsTest.cpp
 ------------------My Update---------------

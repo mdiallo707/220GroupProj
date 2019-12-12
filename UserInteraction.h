@@ -11,7 +11,7 @@
 // for a playlist,collection and the inventory
 class UserInteraction {
 // delete is predefined which is I put stuff implement delete for
-// collections,playlists and songs in the inventory
+// collections,CollPlaylists and songs in the inventory
     virtual void deleteStuff() = 0; // do not change to delete it is predefined
     virtual void add() = 0;
 

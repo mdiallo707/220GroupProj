@@ -1,4 +1,4 @@
-#include "playlists.h"
+#include "CollPlaylists.h"
 #include <iostream>
 //-------usingtime--------
 #include <chrono>
@@ -12,12 +12,12 @@ int testCountDuration(){
 
 }
 int main(){
-    playlists testlist;
+    CollPlaylists testlist;
     //    ------------test time-------------
 //    std::cout<<testlist.countTime()<<std::endl;
 
     //------------test isQueueEmpty-------------
-//    playlists testlist;
+//    CollPlaylists testlist;
 //    bool result=testlist.isQueueEmpty();
 //    //boolalpha means to print true/false instead of 1/0
 //    cout<< boolalpha << result << endl;

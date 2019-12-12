@@ -19,7 +19,6 @@ LinkedPlaylist::~LinkedPlaylist(){
         newNode=newNode->getNext();
         delete current;
     }
-
 }
 
 /**
