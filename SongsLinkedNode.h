@@ -1,5 +1,5 @@
 //
-// Created by Toby Dragon on 10/24/16.
+// Created by Mariama Diallo on 12/8/19.
 //
 
 #ifndef LINKEDNODE_H

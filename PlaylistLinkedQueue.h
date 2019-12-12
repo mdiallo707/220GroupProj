@@ -1,5 +1,5 @@
 //
-// Created by Toby Dragon on 10/22/17.
+//  Created by Mariama Diallo on 12/8/19.
 //
 
 #ifndef STACKSANDQUEUES_QUEUE_H
@@ -8,13 +8,14 @@
 #include <string>
 #include <stdexcept>
 #include "SongsLinkedNode.h"
+#include "PlayList.h"
 
 
 /**
  * Represents a FIFO data structure (First In First Out). Picture a line
  * to wait for something (first person in is the first person out)
  */
-class PlaylistLinkedQueue {
+class PlaylistLinkedQueue: public PlayList {
 private:
     SongsLinkedNode* front;
     SongsLinkedNode* end;
@@ -58,7 +59,9 @@ public:
 
    void allSongsInPlaylist(std::string namePL);
 
+    void WriteToFile();
 
+    void ReadFromFile();
 
 
 };

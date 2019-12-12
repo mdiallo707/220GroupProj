@@ -21,6 +21,8 @@ void printAssertEquals(int expected, int actual);
  * @post prints only "pass" if the values are equal,
  *      Else it prints "FAIL" and their respective values
  */
+
+void printAssertEquals(double expected, double actual);
 void printAssertEquals(bool expected, bool actual);
 
 /**

@@ -1,4 +1,4 @@
-#include "playlists.h"
+#include "CollectPlaylists.h"
 #include <iostream>
 //-------usingtime--------
 #include <chrono>
@@ -12,24 +12,23 @@ int testCountDuration(){
 
 }
 int main(){
-    //------------test time-------------
-//    auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
-//    cout << ctime(&timenow) << endl;
-
-
+    CollPlaylists testlist;
+    //    ------------test time-------------
+//    std::cout<<testlist.countTime()<<std::endl;
 
     //------------test isQueueEmpty-------------
-//    playlists testlist;
+//    CollPlaylists testlist;
 //    bool result=testlist.isQueueEmpty();
 //    //boolalpha means to print true/false instead of 1/0
 //    cout<< boolalpha << result << endl;
 
     //------------test createArray-------------
-    playlists testlist;
-    char *aNum = "123456";
-    testlist.createArray("12","123", aNum);
-    std::string num = testlist.aList[2];
-    cout<< num << endl;
+
+//    std::string testnum="123456";
+//    std::string* aNum = &testnum;
+//    testlist.createArray("12","123", aNum);
+//    std::string num = testlist.aList[2];
+//    cout<< num << endl;
     return 0;
 }
 

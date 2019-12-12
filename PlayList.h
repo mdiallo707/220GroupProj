@@ -8,30 +8,31 @@
 
 #include <stdexcept>
 #include <string>
+#include "SongsLinkedNode.h"
 
 
-class PlayList {
+class PlayList{
 private:
 //Private to disable copying and assigning from outside class, don't implement these methods
     PlayList(const PlayList& songToCopy);
-    PlayList& operator=(const PlayList& songToCopy);
+
 
 public:
     PlayList(){}
 
-    virtual ~PlayList() {}
+    virtual ~ PlayList() {}
 
     /**
   * appends the new item to the end of the list
   * @post the list has an additional value in it, at the end
   */
-    virtual  void insertAtEnd(std::string songToAdd, std::string artistToAdd, double slToAdd)=0;
+    virtual  void enqueue(std::string songToAdd, std::string artistToAdd, double slToAdd)=0;
 
 /**
   * removes song item
   * @post the list has an additional value in it, at the end
   */
-    virtual void removeSong(std::string songToRemv, std::string artistToRemv, double slToRemv)=0;
+    virtual  std::string dequeue()=0;
 
 /**
     * checks if there are any valid items in the list
@@ -43,7 +44,7 @@ public:
     * plays the next song info the list
     * @return the song info
     */
-    virtual LinkedNode* playNext()=0;
+    virtual SongsLinkedNode* playNext()=0;
 
 
 /**
@@ -55,11 +56,14 @@ public:
 /**
     * displays all songs in aplaylist
     * @return a string representation of all songs listed
-    *  virtual double allSongsInPlaylist()=0;
+    *
     */
 
+    virtual void allSongsInPlaylist(std::string namePL)=0;
 
+    virtual void WriteToFile()=0;
+    virtual void ReadFromFile()=0;
 
 };
 
-#endif //PERSONALGROUPPROJ_PLAYLIST_H
+#endif //PERSONALGROUPPROJ_LINKEDPLAYLIST_H

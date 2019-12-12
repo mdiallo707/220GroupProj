@@ -31,6 +31,14 @@ void printAssertEquals(std::string expected, std::string actual){
         std::cout << "FAIL, expected: " << expected << "\tactual: " << actual << std::endl;
     }
 }
+void printAssertEquals(double expected, double actual){
+    if (expected == actual){
+        std::cout << "pass" << std::endl;
+    }
+    else {
+        std::cout << "FAIL, expected: " << expected << "\tactual: " << actual << std::endl;
+    }
+}
 
 void printAssertEquals(int* a1, int *a2, int size){
     int failCount = 0;
