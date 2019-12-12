@@ -2,7 +2,7 @@
 // Created by leianna chen on 2019/11/18.
 //
 
-#include "CollPlaylists.h"
+#include "CollectPlaylists.h"
 
 int CollPlaylists::countSize(){
     if(songList->isEmpty()){

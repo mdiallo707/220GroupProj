@@ -3,4 +3,4 @@ project(Project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Project playlistTest.cpp PlaylistLinkedQueue.cpp SongsLinkedNode.cpp)
+add_executable(Project playlistTest.cpp PlaylistLinkedQueue.cpp SongsLinkedNode.cpp TestLib.cpp)
