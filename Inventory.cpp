@@ -72,7 +72,7 @@ void Inventory::particularArtist(std::string artistName) {
 int Inventory::countSongs() {
     Songs*  temp=front;
     while(temp!= nullptr){
-        count=count+1;
+        count = count+1;
 
         temp=temp->getNext();}
 }

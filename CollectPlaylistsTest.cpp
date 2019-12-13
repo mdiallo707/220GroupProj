@@ -4,6 +4,7 @@
 #include "TestLib.h"
 #include "PlaylistLinkedQueue.h"
 #include "CollectPlaylists.h"
+#include "Inventory.h"
 using namespace std;
 
 void testRandomPlaylist(std::string playlistTitleIn, double Duration){
@@ -22,20 +23,22 @@ void testRandomPlaylist(std::string playlistTitleIn, double Duration){
     CollectLinkedList songCollection;
     songCollection.insertAtEnd("songA",playList1.front);
     songCollection.insertAtEnd("songB",playList2.front);
-    if (!playList1.isEmpty()) {
-        
 
-    }
+    int address1 = songCollection.find("songA");
+    int address2 = songCollection.find("songB");
+    std::cout << "Test get value at and find a playlist: " << std::endl;
+    std::cout << songCollection.getValueAt(address1) << std::endl;
+    std::cout << songCollection.getValueAt(address2) << std::endl;
 
     //count songs
 
-    //get a random lists
-    double count = 0.0;
-    int random = rand()% numSong;
-    while (count + random < Duration){
-        random = rand()% numSong;
-
-    }
+//    //get a random lists
+//    double count = 0.0;
+//    int random = rand()% numSong;
+//    while (count + random < Duration){
+//        random = rand()% numSong;
+//
+//    }
 
 
 }
