@@ -28,11 +28,12 @@ public:
      * check if the collection of playlist is empty
      * @return
      */
-    virtual bool isLinkEmpty() = 0;
+    virtual bool isEmpty() = 0;
 
     /**
      * display all the songs - title and duration
      */
+     //----------
     virtual std::string displayAll() = 0;
 
     /**
@@ -43,24 +44,24 @@ public:
     /**
      * clear entire playlist
      */
-    virtual void clearAll() = 0;
+    virtual void clearList() = 0;
 
     /**
      * add a playlist
      */
-    virtual void addToFile(std::string playlistTitleIn,SongsLinkedNode *aPointerIn) = 0;
+    virtual void insertAtEnd(std::string playlistTitleIn,SongsLinkedNode *aPointerIn) = 0;
 
     /**
      * remove a playlist if it's empty
      */
-    virtual CollectLinkedNode* deleteFromFile() = 0;
+    virtual void removeEmpty(int index) = 0;
 
 
     /**
      * create a random list with random songs in other list
      * @param listName
      */
-    virtual std::string RandomList(std::string playlistTitleIn, double Duration) = 0;
+    virtual void RandomList(std::string playlistTitleIn, double Duration) = 0;
 
 };
 

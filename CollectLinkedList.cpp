@@ -153,35 +153,6 @@ int CollectLinkedList::find(std::string playlistTitleIn){
     return result;
 }
 
-
-
-/**
- * removes the item at the end of the list, and returns a copy of that item
- * @post the item at the end is removed from the list
- * @return a copy of the item at the end
- * @throws out_of_range exception if there is no item to remove
- */
-std::string CollectLinkedList::removeValueAtEnd(){
-    if(isEmpty()){
-        throw std::out_of_range("No items to remove");
-    }else {
-        if (currCount == 1) {
-            return removeValueAtFront();
-        } else {
-            CollectLinkedNode* tempNode = this->front;
-            CollectLinkedNode* nodeBefore = this->front;
-            while (tempNode->getNext() != nullptr) {
-                nodeBefore = tempNode;
-                tempNode = tempNode->getNext();
-            }
-            std::string endValue = tempNode->getPlaylistTitle();
-            nodeBefore->setNext(nullptr);
-            this->currCount -= 1;
-            return endValue;
-        }
-    }
-}
-
 /**
  * removes the item at the front of the list, and returns a copy of that item
  * @post the item at the front is removed from the list, everything else is shifted down one

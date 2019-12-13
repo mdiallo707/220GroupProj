@@ -3,27 +3,44 @@
 #include "CollectPlaylists.h"
 #include "TestLib.h"
 #include "PlaylistLinkedQueue.h"
-//-------usingtime--------
-#include <chrono>
-#include <ctime>
+#include "CollectPlaylists.h"
 using namespace std;
 
-void testRandomPlaylist(){
+void testRandomPlaylist(std::string playlistTitleIn, double Duration){
+    //two songList
     std::string weekendVibe;
-    PlaylistLinkedQueue playListTest = PlaylistLinkedQueue();
-    playListTest.enqueue("Fruit", "Abra", 5.41);
-    playListTest.enqueue("Fruit2", "Abra2", 5.41);
-    playListTest.enqueue("Fruit3", "Abra3", 5.41);
-    if (!playListTest.isEmpty()) {
-        playListTest.allSongsInPlaylist(weekendVibe);
+    PlaylistLinkedQueue playList1 = PlaylistLinkedQueue();
+    playList1.enqueue("AAAAA1", "Abra", 5.41);
+    playList1.enqueue("AAAAA2", "Abra2", 5.11);
+    playList1.enqueue("AAAAA3", "Abra3", 7.41);
+    PlaylistLinkedQueue playList2 = PlaylistLinkedQueue();
+    playList2.enqueue("BBBBB1", "Abra", 5.00);
+    playList2.enqueue("BBBBB2", "Abra2", 4.24);
+    playList2.enqueue("BBBBB3", "Abra3", 6.41);
 
-    } else
+    //Create a collection of song lists
+    CollectLinkedList songCollection;
+    songCollection.insertAtEnd("songA",playList1.front);
+    songCollection.insertAtEnd("songB",playList2.front);
+    if (!playList1.isEmpty()) {
+        
 
-        std::cout << "Playlist is empty, please add songs" << std::endl;
+    }
+
+    //count songs
+
+    //get a random lists
+    double count = 0.0;
+    int random = rand()% numSong;
+    while (count + random < Duration){
+        random = rand()% numSong;
+
+    }
+
+
 }
 int main(){
-    testRandomPlaylist();
-
+    testRandomPlaylist("aList",10.0);
     return 0;
 }
 
