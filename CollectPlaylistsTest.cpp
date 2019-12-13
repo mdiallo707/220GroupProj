@@ -73,22 +73,15 @@ void testCollectLinkedList(){
 }
 
 void testRandomPlaylist(){
-
-//    //count songs
-//    int numsongs =
-//    //get a random lists
-//    double count = 0.0;
-//    int random = rand()% numSong;
-//    while (count + random < Duration){
-//        random = rand()% numSong;
-//
-//    }
+    CollectLinkedList randomSongCollection;
+    randomSongCollection.RandomList("RandomA",12.0);
+    randomSongCollection.displaySelect("RandomA");
 
 
 }
 int main(){
-    testCollectLinkedList();
-//    testRandomPlaylist();
+//    testCollectLinkedList();
+    testRandomPlaylist();
     return 0;
 }
 

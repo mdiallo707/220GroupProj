@@ -24,7 +24,7 @@ int genRandInt(int min, int max, int& numLinesRun);
  * @post numLinesRun is updated to add the number of lines run by this function
  * @return a pointer to the array, which must be deleted by the user, or nullptr if size < 1
  */
-int* genRandArray(int size, int min, int max, int& numLinesRun);
+int* genRandArray(int size, int min, int max);
 
 /**
  * creates a string representation of an int array for easy printing
@@ -84,7 +84,7 @@ int countOccurrences(const int* arrayPtr, int size, int numToFind, int& numLines
  * @post numLinesRun is updated to include lines run by this function
  * @post the array is sorted in ascending order (from min to max values)
  */
-void sort(int* arrayToSort, int size, int& numLinesRun);
+void sort(int* arrayToSort, int size);
 
 /**
  * uses binary search on an int array for a certain value

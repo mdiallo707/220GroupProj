@@ -21,31 +21,26 @@ int genRandInt(int min, int max, int& numLinesRun){
 
 
 }
-int* genRandArray(int size, int min, int max, int& numLinesRun){
+int* genRandArray(int size, int min, int max){
     int* array = new int[size];
-    (numLinesRun)+= 6;//parameters+array+ if statement
+
     if (size<1){
-        (numLinesRun)+= 1;//return
+
         return nullptr;
     }
     else{
-        (numLinesRun)+= 1;//if loop
+
         if (min<max){
-            (numLinesRun)+= 2;//for loop
+
             for (int i = 0; i<size;i++){
-                (numLinesRun)+= 3;
                 array[i]=rand()%(max-min+1)+min;
             }
-            (numLinesRun)+= 1;//return
             return array;
         }
         else{
-            (numLinesRun)+= 2;//for loop
             for (int i = 0; i<size;i++){
-                (numLinesRun)+= 3;
                 array[i]=rand()%(min-max+1)+max;
             }
-            (numLinesRun)+= 1;//return
             return array;
         }
     }
@@ -217,24 +212,24 @@ int countOccurrences(const int* arrayPtr, int size, int numToFind, int& numLines
 }
 
 
-void sort(int* arrayToSort, int size, int& numLinesRun){
-    (numLinesRun)+= 5;//parameters + num +minIndex
+void sort(int* arrayToSort, int size){
+
     int num;
     int minIndex;
-    (numLinesRun)+= 2;//for
+
     for(int i = 0; i < size-1 ; i++){
-        (numLinesRun)+= 5;//for
+
         minIndex = i;
         for(int y = i+1; y < size;y++) {
-            (numLinesRun)+= 3;//for + if
+
             if (arrayToSort[y]<arrayToSort[minIndex]) {
-                (numLinesRun)+= 1;
+
                 minIndex = y;
             }
         }
-        (numLinesRun)+= 1;//if
+
         if(minIndex!=i){
-            (numLinesRun)+= 3;
+
             num = arrayToSort[minIndex];
             arrayToSort[minIndex] = arrayToSort[i];
             arrayToSort[i] = num;

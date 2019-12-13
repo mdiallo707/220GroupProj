@@ -234,32 +234,48 @@ void CollectLinkedList::displaySelect(std::string playlistTitleIn){
 
 
 void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
+    PlaylistLinkedQueue newPlaylist = PlaylistLinkedQueue();
+    addPlaylist(playlistTitleIn,newPlaylist);
+    int numSongs=0;
+    double countD = 0.0;
+    int counIndex = 0;
 
-//    CollectLinkedNode *tempNode = this->front;
-//    int numSongs=0;
-//    double countD = 0.0;
-//    int randNum = rand()% 9;
-//    int counIndex = 0;
+    //calculate how many songs
+    std::ifstream in;
+    in.open("ListofSongs.txt") ;
+    std::string songTitle, artistName, duration;
+    while (!in.eof())
+    {
+        getline(in, songTitle, '\n');
+        getline(in, artistName, '\n');
+        getline(in, duration, '\n');
+        numSongs = numSongs + 1;
+        std::cout << numSongs <<std::endl;
+    }
+
+//    //get a random array of number
+//    int* randomNum = genRandArray(numSongs, 0, numSongs);
+//    sort(randomNum,numSongs);
 //
-//    //calculate songs
-//    std::ifstream in;
-//    in.open("ListofSongs.txt") ;
-//    std::string songTitle, artistName, duration;
-//    while (!in.eof())
-//    {
-//        getline(in, songTitle, '\n');
-//        getline(in, artistName, '\n');
-//        getline(in, duration, '\n');
+//    //get
+//
+//    std::ifstream find;
+//    find.open("ListofSongs.txt") ;
+//    std::string RSongTitle, RArtistName, RDuration;
+//    while (!find.eof()||countD<Duration){
+//        getline(find, RSongTitle, '\n');
+//        getline(find, RArtistName, '\n');
+//        getline(find, RDuration, '\n');
+//        if(numSongs==randomNum[counIndex]){
+//            countD = countD + std::stod(RDuration);
+//            newPlaylist.enqueue(RSongTitle, RArtistName, std::stod(RDuration));
+//            counIndex = counIndex + 1;
+//        }
 //        numSongs = numSongs + 1;
 //    }
-//
-//    //get a random array of number
-//
-//    int randomNum;
-//    randomNum = genRandArray(numSongs, 0, numSongs);
-//
-//    PlaylistLinkedQueue randomList;
-//    randomList.ReadFromFile();
+
+
+
 
 
 }
