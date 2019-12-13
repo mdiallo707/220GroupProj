@@ -70,13 +70,6 @@ public:
      */
     int find(std::string playlistTitleIn);
 
-    /**
-     * removes the item at the front of the list, and returns a copy of that item
-     * @post the item at the front is removed from the list, everything else is shifted down one
-     * @return a copy of the item at index
-     * @throws out_of_range exception if there is no item to remove
-     */
-    std::string removeValueAtFront();
 
     /**
      * removes the item at index from the list, and returns a copy of that item

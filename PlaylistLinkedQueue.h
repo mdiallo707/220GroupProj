@@ -19,7 +19,7 @@ class PlaylistLinkedQueue: public PlayList {
 private:
     SongsLinkedNode* front;
     SongsLinkedNode* end;
-    
+
 public:
 
     

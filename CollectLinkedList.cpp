@@ -68,7 +68,7 @@ PlaylistLinkedQueue CollectLinkedList::getAddressValueAt(int index){
         throw std::out_of_range("getAddressValueAt");
     }
     if(!isEmpty()) {
-        for (int i = 0; i < index-1; i++) {
+        for (int i = 0; i < index; i++) {
             if (node->getNext()== nullptr){
                 throw std::out_of_range("getAddressValueAt");
             }
@@ -172,23 +172,6 @@ int CollectLinkedList::find(std::string playlistTitleIn){
     return result;
 }
 
-/**
- * removes the item at the front of the list, and returns a copy of that item
- * @post the item at the front is removed from the list, everything else is shifted down one
- * @return a copy of the item at index
- * @throws out_of_range exception if there is no item to remove
- */
-std::string CollectLinkedList::removeValueAtFront(){
-    if(itemCount()<1){
-        throw std::out_of_range("removeValueAtFront");
-    } else{
-        std::string result = front->getPlaylistTitle();
-        front=front->getNext();
-        this->currCount-=1;
-        return result;
-
-    }
-}
 
 /**
  * removes the item at index from the list, and returns a copy of that item
@@ -204,9 +187,12 @@ std::string CollectLinkedList::removeValueAt(int index){
         throw std::out_of_range("Index Invalid");
     }
     if (index == 0) {
-        return removeValueAtFront();
+        std::string result = front->getPlaylistTitle();
+        front=front->getNext();
+        this->currCount-=1;
+        return result;
     } else {
-        for (int i = 0; i < index; i++) {
+        for (int i = 1; i < index; i++) {
             tempNodeBefore = tempNode;
             tempNode = tempNode->getNext();
         }
@@ -216,3 +202,4 @@ std::string CollectLinkedList::removeValueAt(int index){
         return itemReturn;
     }
 }
+

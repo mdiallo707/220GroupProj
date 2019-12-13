@@ -7,33 +7,56 @@
 #include "Inventory.h"
 using namespace std;
 void testLinklist(){
-    //two songList
+    //3 songList
     PlaylistLinkedQueue playList1 = PlaylistLinkedQueue();
-    playList1.enqueue("AAAAA1", "Abra", 5.41);
-    playList1.enqueue("AAAAA2", "Abra2", 5.11);
-    playList1.enqueue("AAAAA3", "Abra3", 7.41);
+    playList1.enqueue("AAAAA1", "aaaaa1", 5.41);
+    playList1.enqueue("AAAAA2", "aaaaa2", 5.11);
+    playList1.enqueue("AAAAA3", "aaaaa3", 7.41);
+
     PlaylistLinkedQueue playList2 = PlaylistLinkedQueue();
-    playList2.enqueue("BBBBB1", "Abra", 5.00);
-    playList2.enqueue("BBBBB2", "Abra2", 4.24);
-    playList2.enqueue("BBBBB3", "Abra3", 6.41);
+    playList2.enqueue("BBBBB1", "bbbbb1", 5.00);
+    playList2.enqueue("BBBBB2", "bbbbb2", 4.24);
+    playList2.enqueue("BBBBB3", "bbbbb3", 6.41);
 
-    //Create a collection of song lists
+    PlaylistLinkedQueue playList3 = PlaylistLinkedQueue();
+    playList3.enqueue("CCCCC1", "ccccc1", 4.00);
+    playList3.enqueue("CCCCC2", "ccccc2", 3.24);
+    playList3.enqueue("CCCCC3", "ccccc3", 6.01);
+
+    //Create a collection of song lists---------------------
     CollectLinkedList songCollection;
-    songCollection.insertAtEnd("songA",playList1);
-    songCollection.insertAtEnd("songB",playList2);
+    std::cout << "Test-itemCount(), insertAtEnd(), removeValueAt()" << std::endl;
 
-    //test the address
-    int address1 = songCollection.find("songA");
-    int address2 = songCollection.find("songB");
-    std::cout << "Test getAddressValue at and find a playlist: " << std::endl;
+    std::cout << "Add first Playlist: ";
+    songCollection.insertAtEnd("songA",playList1);
+    printAssertEquals(1,songCollection.itemCount());
+
+    std::cout << "Add second Playlist: ";
+    songCollection.insertAtEnd("songB",playList2);
+    printAssertEquals(2,songCollection.itemCount());
+
+    std::cout << "Add third Playlist: ";
+    songCollection.insertAtEnd("songC",playList3);
+    printAssertEquals(3,songCollection.itemCount());
+
+    std::cout << "delete second Playlist: ";
+    printAssertEquals("songA",songCollection.removeValueAt(0));
+    printAssertEquals(2,songCollection.itemCount());
+    std::cout << "---------------------------------------" << std::endl;
+
+    //get the index address---------------------------------------
+    int address1 = songCollection.find("songB");
+    int address2 = songCollection.find("songC");
+    std::cout << "Test-getTitleValue(), find(), PrintAllTitle(): " << std::endl;
     std::cout << songCollection.getTitleValueAt(address1) << std::endl;
     std::cout << songCollection.getTitleValueAt(address2) << std::endl;
+    std::cout << songCollection.PrintAllTitle() << std::endl;
     std::cout << "---------------------------------------" << std::endl;
 
     //test display the song on one playlist
-    std::string Songs1;
-    std::cout << "Test print specific playlist: " << std::endl;
-    songCollection.getAddressValueAt(address1).allSongsInPlaylist(Songs1);
+    std::string SongsList;
+    std::cout << "Test-print specific playlist/getAddressValue() " << std::endl;
+    songCollection.getAddressValueAt(address1).allSongsInPlaylist(SongsList);
     std::cout << "---------------------------------------" << std::endl;
 
 }
