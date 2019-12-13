@@ -42,5 +42,5 @@ void Inventory::enqueue(std::string artistName,std::string title, double duratio
 }
 
 void addToLibrary(std::string artistName,std::string artistSong, int duration){
-
+    Songs*newSong=enquu
 }
