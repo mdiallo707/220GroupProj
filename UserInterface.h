@@ -2,6 +2,7 @@
 // Created by emurray2 on 12/8/2019.
 //
 #include "UserInfo.h"
+#include "PlaylistLinkedQueue.h"
 
 #ifndef GITYPART_USERINTERFACE_H
 #define GITYPART_USERINTERFACE_H
@@ -11,6 +12,8 @@ class UserInterface {
 private:
     std::string  userName;
     std::string firstName;
+    PlaylistLinkedQueue userPlaylist;
+
     std::string lastName;
     bool exit=false;
 

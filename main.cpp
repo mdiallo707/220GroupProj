@@ -3,7 +3,7 @@
 #include<string>
 #include "UserInfo.h"
 #include "UserInterface.h"
-
+#include "Inventory.h"
 
 
 int main() {
@@ -12,6 +12,7 @@ int main() {
 // we need to have a test class with  for all  the methods and classes that can be tested.
 UserInterface test;
 test.Interface();
+//Inventory test;
 
 }
 
