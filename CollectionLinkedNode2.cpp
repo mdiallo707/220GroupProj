@@ -7,37 +7,37 @@
 // Created by leianna chen on 2019/12/12.
 //
 
-#include "CollectLinkedNode.h"
+#include "CollectionLinkedNode2.h"
 #include <string>
 
-CollectLinkedNode::CollectLinkedNode(PlaylistLinkedQueue aPointer){
+CollectLinkedNode2::CollectLinkedNode2(PlaylistLinkedQueue aPointer){
     this->playlistLink = aPointer;
     next = nullptr;
 }
 
-CollectLinkedNode::CollectLinkedNode(const CollectLinkedNode& playlistLinkToCopy){
+CollectLinkedNode2::CollectLinkedNode2(const CollectLinkedNode2& playlistLinkToCopy){
     playlistLink = playlistLinkToCopy.playlistLink;
     next = nullptr;
 }
-std::string CollectLinkedNode::getPlaylistTitle(){
+std::string CollectLinkedNode2::getPlaylistTitle(){
     return playlistTitle;
 }
-PlaylistLinkedQueue CollectLinkedNode::getPlaylistLink(){
+PlaylistLinkedQueue CollectLinkedNode2::getPlaylistLink(){
     return playlistLink;
 }
 
-CollectLinkedNode* CollectLinkedNode::getNext(){
+CollectLinkedNode2* CollectLinkedNode2::getNext(){
     return next;
 }
 
-void CollectLinkedNode::setPlaylistTitle(std::string newPlaylistTitle){
+void CollectLinkedNode2::setPlaylistTitle(std::string newPlaylistTitle){
     playlistTitle = newPlaylistTitle;
 }
 
-void CollectLinkedNode::setPlaylistLink(PlaylistLinkedQueue newPointer){
+void CollectLinkedNode2::setPlaylistLink(PlaylistLinkedQueue newPointer){
     playlistLink = newPointer;
 }
 
-void CollectLinkedNode::setNext(CollectLinkedNode* newNext){
+void CollectLinkedNode2::setNext(CollectLinkedNode2* newNext){
     next = newNext;
 }
