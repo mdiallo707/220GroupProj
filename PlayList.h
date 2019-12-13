@@ -14,13 +14,13 @@
 class PlayList{
 private:
 //Private to disable copying and assigning from outside class, don't implement these methods
-    PlayList(const PlayList& songToCopy);
+
 
 
 public:
     PlayList(){}
 
-    virtual ~ PlayList() {}
+
 
     /**
   * appends the new item to the end of the list
