@@ -94,7 +94,8 @@ void UserInterface:: commandsDJ(){
     cout<<"playlist <name>: display all songs left in the given playlist, and the duration (time it will take to play the remaining songs)"<<endl;
     cout<<"new <name>: Make a new empty playlist with the given name"<<endl;
     cout<<"add <name, artist, title> Add the given song to the end of the given playlist"<<endl;
-
+    cout<<"playnext <name>:Print all information about the next song to be played from the given playlist to the screen. Remove that song from the given playlist. Add to the playcount for that song in the library. If the playlist is now empty, it should be removed."<<endl;
+    // does newrandom work? Add if it does otherwise continue
 
 
 
