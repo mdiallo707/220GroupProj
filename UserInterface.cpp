@@ -58,7 +58,8 @@ void UserInterface::collectionInterface(){
     cout<<"Select 3. If you would like to delete all collections"<<endl;
     cin>> answer;
     if(answer=="1"||answer=="add"){
-         userCollection.addPlaylist2(userPlaylist);
+         //userCollection.addPlaylist2(userPlaylist);
+         cout<<"Which playlist would you like to add";
     }
 
 
