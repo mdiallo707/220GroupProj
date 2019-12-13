@@ -35,9 +35,27 @@ void EnqueueAndCalcDurationTest(){
     std::cout << "--done--" <<std::endl;
 }
 
+void AllSongsInPlaylistTest() {
+    std::cout << "-------AllSongsInPlaylistTest---------" << std::endl;
+    std::string weekendVibe;
+    PlaylistLinkedQueue playList1 = PlaylistLinkedQueue();
+    playList1.enqueue("Fruit", "Abra", 5.41);
+    playList1.enqueue("Fruit2", "Abra2", 5.41);
+    playList1.enqueue("Fruit3", "Abra3", 5.41);
+    if (!playList1.isEmpty()) {
+        playList1.allSongsInPlaylist(weekendVibe);
+
+    } else
+
+        std::cout << "Playlist is empty, please add songs" << std::endl;
+
+
+}
 
 
 int main() {
     EnqueueAndCalcDurationTest( );
+    AllSongsInPlaylistTest();
 
 }
+
