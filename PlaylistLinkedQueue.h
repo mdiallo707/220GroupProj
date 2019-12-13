@@ -62,6 +62,7 @@ public:
     void ReadFromFile();
 
 
+    void allSongsInPlaylist2();
 };
 
 #endif //STACKSANDQUEUES_QUEUE_H

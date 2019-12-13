@@ -13,6 +13,7 @@ PlaylistLinkedQueue::PlaylistLinkedQueue(){
     front = nullptr;
     end = nullptr;
 
+
 }
 
 
@@ -88,6 +89,20 @@ void PlaylistLinkedQueue ::  allSongsInPlaylist(std::string namePL){
     SongsLinkedNode* current=this->front;
     int x=1;
     std::cout<<namePL+"full playlist"<<std::endl;
+
+    while(current!= nullptr){
+        std::cout<<x<<std::endl;
+        current->printSongs();
+        current=current->getNext();
+        x+=1;
+
+    }
+
+}
+void PlaylistLinkedQueue ::  allSongsInPlaylist2(){
+    SongsLinkedNode* current=this->front;
+    int x=1;
+    std::cout<<"full playlist"<<std::endl;
 
     while(current!= nullptr){
         std::cout<<x<<std::endl;

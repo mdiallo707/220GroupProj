@@ -117,7 +117,7 @@ void UserInterface:: commandsDJ(){
   //  cout<<"discontinue <filename>:Display information about a particular song "<<endl;
     cout<<"playlists: display the names of all playlists and their durations "<<endl;
     cout<<"playlist <name>: display all songs left in the given playlist, and the duration (time it will take to play the remaining songs)"<<endl;
-    cout<<"new <name>: Make a new empty playlist with the given name"<<endl;
+    //cout<<"new <name>: Make a new empty playlist with the given name"<<endl;
     cout<<"add <name, artist, title> Add the given song to the end of the given playlist"<<endl;
     cout<<"playnext <name>:Print all information about the next song to be played from the given playlist to the screen. Remove that song from the given playlist. Add to the playcount for that song in the library. If the playlist is now empty, it should be removed."<<endl;
    cin>>answer;
@@ -176,9 +176,30 @@ void UserInterface:: commandsDJ(){
         if(answer=="yes"){
             main();
         } else{ commandsDJ();}}
+    else if (answer=="playlist <name>"){
+        cout<<"The songs left in your playlist are ";
+        userPlaylist.allSongsInPlaylist2();
+        cout<<"Would you like to go to the main menu?"<<endl;
+        cin>>answer;
+        if(answer=="yes"){
+            main();
+        } else{ commandsDJ();}}
+    else if (answer=="add <artist, title>"){
+        string answer2;
+        int answer3;
+        cout<<"Who is the artist for the song you are trying to add? ";
+        cin>>answer;
+        cout<<"What is the name of the song ";
+        cin>>answer2;
+        cout<<"What is the duration of the song?";
+        userPlaylist.enqueue(answer2,answer,answer3);
+        cout<<"Would you like to go to the main menu?"<<endl;
+        cin>>answer;
+        if(answer=="yes"){
+            main();
+        } else{ commandsDJ();}}
 
     }
-
 
     void UserInterface::main() {
         if(firstName==""){firstName="their";}
