@@ -55,7 +55,7 @@ void UserInterface::collectionInterface(){
     cout<<"Select 3. If you would like to delete all collections"<<endl;
     cin>> answer;
     if(answer=="1"||answer=="add"){
-        CollectLinkedList userCollection;
+         userCollection.addPlaylist(userPlaylist);
     }
 
 

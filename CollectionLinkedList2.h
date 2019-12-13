@@ -1,0 +1,14 @@
+//
+// Created by emurray2 on 12/13/2019.
+//
+
+#ifndef INC_220GROUPPROJ_COLLECTIONLINKEDLIST2_H
+#define INC_220GROUPPROJ_COLLECTIONLINKEDLIST2_H
+
+
+class CollectionLinkedList2 {
+
+};
+
+
+#endif //INC_220GROUPPROJ_COLLECTIONLINKEDLIST2_H
