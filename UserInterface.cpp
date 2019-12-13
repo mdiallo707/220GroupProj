@@ -167,6 +167,15 @@ void UserInterface:: commandsDJ(){
         if(answer=="yes"){
             main();
         } else{ commandsDJ();}}
+    else if (answer=="playlist"){
+        cout<<"The duration of the playlist is ";
+        cout<<userPlaylist.calcDuration()<<endl;
+        cout<<userName+"'s"+"playlist"<<endl;
+        cout<<"Would you like to go to the main menu?"<<endl;
+        cin>>answer;
+        if(answer=="yes"){
+            main();
+        } else{ commandsDJ();}}
 
     }
 
