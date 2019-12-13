@@ -7,6 +7,8 @@
 #include "UserInterface.h"
 #include <string>
 #include "UserInfo.h"
+#include "PlaylistLinkedQueue.h"
+
 
 using namespace std;
 
@@ -38,16 +40,17 @@ void UserInterface:: test(){
 }
 void collectionInterface(){
     //should have its own help class and the ability for the user to do all the methods
-    // that were listed in the Userinteraction.H file
+    // that were listed in the Userinteraction.H file- (Lei)
 };
 void playListInterface(){
+    PlaylistLinkedQueue newList;
     //should have its own help class and the ability for the user to do all the methods
-    // that were listed in the Userinteraction.H file
+    // that were listed in the Userinteraction.H file-
 
 };
 void inventoryInterface(){
     //should have its own help class and the ability for the user to do all the methods
-    // that were listed in the Userinteraction.H file
+    // that were listed in the Userinteraction.H file- (Me)
 };
 
 void UserInterface:: help(){

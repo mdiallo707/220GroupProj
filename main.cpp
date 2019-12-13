@@ -6,10 +6,8 @@
 
 
 int main() {
-    John.setUserInfo();
-    std::string name;
-    std::cout << "Enter your name: ";
-
+//the userInterface and all tests that are run need to be here
+// we need to have a test class with  for all  the methods and classes that can be tested.
 }
 
 
