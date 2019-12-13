@@ -42,36 +42,36 @@ void Inventory::addSong(std::string artistName,std::string title, double duratio
         end->setNext(newNode);
         end = newNode;}
 }
-//
-//void Inventory::particularArtist(std::string artistName) {
-//    Songs*temp=front;
-//    while(temp!=nullptr){
-//        if(temp->getArtistName()==artistName){
-//            cout<<temp->getArtistName()+" "+ temp->getSongName()<<endl;
-//        }
-//        temp=temp->getNext();
-//    }
-//}
-//
-//
-//void Inventory::check() {
-//    count=0;
-//    // can  be used for display and to check alphabetical order
-//    Songs*temp=front;
-//    while(temp!= nullptr){
-//
-//
-//        cout<<temp->getArtistName()+"  "+ temp->getSongName()<<endl;
-//        //count=count+1;
-//        count=count+1;
-//        temp=temp->getNext();
-//        //cout<<end->getArtistName()+ " "+end->getSongName()<<endl;
-//    }
-//    cout<<count;
-//}
-//
-//
-//
-//
-//
-//
+
+void Inventory::particularArtist(std::string artistName) {
+    SongsLinkedNode*temp=front;
+    while(temp!=nullptr){
+        if(temp->getArtistName()==artistName){
+            cout<<temp->getArtistName()+" "+ temp->getSongTitle()<<endl;
+        }
+        temp=temp->getNext();
+    }
+}
+
+
+void Inventory::check() {
+    count=0;
+    // can  be used for display and to check alphabetical order
+    SongsLinkedNode*temp=front;
+    while(temp!= nullptr){
+
+
+        cout<<temp->getArtistName()+"  "+ temp->getSongTitle()<<endl;
+        //count=count+1;
+        count=count+1;
+        temp=temp->getNext();
+        //cout<<end->getArtistName()+ " "+end->getSongName()<<endl;
+    }
+    cout<<count;
+}
+
+
+
+
+
+
