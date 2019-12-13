@@ -2,7 +2,8 @@
 
 #include "TestLib.h"
 #include "PlaylistLinkedQueue.h"
-
+// Created by Mariama Diallo on 12/2/19.
+//  PlaylistLinkedqueue test file
 
 
 void EnqueueAndCalcDurationTest(){
@@ -45,17 +46,63 @@ void AllSongsInPlaylistTest() {
     if (!playList1.isEmpty()) {
         playList1.allSongsInPlaylist(weekendVibe);
 
-    } else
+    } else {
 
         std::cout << "Playlist is empty, please add songs" << std::endl;
+    }
 
 
 }
+void RemoveSongsTest(){
+    std::cout << "-------RemoveSongsTest---------" << std::endl;
+    std::string weekendVibe;
+    PlaylistLinkedQueue playList1 = PlaylistLinkedQueue();
+    playList1.enqueue("Fruit", "Abra", 5.41);
+    playList1.enqueue("Fruit2", "Abra2", 5.41);
+    playList1.enqueue("Fruit3", "Abra3", 5.41);
+    if (!playList1.isEmpty()) {
+        playList1.allSongsInPlaylist(weekendVibe);
+        playList1.removeSong(weekendVibe,"Abra","Fruit");
+        playList1.allSongsInPlaylist(weekendVibe);
+
+    } else {
+
+        std::cout << "Playlist is empty, please add songs" << std::endl;
+    }
+
+}
+void PlayNextSongsTest(){
+    std::cout << "-------PlayNextSongsTest---------" << std::endl;
+    std::string weekendVibe;
+    PlaylistLinkedQueue playList1 = PlaylistLinkedQueue();
+    playList1.enqueue("Fruit", "Abra", 5.41);
+    playList1.enqueue("Fruit2", "Abra2", 5.41);
+    playList1.enqueue("Fruit3", "Abra3", 5.41);
+    if (!playList1.isEmpty()) {
+        playList1.allSongsInPlaylist(weekendVibe);
+        playList1.playNextSong(weekendVibe);
+        playList1.allSongsInPlaylist(weekendVibe);
+        playList1.playNextSong(weekendVibe);
+        playList1.allSongsInPlaylist(weekendVibe);
+        playList1.playNextSong(weekendVibe);
+        playList1.allSongsInPlaylist(weekendVibe);
+
+    }
+    else {
+
+        std::cout << "Playlist is empty, please add songs" << std::endl;
+    }
+
+
+}
+
+
 
 
 int main() {
     EnqueueAndCalcDurationTest( );
+    RemoveSongsTest();
     AllSongsInPlaylistTest();
+    PlayNextSongsTest();
 
 }
-
