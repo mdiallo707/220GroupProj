@@ -67,7 +67,7 @@ void UserInterface::playListInterface(){
     string  answer;
     cout<<"A playlist has already been created for you what would you like to do now"<<endl;
     cout<<"Select 1. If you would like to add to a playlist"<<endl;
-    //cout<<"Select 2. If you would like to delete a playlist"<<endl;
+    cout<<"Select 2. Delete a song in playlist from the front"<<endl;
    // cout<<"Select 3. If you would like to delete all playlist"<<endl;
     cin>> answer;
     if(answer=="1") {
@@ -93,31 +93,22 @@ void UserInterface::playListInterface(){
             cout << "Please enter a valid answer" << endl;
             playListInterface();
         }
-//    if(answer=="2"){
-//        string artistName;
-//        string songTitle;
-//        double duration;
-//        cout<<"What is the name of the song you would like to add" ;
-//        cin>> songTitle;
-//        cout<<"Who is the song artist";
-//        cin>>artistName;
-//        cout<<"What is the duration of the song";
-//        cin>>duration;
-//        userPlaylist.enqueue(songTitle,artistName,duration);
-//        cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
-//        cout<<"If you would like to go back to main :type main"<<endl;
-//        cout<<"If you would like to continue work on playlist: type playlists"<<endl;
-//        cin>>answer;
-//        if(answer=="main"){
-//            main();
-//        }
-//        else if(answer=="paylists"){
-//            playListInterface();
-//        }
-//        else if(answer!="playlists"&answer!="main")
-//            cout<<"Please enter a valid answer"<<endl;
-//        playListInterface();
-//    }
+    if(answer=="2"){
+       userPlaylist.dequeue();
+       cout<<"It has been deleted";
+        cout<<"If you would like to go back to main :type main"<<endl;
+        cout<<"If you would like to continue work on playlist: type playlists"<<endl;
+        cin>>answer;
+        if(answer=="main"){
+            main();
+        }
+        else if(answer=="paylists"){
+            playListInterface();
+        }
+        else if(answer!="playlists"&answer!="main")
+            cout<<"Please enter a valid answer"<<endl;
+        playListInterface();
+    }
 
 
     }  }
