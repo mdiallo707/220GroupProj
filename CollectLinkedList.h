@@ -10,6 +10,7 @@
 #include "SongsLinkedNode.h"
 #include "PlaylistLinkedQueue.h"
 #include "CollectPlaylists.h"
+#include "ArrayLib.h"
 
 class CollectLinkedList: public CollectPlaylists {
 private:
@@ -83,6 +84,7 @@ public:
     void displayAll();
 
     void displaySelect(std::string playlistTitleIn);
+
 
     void RandomList(std::string playlistTitleIn, double Duration);
 

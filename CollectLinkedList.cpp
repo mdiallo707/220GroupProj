@@ -5,6 +5,8 @@
 #include <fstream>
 #include <iostream>
 #include "CollectLinkedList.h"
+#include "Inventory.h"
+#include "ArrayLib.h"
 
 /**
     * Constructor
@@ -230,17 +232,35 @@ void CollectLinkedList::displaySelect(std::string playlistTitleIn){
     getAddressValueAt(address).allSongsInPlaylist(SongsList);
 }
 
-void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
-    double countD = 0;
-    while (countD<=Duration){
 
-    }
-    if(currCount!=0) {
-        CollectLinkedNode *tempNode = this->front;
-        while (tempNode != nullptr) {
-            tempNode->getPlaylistLink().allSongsInPlaylist(tempNode->getPlaylistTitle());
-            tempNode = tempNode->getNext();
-        }
-    }
+void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
+
+//    CollectLinkedNode *tempNode = this->front;
+//    int numSongs=0;
+//    double countD = 0.0;
+//    int randNum = rand()% 9;
+//    int counIndex = 0;
+//
+//    //calculate songs
+//    std::ifstream in;
+//    in.open("ListofSongs.txt") ;
+//    std::string songTitle, artistName, duration;
+//    while (!in.eof())
+//    {
+//        getline(in, songTitle, '\n');
+//        getline(in, artistName, '\n');
+//        getline(in, duration, '\n');
+//        numSongs = numSongs + 1;
+//    }
+//
+//    //get a random array of number
+//
+//    int randomNum;
+//    randomNum = genRandArray(numSongs, 0, numSongs);
+//
+//    PlaylistLinkedQueue randomList;
+//    randomList.ReadFromFile();
+
+
 }
 
