@@ -2,9 +2,11 @@
 // Created by leianna chen on 2019/12/12.
 //
 
-#ifndef INC_220GROUPPROJ_COLLECTLINKEDNODE_H
-#define INC_220GROUPPROJ_COLLECTLINKEDNODE_H
+#ifndef PROJECT_COLLECTLINKEDNODE_H
+#define PROJECT_COLLECTLINKEDNODE_H
 #include "PlaylistLinkedQueue.h"
+
+
 
 class CollectLinkedNode {
 private:
@@ -24,4 +26,4 @@ public:
 };
 
 
-#endif //INC_220GROUPPROJ_COLLECTLINKEDNODE_H
+#endif //PROJECT_COLLECTLINKEDNODE_H

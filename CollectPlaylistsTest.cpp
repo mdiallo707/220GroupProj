@@ -4,9 +4,11 @@
 #include "TestLib.h"
 #include "PlaylistLinkedQueue.h"
 #include "CollectPlaylists.h"
+#include "CollectLinkedList.h"
 #include "Inventory.h"
 using namespace std;
-void testLinklist(){
+
+void testCollectLinkedList(){
     //3 songList
     PlaylistLinkedQueue playList1 = PlaylistLinkedQueue();
     playList1.enqueue("AAAAA1", "aaaaa1", 5.41);
@@ -23,40 +25,51 @@ void testLinklist(){
     playList3.enqueue("CCCCC2", "ccccc2", 3.24);
     playList3.enqueue("CCCCC3", "ccccc3", 6.01);
 
+    PlaylistLinkedQueue playList4 = PlaylistLinkedQueue();
+
     //Create a collection of song lists---------------------
     CollectLinkedList songCollection;
     std::cout << "Test-itemCount(), insertAtEnd(), removeValueAt()" << std::endl;
 
-    std::cout << "Add first Playlist: ";
-    songCollection.insertAtEnd("songA",playList1);
+    std::cout << "Add first Playlist-expect 1: ";
+    songCollection.addPlaylist("songA",playList1);
     printAssertEquals(1,songCollection.itemCount());
 
-    std::cout << "Add second Playlist: ";
-    songCollection.insertAtEnd("songB",playList2);
+    std::cout << "Add second Playlist-expect 2: ";
+    songCollection.addPlaylist("songB",playList2);
     printAssertEquals(2,songCollection.itemCount());
 
-    std::cout << "Add third Playlist: ";
-    songCollection.insertAtEnd("songC",playList3);
+    std::cout << "Add third Playlist-expect 3: ";
+    songCollection.addPlaylist("songC",playList3);
     printAssertEquals(3,songCollection.itemCount());
 
-    std::cout << "delete second Playlist: ";
-    printAssertEquals("songA",songCollection.removeValueAt(0));
-    printAssertEquals(2,songCollection.itemCount());
+    std::cout << "Add fourth Playlist-expect 4: ";
+    songCollection.addPlaylist("songD",playList4);
+    printAssertEquals(4,songCollection.itemCount());
+
+    std::cout << "remove empty Playlist-expect 3: ";
+    songCollection.removeEmpty();
+    printAssertEquals(3,songCollection.itemCount());
     std::cout << "---------------------------------------" << std::endl;
 
     //get the index address---------------------------------------
-    int address1 = songCollection.find("songB");
-    int address2 = songCollection.find("songC");
+    int address1 = songCollection.find("songA");
+    int address2 = songCollection.find("songB");
+    int address3 = songCollection.find("songC");
     std::cout << "Test-getTitleValue(), find(), PrintAllTitle(): " << std::endl;
     std::cout << songCollection.getTitleValueAt(address1) << std::endl;
+    std::cout << songCollection.getTitleValueAt(address2) << std::endl;
     std::cout << songCollection.getTitleValueAt(address2) << std::endl;
     std::cout << songCollection.PrintAllTitle() << std::endl;
     std::cout << "---------------------------------------" << std::endl;
 
-    //test display the song on one playlist
-    std::string SongsList;
-    std::cout << "Test-print specific playlist/getAddressValue() " << std::endl;
-    songCollection.getAddressValueAt(address1).allSongsInPlaylist(SongsList);
+    //test display the song on one playlist----------------------
+//    std::string SongsList;
+    std::cout << "Test-displayAll()/getAddressValue() " << std::endl;
+    songCollection.displayAll();
+    std::cout << "---------------------------------------" << std::endl;
+    std::cout << "Test-displaySelect()/SongA " << std::endl;
+    songCollection.displaySelect("songA");
     std::cout << "---------------------------------------" << std::endl;
 
 }
@@ -76,7 +89,7 @@ void testRandomPlaylist(std::string playlistTitleIn, double Duration){
 
 }
 int main(){
-    testLinklist();
+    testCollectLinkedList();
 //    testRandomPlaylist("aList",10.0);
     return 0;
 }

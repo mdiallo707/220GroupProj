@@ -2,14 +2,13 @@
 // Created by leianna chen on 2019/11/18.
 //
 
-#ifndef INC_220GROUPPROJ_COLLPLAYLISTS_H
-#define INC_220GROUPPROJ_COLLPLAYLISTS_H
+#ifndef PROJECT_COLLPLAYLISTS_H
+#define PROJECT_COLLPLAYLISTS_H
 #include <string>
 #include <stdexcept>
-#include "Playlist.h"
+#include "PlayList.h"
 #include "PlaylistLinkedQueue.h"
-#include "CollectLinkedList.h"
-using namespace std;
+
 
 class CollectPlaylists {
 private:
@@ -20,9 +19,13 @@ private:
 
 public:
 
-//    //pointer to the playlist
 //    CollectLinkedList listPlaylists = CollectLinkedList();
     CollectPlaylists(){}
+
+    /**
+     * add a playlist
+     */
+    virtual void addPlaylist(std::string playlistTitleIn, PlaylistLinkedQueue aPointer) = 0;
 
     /**
      * check if the collection of playlist is empty
@@ -33,28 +36,24 @@ public:
     /**
      * display all the songs - title and duration
      */
-     //----------
-    virtual std::string displayAll() = 0;
+    virtual void displayAll() = 0;
 
     /**
      * display selected playlist - song title and duration
      */
-    virtual std::string displaySelect(std::string playlistTitleIn) = 0;
+    virtual void displaySelect(std::string playlistTitleIn) = 0;
 
     /**
      * clear entire playlist
      */
     virtual void clearList() = 0;
 
-    /**
-     * add a playlist
-     */
-    virtual void insertAtEnd(std::string playlistTitleIn,SongsLinkedNode *aPointerIn) = 0;
+
 
     /**
      * remove a playlist if it's empty
      */
-    virtual void removeEmpty(int index) = 0;
+    virtual void removeEmpty() = 0;
 
 
     /**
@@ -66,4 +65,4 @@ public:
 };
 
 
-#endif //INC_220GROUPPROJ_COLLPLAYLISTS_H
+#endif //PROJECT_COLLPLAYLISTS_H
