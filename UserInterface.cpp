@@ -394,7 +394,7 @@ void UserInterface:: commandsDJ(){
         // Allows for acess to different branches
         string answer;
         cout<<"Let's create an account"<<endl;
-        // UserInfo newUser=createAccount();
+        UserInfo newUser=createAccount();
         main();
 
 
