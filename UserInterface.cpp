@@ -90,9 +90,9 @@ void UserInterface:: commandsDJ(){
     cout<<"import<filename>\n"
           "Add all songs from the given file to the library. Print a message to the user of any songs that already existed (do not add duplicates) "<<endl;
     cout<<"discontinue <filename>:Display information about a particular song "<<endl;
-    cout<<"playlists:\n"
-          "display the names of all playlists and their durations "<<endl;
+    cout<<"playlists: display the names of all playlists and their durations "<<endl;
     cout<<"playlist <name> display all songs left in the given playlist, and the duration (time it will take to play the remaining songs)"<<endl;
+    cout<<""<<endl;
 
 
 
