@@ -37,7 +37,7 @@ UserInfo UserInterface:: createAccount(){
  this->firstName=firstName;
  this->lastName=lastName;
  UserInfo newUser(userName,firstName,lastName);
-cout<<"Your user name is "+userName+" Your first and last name is "+firstName+"  "+lastName<<endl;
+cout<<"Your user name is "+userName+" Thank you first "+firstName+ "for making an account"<<endl;
 return newUser;
 }
 void UserInterface:: test(){
@@ -122,54 +122,61 @@ void UserInterface:: commandsDJ(){
     }
 
 
-bool UserInterface::exitInterface() {
-    if(exit==true){
-        // when changes are being made they should automatically be saved so you do not have to check if things were saved or not.
-       // It is important that everyone has save() add()  delete() for their section
-        cout<<"Thank you for using DJ scenario. Goodbye";
-    }
-    return  exit;
 
-}
+
+
 
 void UserInterface::setExitInterface() {
     exit=true;
 }
 void UserInterface::main() {
+    if(firstName==""){firstName="their";}
     string answer;
-    cout<< "Hi "+firstName+" What would you like to do today";
-    cout<<"If you would like to make changes or get information about the songs in your inventory press 1."<<endl;
+    cout<< "Hi "+firstName+",what would you like to do today";
+    cout<<"If you would like to make changes or get information about the songs in your inventory press 1 or type inventory."<<endl;
     cout<<"If you would like to create a new playlist or make changes to your current playlist press 2"<<endl;
     cout<<"If you would like create a new collection or update your current collection press 3"<<endl;
     cout<<"If you would like help on how to use these options press 4 or type help"<<endl;
+    cout<<"If you would like to exit the program type quit";
+    cin>>answer;
     if (answer=="1"||answer=="inventory"){
-
+        inventoryInterface();
     }
     else if (answer=="2"||answer=="playlist"){
+        playListInterface();
 
     }
-    else if(answer=="3"|| answer=="answer"){
+    else if(answer=="3"|| answer=="collection"){
+        collectionInterface();
 
     }
     else if(answer=="4"||answer=="help"){
+        commandsDJ();
 
     }
-    while(answer=="1"||answer=="inventory"||answer=="2"||answer=="playlist"||answer=="3"|| answer=="answer"||answer=="4"||answer=="help") {
+    else if (answer=="quit"||"Quit"){
+        cout<<"Thank you for stopping by comeback soon";
+    }
+    while(answer=="1"||answer=="inventory"||answer=="2"||answer=="playlist"||answer=="3"|| answer=="collection"||answer=="4"||answer=="help") {
             cout<<"You have an entered an invalid number"<<endl;
             cout<<"If you would like to add songs to your inventory press 1."<<endl;
             cout<<"If you would like to create a new playlist or add songs to your current playlist press 2"<<endl;
             cout<<"If you would like create a new collection or update your current collect press 3"<<endl;
             cout<<"If you would like help on how to use these options press 4"<<endl;
             if (answer=="1"||answer=="inventory"){
+                inventoryInterface();
 
             }
             else if (answer=="2"||answer=="playlist"){
+                playListInterface();
 
             }
-            else if(answer=="3"|| answer=="answer"){
+            else if(answer=="3"|| answer=="collection"){
+                collectionInterface();
 
             }
             else if(answer=="4"||answer=="help"){
+                commandsDJ();
 
             }
 
@@ -183,7 +190,7 @@ void UserInterface::Interface()  {
     // Allows for acess to different branches
     string answer;
     cout<<"Let's create an account"<<endl;
-    UserInfo newUser=createAccount();
+   // UserInfo newUser=createAccount();
     main();
 
 

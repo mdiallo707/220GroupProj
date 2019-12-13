@@ -20,9 +20,6 @@ private:
 public:
     UserInterface();
     void Interface();
-    void setExitInterface();
-    void getExit();
-    bool exitInterface();
     void collectionInterface();
     void playListInterface();
     void inventoryInterface();
