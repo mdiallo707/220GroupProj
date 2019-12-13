@@ -80,9 +80,47 @@ void UserInterface::playListInterface(){
     cin>>artistName;
     cout<<"What is the duration of the song";
     cin>>duration;
+    userPlaylist.enqueue(songTitle,artistName,duration);
     cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
-
+    cout<<"If you would like to go back to main :type main"<<endl;
+    cout<<"If you would like to continue work on playlist: type playlists"<<endl;
+    cin>>answer;
+    if(answer=="main"){
+        main();
     }
+    else if(answer=="paylists"){
+        playListInterface();
+    }
+    else if(answer!="playlists"&answer!="main")
+        cout<<"Please enter a valid answer"<<endl;
+        playListInterface();
+    }
+    if(answer=="2"){
+        string artistName;
+        string songTitle;
+        double duration;
+        cout<<"What is the name of the song you would like to add" ;
+        cin>> songTitle;
+        cout<<"Who is the song artist";
+        cin>>artistName;
+        cout<<"What is the duration of the song";
+        cin>>duration;
+        userPlaylist.enqueue(songTitle,artistName,duration);
+        cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
+        cout<<"If you would like to go back to main :type main"<<endl;
+        cout<<"If you would like to continue work on playlist: type playlists"<<endl;
+        cin>>answer;
+        if(answer=="main"){
+            main();
+        }
+        else if(answer=="paylists"){
+            playListInterface();
+        }
+        else if(answer!="playlists"&answer!="main")
+            cout<<"Please enter a valid answer"<<endl;
+        playListInterface();
+    }
+
 
     }
 
@@ -122,7 +160,8 @@ void UserInterface:: commandsDJ(){
     //cout<<"new <name>: Make a new empty playlist with the given name"<<endl;
     cout<<"add <name, artist, title> Add the given song to the end of the given playlist"<<endl;
     cout<<"playnext <name>:Print all information about the next song to be played from the given playlist to the screen. Remove that song from the given playlist. Add to the playcount for that song in the library. If the playlist is now empty, it should be removed."<<endl;
-   cin>>answer;
+   cout<<"If you would like to quit type quit";
+    cin>>answer;
 
     if (answer=="help"){
         commandsDJ();
@@ -197,6 +236,9 @@ void UserInterface:: commandsDJ(){
         if(answer=="yes"){
             main();
         } else{ commandsDJ();}}
+    else if(answer=="quit"){
+        cout<<"Bye see you soon!";
+    }
     else if(answer!="help"&answer!="playnext <name>"&answer!="add <artist, title>"&answer!="playlist <name>"&answer!="playlist"&answer!="Song<artist,title>"&answer!="artist <artist>"&answer!="library"&answer!="Library"){
         cout<<"Enter a valid answer"<<endl;
         commandsDJ();
