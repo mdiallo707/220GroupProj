@@ -18,13 +18,13 @@ private:
   std::string lastName;
   PlaylistLinkedQueue userPlayList;
   CollectLinkedList userCollection;
-  Inventory userInventory;
+  //Inventory userInventory;
 
 
   bool exit=false;
 
 public:
-    UserInterface(){}
+    UserInterface();
     void Interface();
     void setExitInterface();
     void getExit();

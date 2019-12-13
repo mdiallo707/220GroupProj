@@ -7,8 +7,6 @@
 #include <sstream>
 #include "CollectLinkedList.h"
 #include "PlaylistLinkedQueue.h"
-
-
 #include "UserInterface.h"
 #include <string>
 #include "UserInfo.h"
@@ -18,7 +16,7 @@ using namespace std;
 
 // creat file for the new user
 // there should be a bool that is case sensitive that checks wether or not a given userName is avalible
-
+UserInterface::UserInterface() {};
 UserInfo UserInterface:: createAccount(){
     // A file should be created once all information is gathered
  std::string userName;
@@ -77,7 +75,6 @@ void UserInterface::playListInterface(){
     cin>>artistName;
     cout<<"What is the duration of the song";
     cin>>duration;
-    userInventory.addSong(artistName,songTitle,duration);
     cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
 
     }
