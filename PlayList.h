@@ -20,8 +20,6 @@ private:
 public:
     PlayList(){}
 
-
-
     /**
   * appends the new item to the end of the list
   * @post the list has an additional value in it, at the end

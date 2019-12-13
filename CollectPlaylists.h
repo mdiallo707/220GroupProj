@@ -15,7 +15,7 @@ class CollectPlaylists {
 private:
     //list of playlist name in txt file
     //Private to disable copying and assigning from outside class, don't implement these methods
-    CollectPlaylists(const CollectPlaylists& listToCopy);
+
 
 
 public:
@@ -23,8 +23,6 @@ public:
 //    //pointer to the playlist
 //    CollectLinkedList listPlaylists = CollectLinkedList();
     CollectPlaylists(){}
-
-    virtual ~ CollectPlaylists() {}
 
     /**
      * check if the collection of playlist is empty
