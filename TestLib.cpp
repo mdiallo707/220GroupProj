@@ -1,8 +1,11 @@
 //
 // Created by Toby Dragon on 9/4/18.
+//  Updated by Mariama Diallo 12/6/19
 //
 #include <iostream>
 #include "TestLib.h"
+#include <cmath>
+#include <limits>
 
 void printAssertEquals(int expected, int actual){
     if (expected == actual){
@@ -31,13 +34,18 @@ void printAssertEquals(std::string expected, std::string actual){
         std::cout << "FAIL, expected: " << expected << "\tactual: " << actual << std::endl;
     }
 }
-void printAssertEquals(double expected, double actual){
-    if (expected == actual){
+bool printAssertEquals(double expected, double actual, double epsilon){
+    if(std::abs(expected - actual) < epsilon){
         std::cout << "pass" << std::endl;
+        return true ;
+
     }
-    else {
+    else{
         std::cout << "FAIL, expected: " << expected << "\tactual: " << actual << std::endl;
+        return false;
     }
+
+
 }
 
 void printAssertEquals(int* a1, int *a2, int size){
