@@ -62,7 +62,7 @@ public:
      * create a random list with random songs in other list
      * @param listName
      */
-    virtual std::string RandomList(std::string playlistTitleIn) = 0;
+    virtual std::string RandomList(std::string playlistTitleIn, double Duration) = 0;
 
 };
 

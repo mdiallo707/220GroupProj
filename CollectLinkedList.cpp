@@ -22,7 +22,7 @@ CollectLinkedList::~CollectLinkedList(){
  * @post the list has an additional value in it, at the end
  */
 void CollectLinkedList::insertAtEnd(std::string playlistTitleIn,SongsLinkedNode *aPointerIn){
-    CollectLinkedNode* newNode = new CollectLinkedNode(playlistTitleIn, aPointerIn);
+    auto* newNode = new CollectLinkedNode(playlistTitleIn, aPointerIn);
     if(isEmpty()){
         this->front = newNode;
     }
@@ -133,7 +133,6 @@ void CollectLinkedList::clearList(){
  * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
  */
 int CollectLinkedList::find(std::string playlistTitleIn){
-//TODO
     int result = -1;
 
     CollectLinkedNode* tempNode = front;
@@ -210,7 +209,6 @@ std::string CollectLinkedList::removeValueAtFront(){
  * @throws out_of_range exception if index is invalid
  */
 std::string CollectLinkedList::removeValueAt(int index){
-//TODO
     CollectLinkedNode *tempNode = this->front;
     CollectLinkedNode *tempNodeBefore = this->front;
     if (index < 0 || index > currCount || isEmpty()) {
