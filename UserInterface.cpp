@@ -132,23 +132,24 @@ void UserInterface::inventoryInterface(){
     //should have its own help class and the ability for the user to do all the methods
     // that were listed in the Userinteraction.H file
     cout<<"Select 1. If you would like to add a song to inventory"<<endl;
-    cout<<"Select 2. If you would like to delete a song from inventory"<<endl;
-    cout<<"Select 3. If you would like to delete all songs from inventory"<<endl;
-    cout<<"Select 4. If you would like see all the songs from a particular artist"<<endl;
-    cout<<"Select 5. If you would like to see all the songs from inventory"<<endl;
-    cout<<"Select 6. If you would like to go back to main"<<endl;
-    cout<<"Select 7 or type help. If you need help  typ"<<endl;
+   // cout<<"Select 2. If you would like to delete a song from inventory"<<endl;
+    cout<<"Select 2. If you would like to delete all songs from inventory"<<endl;
+    cout<<"Select 3. If you would like see all the songs from a particular artist"<<endl;
+    cout<<"Select 4. If you would like to see all the songs in the inventory"<<endl;
+    cout<<"Select 5. If you would like to go back to main"<<endl;
+    cout<<"Select 6 or type help. If you need help  "<<endl;
+    cout<<"If you like to quit type quit";
     string answer;
     cin>>answer;
     if(answer=="1"){
         string artistName;
         string songTitle;
         double duration;
-        cout<<"What is the name of the song you would like to add?" ;
+        cout<<"What is the name of the song you would like to add?"<<endl ;
         cin>> songTitle;
-        cout<<"Who is the artist of the song?";
+        cout<<"Who is the artist of the song?"<<endl;
         cin>>artistName;
-        cout<<"What is the duration of the song";
+        cout<<"What is the duration of the song"<<endl;
         cin>>duration;
         userInventory.addSong(artistName,songTitle,duration);
         cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
@@ -164,7 +165,72 @@ void UserInterface::inventoryInterface(){
         else if(answer!="inventory"&answer!="main"){
             cout<<"Please enter a valid answer"<<endl;
         inventoryInterface();}
-    }}
+    }
+    if(answer=="2"){
+        userInventory.clearLibrary();
+        cout<<"The library has been cleared"<<endl;
+        cout<<"If you would like to go back to main :type main"<<endl;
+        cout<<"If you would like to continue making changes to inventory type inventory"<<endl;
+        cin>>answer;
+        if(answer=="main"){
+            main();
+        }
+        else if(answer=="inventory"){
+            inventoryInterface();
+        }
+        else if(answer!="inventory"&answer!="main"){
+            cout<<"Please enter a valid answer"<<endl;
+            inventoryInterface();}
+    }
+    if(answer=="3"){
+        string artistName;
+
+        cout<<"What is the name of the artist you would like to see all songs for them?"<<endl ;
+        cout<<"Here is the inventory for "+ artistName<<endl;
+        userInventory.particularArtist(artistName);
+        cout<<"If you would like to go back to main :type main"<<endl;
+        cout<<"If you would like to continue making changes to inventory type inventory"<<endl;
+        cin>>answer;
+        if(answer=="main"){
+            main();
+        }
+        else if(answer=="inventory"){
+            inventoryInterface();
+        }
+        else if(answer!="inventory"&answer!="main"){
+            cout<<"Please enter a valid answer"<<endl;
+            inventoryInterface();}
+    }
+    if(answer=="4"){
+        string artistName;
+
+        cout<<"Here all the songs currently in your inventory";
+        //prints all songs
+        userInventory.check();
+        cout<<"If you would like to go back to main :type main"<<endl;
+        cout<<"If you would like to continue making changes to inventory type inventory"<<endl;
+        cin>>answer;
+        if(answer=="main"){
+            main();
+        }
+        else if(answer=="inventory"){
+            inventoryInterface();
+        }
+        else if(answer!="inventory"&answer!="main"){
+            cout<<"Please enter a valid answer"<<endl;
+            inventoryInterface();}
+    }
+    if(answer=="5"||answer=="main"){
+        string artistName;
+        cout<<"Going to main"<<endl ;
+        main();
+    }
+
+
+
+
+
+}
 
 
 
@@ -299,7 +365,7 @@ void UserInterface:: commandsDJ(){
         else if (answer=="quit"||"Quit"){
             cout<<"Thank you for stopping by comeback soon";
         }
-        while(answer=="1"||answer=="inventory"||answer=="2"||answer=="playlist"||answer=="3"|| answer=="collection"||answer=="4"||answer=="help") {
+        while(answer!="1"&answer!="inventory"&answer!="2"&answer!="playlist"&answer!="3"&answer!="collection"&answer!="4"&answer!="help") {
             cout<<"You have an entered an invalid number"<<endl;
             cout<<"If you would like to add songs to your inventory press 1."<<endl;
             cout<<"If you would like to create a new playlist or add songs to your current playlist press 2"<<endl;
