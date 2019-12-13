@@ -20,6 +20,8 @@ private:
 public:
     PlayList(){}
 
+
+
     /**
   * appends the new item to the end of the list
   * @post the list has an additional value in it, at the end
@@ -27,21 +29,26 @@ public:
     virtual  void enqueue(std::string songToAdd, std::string artistToAdd, double slToAdd)=0;
 
 /**
+  * throws out_of_range exception if the playlist is empty
   * removes song item
-  * @post the list has an additional value in it, at the end
   */
+    virtual std::string  removeSong(std::string plName, std::string artistName, std::string songTitle)=0;
     virtual  std::string dequeue()=0;
 
+
 /**
-    * checks if there are any valid items in the list
-    * @return true if there are no valid items in the list, false otherwise
+    * checks if there are any valid items in the playlist
+    * @return true if there are no valid items in the playlist, false otherwise
     */
     virtual bool isEmpty()=0;
 
 /**
-    * plays the next song info the list
-    * @return the song info
+    * plays the next song in a given playlist
+    * Removes the song from the playlist
+    * @return a string of the next song
     */
+
+    virtual void playNextSong(std::string plName)=0;
     virtual SongsLinkedNode* playNext()=0;
 
 
@@ -52,14 +59,19 @@ public:
     virtual double calcDuration()=0;
 
 /**
-    * displays all songs in aplaylist
+    * displays all songs in a playlist
     * @return a string representation of all songs listed
-    *
     */
-
     virtual void allSongsInPlaylist(std::string namePL)=0;
-
+/**
+    * Write new user inputs to song file
+    * @post the file has an additional value in it, at the end
+    */
     virtual void WriteToFile()=0;
+/**
+    * Reads songs from file
+    * @post prints the songs currently in the song text file
+    */
     virtual void ReadFromFile()=0;
 
 };
