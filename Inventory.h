@@ -30,7 +30,7 @@ public:
     void check();
     void particularArtist(std::string);
     void removeSong(std:: string artistName,std::string sogName);
-
+    int countSongs();
     void addAlphaSong(std::string artistName, std::string title, double duration);
 };
 

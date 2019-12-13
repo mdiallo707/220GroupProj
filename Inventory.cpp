@@ -69,6 +69,13 @@ void Inventory::particularArtist(std::string artistName) {
         temp=temp->getNext();
     }
 }
+int Inventory::countSongs() {
+    Songs*  temp=front;
+    while(temp!= nullptr){
+        count=count+1;
+
+        temp=temp->getNext();}
+}
 
 void Inventory::check() {
     // can  be used for display and to check alphabetical order
