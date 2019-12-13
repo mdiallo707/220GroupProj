@@ -3,6 +3,9 @@
 //
 #include "UserInfo.h"
 #include "PlaylistLinkedQueue.h"
+#include "Inventory.h"
+#include "CollectLinkedList.h"
+
 
 #ifndef GITYPART_USERINTERFACE_H
 #define GITYPART_USERINTERFACE_H
@@ -13,6 +16,10 @@ private:
     std::string  userName;
     std::string firstName;
     PlaylistLinkedQueue userPlaylist;
+    Inventory userInventory;
+    CollectLinkedList userCollection;
+
+
 
     std::string lastName;
     bool exit=false;

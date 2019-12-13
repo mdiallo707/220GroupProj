@@ -13,6 +13,8 @@
 #include <string>
 #include "UserInfo.h"
 #include <iomanip>
+#include "Inventory.h"
+
 
 using namespace std;
 
@@ -97,7 +99,7 @@ void UserInterface::inventoryInterface(){
     cout<<"Select 4. If you would like see all the songs from a particular artist"<<endl;
     cout<<"Select 5. If you would like to see all the songs from inventory"<<endl;
     cout<<"Select 6. If you would like to go back to main"<<endl;
-    cout<<"If you need help "<<endl;
+    cout<<"Select 7 or type help. If you need help  typ"<<endl;
 
 
 
@@ -105,6 +107,7 @@ void UserInterface::inventoryInterface(){
 
 };
 void UserInterface:: commandsDJ(){
+    string answer;
     cout<<"Commands"<<endl;
     cout<<"Help:Provide a summary of all available commands "<<endl;
     cout<<"Library:Display all songs in Inventory "<<endl;
@@ -118,51 +121,59 @@ void UserInterface:: commandsDJ(){
     cout<<"new <name>: Make a new empty playlist with the given name"<<endl;
     cout<<"add <name, artist, title> Add the given song to the end of the given playlist"<<endl;
     cout<<"playnext <name>:Print all information about the next song to be played from the given playlist to the screen. Remove that song from the given playlist. Add to the playcount for that song in the library. If the playlist is now empty, it should be removed."<<endl;
-    // does newrandom work? Add if it does otherwise continue
-    }
+   cin>>answer;
 
-
-
-
-
-
-void UserInterface::setExitInterface() {
-    exit=true;
-}
-void UserInterface::main() {
-    if(firstName==""){firstName="their";}
-    string answer;
-    cout<< "Hi "+firstName+",what would you like to do today";
-    cout<<"If you would like to make changes or get information about the songs in your inventory press 1 or type inventory."<<endl;
-    cout<<"If you would like to create a new playlist or make changes to your current playlist press 2"<<endl;
-    cout<<"If you would like create a new collection or update your current collection press 3"<<endl;
-    cout<<"If you would like help on how to use these options press 4 or type help"<<endl;
-    cout<<"If you would like to exit the program type quit";
-    cin>>answer;
-    if (answer=="1"||answer=="inventory"){
-        inventoryInterface();
-    }
-    else if (answer=="2"||answer=="playlist"){
-        playListInterface();
-
-    }
-    else if(answer=="3"|| answer=="collection"){
-        collectionInterface();
-
-    }
-    else if(answer=="4"||answer=="help"){
+    if (answer=="help"){
         commandsDJ();
+        cout<<"Would you like to go to the main menu?";
+        cin>>answer;
+        if(answer=="yes"){
+            main();
+        } else{ commandsDJ();}
+    }
+    else if (answer=="library"||"Library"){
 
     }
-    else if (answer=="quit"||"Quit"){
-        cout<<"Thank you for stopping by comeback soon";
+
     }
-    while(answer=="1"||answer=="inventory"||answer=="2"||answer=="playlist"||answer=="3"|| answer=="collection"||answer=="4"||answer=="help") {
+
+
+    void UserInterface::main() {
+        if(firstName==""){firstName="their";}
+        string answer;
+        cout<< "Hi "+firstName+",what would you like to do today";
+        cout<<"If you would like to make changes or get information about the songs in your inventory press 1 or type inventory."<<endl;
+        cout<<"If you would like to create a new playlist or make changes to your current playlist press 2"<<endl;
+        cout<<"If you would like create a new collection or update your current collection press 3"<<endl;
+        cout<<"If you would like help on how to use these options press 4 or type help"<<endl;
+        cout<<"If you would like to exit the program type quit";
+        cin>>answer;
+        if (answer=="1"||answer=="inventory"){
+            inventoryInterface();
+        }
+        else if (answer=="2"||answer=="playlist"){
+            playListInterface();
+
+        }
+        else if(answer=="3"|| answer=="collection"){
+            collectionInterface();
+
+        }
+        else if(answer=="4"||answer=="help"){
+            commandsDJ();
+
+        }
+        else if (answer=="quit"||"Quit"){
+            cout<<"Thank you for stopping by comeback soon";
+        }
+        while(answer=="1"||answer=="inventory"||answer=="2"||answer=="playlist"||answer=="3"|| answer=="collection"||answer=="4"||answer=="help") {
             cout<<"You have an entered an invalid number"<<endl;
             cout<<"If you would like to add songs to your inventory press 1."<<endl;
             cout<<"If you would like to create a new playlist or add songs to your current playlist press 2"<<endl;
             cout<<"If you would like create a new collection or update your current collect press 3"<<endl;
             cout<<"If you would like help on how to use these options press 4"<<endl;
+            cout<<"If you would like to exit the program type quit";
+
             if (answer=="1"||answer=="inventory"){
                 inventoryInterface();
 
@@ -185,13 +196,13 @@ void UserInterface::main() {
     }
 
 
-void UserInterface::Interface()  {
-    // Keep answers as the only variable for cin
-    // Allows for acess to different branches
-    string answer;
-    cout<<"Let's create an account"<<endl;
-   // UserInfo newUser=createAccount();
-    main();
+    void UserInterface::Interface()  {
+        // Keep answers as the only variable for cin
+        // Allows for acess to different branches
+        string answer;
+        cout<<"Let's create an account"<<endl;
+        // UserInfo newUser=createAccount();
+        main();
 
 
 
