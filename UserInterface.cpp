@@ -6,6 +6,9 @@
 #include <iostream>
 #include <sstream>
 #include "Inventory.h"
+#include "CollectionLinkedNode2.h"
+
+#include "CollectionLinkedNode2.h"
 
 #include "CollectLinkedList.h"
 #include "PlaylistLinkedQueue.h"
@@ -55,7 +58,7 @@ void UserInterface::collectionInterface(){
     cout<<"Select 3. If you would like to delete all collections"<<endl;
     cin>> answer;
     if(answer=="1"||answer=="add"){
-         userCollection.addPlaylist(userPlaylist);
+         userCollection.addPlaylist2(userPlaylist);
     }
 
 

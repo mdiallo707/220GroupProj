@@ -4,7 +4,7 @@
 #include "UserInfo.h"
 #include "PlaylistLinkedQueue.h"
 #include "Inventory.h"
-#include "CollectLinkedList.h"
+#include "CollectionLinkedList2.h"
 
 
 #ifndef GITYPART_USERINTERFACE_H
@@ -17,7 +17,7 @@ private:
     std::string firstName;
     PlaylistLinkedQueue userPlaylist;
     Inventory userInventory;
-    CollectLinkedList userCollection;
+    CollectLinkedList2 userCollection;
     std::string lastName;
 
 public:
