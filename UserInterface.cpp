@@ -6,6 +6,8 @@
 #include <iostream>
 #include <sstream>
 #include "CollectLinkedList.h"
+#include "PlaylistLinkedQueue.h"
+
 
 #include "UserInterface.h"
 #include <string>
@@ -59,11 +61,21 @@ void UserInterface::collectionInterface(){
 void UserInterface::playListInterface(){
     //should have its own help class and the ability for the user to do all the methods
     // that were listed in the Userinteraction.H file
+    String playListName;
     cout<<"Select 1. If you would like to create a playlist"<<endl;
     cout<<"Select 2. If you would like to add to a playlist"<<endl;
     cout<<"Select 3. If you would like to delete a playlist"<<endl;
     cout<<"Select 4. If you would like to delete all playlist"<<endl;
+    cin<<answer;
+    if(answer=="1"{
+      " What would you like to call the new playList?"
+      cin<<answer;
+      PlaylistLinkedQueue answer;
 
+
+    }
+
+    )
 };
 void UserInterface::inventoryInterface(){
     //should have its own help class and the ability for the user to do all the methods
