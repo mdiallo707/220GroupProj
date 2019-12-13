@@ -1,11 +1,9 @@
 
 #include <iostream>
-#include "CollectPlaylists.h"
 #include "TestLib.h"
 #include "PlaylistLinkedQueue.h"
 #include "CollectPlaylists.h"
 #include "CollectLinkedList.h"
-#include "Inventory.h"
 using namespace std;
 
 void testCollectLinkedList(){
