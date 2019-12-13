@@ -6,10 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include "Inventory.h"
-#include "CollectionLinkedNode2.h"
-
-#include "CollectionLinkedNode2.h"
-
+#include "CollectLinkedNode.h"
 #include "CollectLinkedList.h"
 #include "PlaylistLinkedQueue.h"
 #include "UserInterface.h"
@@ -319,7 +316,7 @@ void UserInterface:: commandsDJ(){
         } else{ commandsDJ();}}
     else if (answer=="playlist <name>"){
         cout<<"The songs left in your playlist are ";
-        userPlaylist.allSongsInPlaylist2();
+        userPlaylist.allSongsInPlaylist();
         cout<<"Would you like to go to the main menu?"<<endl;
         cin>>answer;
         if(answer=="yes"){
@@ -340,7 +337,7 @@ void UserInterface:: commandsDJ(){
             main();
         } else{ commandsDJ();}}
     else if (answer=="playnext <name>"){
-        userPlaylist.playNextInfo();
+        userPlaylist.playNext();
         cout<<"Would you like to go to the main menu?"<<endl;
         cin>>answer;
         if(answer=="yes"){
