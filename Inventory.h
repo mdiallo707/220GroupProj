@@ -14,6 +14,7 @@ class Inventory {
 private:
     Songs*end;
     Songs*front;
+    int count;
 public:
     Inventory();
     std::string artistAllSongs(std::string artistName);

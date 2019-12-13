@@ -12,6 +12,7 @@ using namespace std;
 Inventory::Inventory(){
     this->end= nullptr;
     this->front= nullptr;
+    int count;
 
 }
 
@@ -70,11 +71,12 @@ void Inventory::particularArtist(std::string artistName) {
     }
 }
 int Inventory::countSongs() {
-    Songs*  temp=front;
+    Songs* temp=front;
     while(temp!= nullptr){
         count=count+1;
 
         temp=temp->getNext();}
+    return count;
 }
 
 void Inventory::check() {
