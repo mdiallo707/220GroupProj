@@ -1,8 +1,11 @@
 //
 // Created by leianna chen on 2019/12/12.
 //
-
+#include <string>
+#include <fstream>
+#include <iostream>
 #include "CollectLinkedList.h"
+
 /**
     * Constructor
 */
@@ -12,16 +15,11 @@ CollectLinkedList::CollectLinkedList(){
 
 }
 
-//Destructor
-CollectLinkedList::~CollectLinkedList(){
-    delete front;
-}
-
 /**
  * appends the new item to the end of the list
  * @post the list has an additional value in it, at the end
  */
-void CollectLinkedList::insertAtEnd(std::string playlistTitleIn, PlaylistLinkedQueue aPointerIn){
+void CollectLinkedList::addPlaylist(std::string playlistTitleIn, PlaylistLinkedQueue aPointerIn){
     CollectLinkedNode* newNode = new CollectLinkedNode(playlistTitleIn, aPointerIn);
     if(isEmpty()){
         this->front = newNode;
@@ -200,6 +198,49 @@ std::string CollectLinkedList::removeValueAt(int index){
         tempNodeBefore->setNext(tempNode->getNext());
         this->currCount -= 1;
         return itemReturn;
+    }
+}
+void CollectLinkedList::removeEmpty(){
+    CollectLinkedNode *tempNode = this->front;
+    int countIndex = 1;
+    while (tempNode != nullptr){
+        if(tempNode->getPlaylistLink().isEmpty()){
+            removeValueAt(countIndex);
+        }
+        tempNode = tempNode->getNext();
+        countIndex = countIndex +1;
+    }
+}
+void CollectLinkedList::displayAll(){
+    if(currCount!=0) {
+        int index = 1;
+        CollectLinkedNode *tempNode = this->front;
+        while (tempNode != nullptr) {
+            std::cout << "Playlist: " << index << std::endl;
+            tempNode->getPlaylistLink().allSongsInPlaylist(tempNode->getPlaylistTitle());
+            tempNode = tempNode->getNext();
+            index = index + 1;
+        }
+    }
+
+}
+void CollectLinkedList::displaySelect(std::string playlistTitleIn){
+    std::string SongsList;
+    int address = find(playlistTitleIn);
+    getAddressValueAt(address).allSongsInPlaylist(SongsList);
+}
+
+void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
+    double countD = 0;
+    while (countD<=Duration){
+
+    }
+    if(currCount!=0) {
+        CollectLinkedNode *tempNode = this->front;
+        while (tempNode != nullptr) {
+            tempNode->getPlaylistLink().allSongsInPlaylist(tempNode->getPlaylistTitle());
+            tempNode = tempNode->getNext();
+        }
     }
 }
 

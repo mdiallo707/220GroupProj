@@ -2,33 +2,31 @@
 // Created by leianna chen on 2019/12/12.
 //
 
-#ifndef INC_220GROUPPROJ_COLLECTLINKEDLIST_H
-#define INC_220GROUPPROJ_COLLECTLINKEDLIST_H
-
+#ifndef PROJECT_COLLECTLINKEDLIST_H
+#define PROJECT_COLLECTLINKEDLIST_H
+#include <string>
+#include <stdexcept>
 #include "CollectLinkedNode.h"
 #include "SongsLinkedNode.h"
 #include "PlaylistLinkedQueue.h"
+#include "CollectPlaylists.h"
 
-class CollectLinkedList {
+class CollectLinkedList: public CollectPlaylists {
 private:
     CollectLinkedNode* front;
     int currCount;
-
-    CollectLinkedList& operator=(const CollectLinkedList& arrayListToCopy);
 public:
     /**
      * Constructor
      */
     CollectLinkedList();
 
-    //Destructor
-    ~CollectLinkedList();
 
     /**
      * appends the new item to the end of the list
      * @post the list has an additional value in it, at the end
      */
-    void insertAtEnd(std::string playlistTitleIn, PlaylistLinkedQueue aPointer);
+    void addPlaylist(std::string playlistTitleIn, PlaylistLinkedQueue aPointer);
 
     /**
      * gets a value from the list
@@ -80,11 +78,17 @@ public:
      */
     std::string removeValueAt(int index);
 
+    void removeEmpty();
 
+    void displayAll();
+
+    void displaySelect(std::string playlistTitleIn);
+
+    void RandomList(std::string playlistTitleIn, double Duration);
 
     //Private to disable copying and assigning from outside class, don't implement these methods
     CollectLinkedList(const CollectLinkedList& arrayListToCopy);
 };
 
 
-#endif //INC_220GROUPPROJ_COLLECTLINKEDLIST_H
+#endif //PROJECT_COLLECTLINKEDLIST_H
