@@ -8,17 +8,18 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "Songs.h"
+#include "SongsLinkedNode.h"
+using namespace std;
 
 class Inventory {
 private:
-    Songs*end;
-    Songs*front;
+    SongsLinkedNode*end;
+    SongsLinkedNode*front;
     int count;
 public:
     Inventory();
     std::string artistAllSongs(std::string artistName);
-
+    void particularAS(string artist,string songTitle);
     void getSongInfo();
     std::string endVal();
     //this will give you the object
@@ -29,9 +30,9 @@ public:
     void  displayInventory();
     void time();
     void check();
+    int countSongs();
     void particularArtist(std::string);
     void removeSong(std:: string artistName,std::string sogName);
-    int countSongs();
     void addAlphaSong(std::string artistName, std::string title, double duration);
 };
 

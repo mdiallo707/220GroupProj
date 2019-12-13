@@ -1,5 +1,6 @@
 //
-// Created by Mariama Diallo on 12/9/19.
+// Created by Mariama Diallo on 12/4/19.
+//  PlaylistLinkedqueue implementation file
 //
 #include <string>
 #include <fstream>
@@ -8,15 +9,16 @@
 #include "SongsLinkedNode.h"
 
 
-//Creates an empty queue
+//Creates an empty playlist queue
 PlaylistLinkedQueue::PlaylistLinkedQueue(){
     front = nullptr;
     end = nullptr;
 
+
 }
 
 
-//adds an item to the end of the queue
+//adds a song to the end of the queue
 void PlaylistLinkedQueue::enqueue(std::string songToAdd, std::string artistToAdd, double slToAdd){
     SongsLinkedNode* newNode = new SongsLinkedNode(songToAdd,  artistToAdd,  slToAdd);
     //if front is nullptr, end should be nullptr too
@@ -53,14 +55,48 @@ std::string PlaylistLinkedQueue::dequeue(){
     }
 
 }
+std::string PlaylistLinkedQueue::removeSong(std::string plName, std::string artistName, std::string songTitle) {
+    std::cout<<plName +" "+artistName+" " +songTitle +" "+"deleting song from playlist"<<std::endl;
+    if( isEmpty()){
+        throw std::out_of_range("queue is empty");
+    }
+    else {
+        if(front == end){
+            end = nullptr;
+        }
+        std::string str=front->getSongTitle();
+        SongsLinkedNode *newNode = front;
+        front = newNode->getNext();
+        delete newNode;
+        return str;
+    }
+
+
+}
 
 //returns true if the queue has no items, false otherwise
 bool PlaylistLinkedQueue::isEmpty(){
     return front == nullptr;
 }
 SongsLinkedNode* PlaylistLinkedQueue::playNext(){
-    return front->getNext();
+     return front->getNext();
+
 }
+
+void PlaylistLinkedQueue::playNextSong(std::string plName) {
+    SongsLinkedNode *current = this->front;
+    current = current->getNext();
+
+    std::cout << plName + "next song" << std::endl;
+
+    current->printSongs();
+    front->getNext();
+    dequeue();
+
+
+}
+
+
 
 
 /**
@@ -99,9 +135,6 @@ void PlaylistLinkedQueue ::  allSongsInPlaylist(std::string namePL){
 
 }
 
-void PlaylistLinkedQueue :: WriteToFile(){
-
-}
 
 void PlaylistLinkedQueue ::ReadFromFile(){
     std::ifstream in;
@@ -120,6 +153,10 @@ void PlaylistLinkedQueue ::ReadFromFile(){
 
     }
 
+
+}
+
+void PlaylistLinkedQueue :: WriteToFile(){
 
 }
 

@@ -5,7 +5,6 @@
 #ifndef LINKEDNODE_H
 #define LINKEDNODE_H
 #include <string>
-#include "Songs.h"
 
 class SongsLinkedNode {
 

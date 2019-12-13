@@ -10,6 +10,8 @@
 
 class CollectLinkedNode {
 private:
+    CollectLinkedNode(PlaylistLinkedQueue aPointer);
+
     std::string playlistTitle;
     PlaylistLinkedQueue playlistLink;
     CollectLinkedNode* next;

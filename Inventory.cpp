@@ -5,81 +5,76 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "Songs.h"
 #include "Inventory.h"
+#include "SongsLinkedNode.h"
+
 using namespace std;
 
 Inventory::Inventory(){
     this->end= nullptr;
     this->front= nullptr;
-    int count;
+    int count=0;
 
 }
 
-void Inventory::removeSong(string artistName,string songName) {
-    Songs*temp= front;
-    while(temp!= nullptr){
-        Songs*oldTemp=temp;
-        if(temp->getArtistName()==artistName&temp->getSongName()==songName){
-            //
-            Songs*newNext= temp->getNext();
-            oldTemp->setNext(newNext);
-
-        }
+void Inventory::clearLibrary(){
+    if(front!=end){
+        SongsLinkedNode*newNode=front;
+        this->front=front->getNext();
+        delete newNode;
     }
-    temp=temp->getNext();
+    delete front;
+    delete end;
+
+
 }
 
 void Inventory::addSong(std::string artistName,std::string title, double duration){
-    Songs* newNode = new Songs (artistName,title,duration);
-    Songs*temp=front;
+    SongsLinkedNode* newNode = new SongsLinkedNode (artistName,title,duration);
+    SongsLinkedNode*temp=front;
     if (front == nullptr){
         front = newNode;
         end = newNode;
     }
     else {
-        //Alphabetical is not working to iterate throughout only somewhat
         end->setNext(newNode);
-        end = newNode;
-        }
-
-
-    }
+        end = newNode;}
 }
 
 void Inventory::particularArtist(std::string artistName) {
-    Songs*temp=front;
+    SongsLinkedNode*temp=front;
     while(temp!=nullptr){
         if(temp->getArtistName()==artistName){
-            cout<<temp->getArtistName()+" "+ temp->getSongName()<<endl;
+            cout<<temp->getArtistName()+" "+ temp->getSongTitle()<<endl;
         }
         temp=temp->getNext();
     }
 }
-int Inventory::countSongs() {
-    count=0;
-    // can  be used for display and to check alphabetical order
-    Songs*temp=front;
-    while(temp!= nullptr){
 
+void Inventory::particularAS(std::string artistName,string songtitle) {
+    SongsLinkedNode*temp=front;
+    while(temp!=nullptr){
+        if(temp->getArtistName()==artistName&temp->getSongTitle()==songtitle){
+            cout<<temp->getArtistName()+" "+ temp->getSongTitle()<<endl;
+            cout<< "The duration of the song is: ";
+            cout<<temp->getDuration()<<endl;
 
-        //count=count+1;
-        count=count+1;
+        }
         temp=temp->getNext();
-        //cout<<end->getArtistName()+ " "+end->getSongName()<<endl;
     }
-    return count;
 }
 
+
 void Inventory::check() {
+    count=0;
     // can  be used for display and to check alphabetical order
-    Songs*temp=front;
+    SongsLinkedNode*temp=front;
     while(temp!= nullptr){
 
 
-        cout<<temp->getArtistName()+"  "+ temp->getSongName()<<endl;
-
-
+        cout<<temp->getArtistName()+"  "+ temp->getSongTitle()<<endl;
+        //count=count+1;
+        count=count+1;
         temp=temp->getNext();
         //cout<<end->getArtistName()+ " "+end->getSongName()<<endl;
     }
