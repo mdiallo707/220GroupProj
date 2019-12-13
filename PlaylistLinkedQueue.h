@@ -63,6 +63,8 @@ public:
 
 
     void allSongsInPlaylist2();
+
+    void playNextInfo();
 };
 
 #endif //STACKSANDQUEUES_QUEUE_H

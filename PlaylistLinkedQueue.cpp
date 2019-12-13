@@ -6,6 +6,7 @@
 #include <iostream>
 #include "PlaylistLinkedQueue.h"
 #include "SongsLinkedNode.h"
+using namespace std;
 
 
 //Creates an empty queue
@@ -61,6 +62,14 @@ bool PlaylistLinkedQueue::isEmpty(){
 }
 SongsLinkedNode* PlaylistLinkedQueue::playNext(){
     return front->getNext();
+}
+void PlaylistLinkedQueue::playNextInfo(){
+  cout<<"This is the artist for the next song in the playlist: "+front->getNext()->getArtistName()<<endl;
+   cout<<"This is the song title of the next song:"+ front->getNext()->getSongTitle()<<endl;
+   cout<<"This is the duration for the next song : ";
+    cout<<front->getSongTitle()<<endl;
+
+
 }
 
 

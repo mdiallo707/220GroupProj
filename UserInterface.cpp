@@ -198,6 +198,13 @@ void UserInterface:: commandsDJ(){
         if(answer=="yes"){
             main();
         } else{ commandsDJ();}}
+    else if (answer=="playnext <name>"){
+        userPlaylist.playNextInfo();
+        cout<<"Would you like to go to the main menu?"<<endl;
+        cin>>answer;
+        if(answer=="yes"){
+            main();
+        } else{ commandsDJ();}}
 
     }
 
