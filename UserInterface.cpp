@@ -144,9 +144,9 @@ void UserInterface:: commandsDJ(){
             main();
         } else{ commandsDJ();}}
     else if (answer=="artist <artist>"){
+        string answer2;
         //will print a list of of strings of whats in inventory
-        cout<<"What are artist's song do you want to see?";
-        cin>>answer;
+        cout<<"What are artist's songs do you want to see?";
         userInventory.particularArtist(answer);
         cout<<"Would you like to go to the main menu?";
         cin>>answer;
@@ -154,6 +154,19 @@ void UserInterface:: commandsDJ(){
             main();
         } else{ commandsDJ();}}
 
+    else if (answer=="Song<artist,title>"){
+        string answer2;
+        //will print a list of of strings of whats in inventory
+        cout<<"What are artist's songs do you want to see?";
+        cin>>answer;
+        cout<<"What is the title of the song?";
+        cin>>answer2;
+        userInventory.particularAS(answer,answer2);
+        cout<<"Would you like to go to the main menu?";
+        cin>>answer;
+        if(answer=="yes"){
+            main();
+        } else{ commandsDJ();}}
 
     }
 

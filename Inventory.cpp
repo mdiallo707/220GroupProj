@@ -52,11 +52,15 @@ void Inventory::particularArtist(std::string artistName) {
         temp=temp->getNext();
     }
 }
+
 void Inventory::particularAS(std::string artistName,string songtitle) {
     SongsLinkedNode*temp=front;
     while(temp!=nullptr){
-        if(temp->getArtistName()==artistName){
+        if(temp->getArtistName()==artistName&temp->getSongTitle()==songtitle){
             cout<<temp->getArtistName()+" "+ temp->getSongTitle()<<endl;
+            cout<< "The duration of the song is: ";
+            cout<<temp->getDuration()<<endl;
+
         }
         temp=temp->getNext();
     }
