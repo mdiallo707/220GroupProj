@@ -78,9 +78,7 @@ public:
    void WriteToFile();
 
 
-
-
-
+    void allSongsInPlaylist2();
 };
 
 #endif //STACKSANDQUEUES_QUEUE_H

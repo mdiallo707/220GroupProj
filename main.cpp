@@ -12,7 +12,10 @@ int main() {
 //commented out
 // we need to have a test class with  for all  the methods and classes that can be tested.
 UserInterface user;
-user.Interface();
+//user.collectionInterface();
+//user.inventoryInterface();
+user.playListInterface();
+//user.main();
 //Inventory test;
 
 }
