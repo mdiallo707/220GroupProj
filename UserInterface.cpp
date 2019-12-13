@@ -46,10 +46,10 @@ void UserInterface::collectionInterface(){
     //should have its own help class and the ability for the user to do all the methods
     // that were listed in the Userinteraction.H file
     string answer;
-    cout<<"Select 1 or type create. If you would like to create a collection"<<endl;
-    cout<<"Select 2. If you would like to add to a collection"<<endl;
-    cout<<"Select 3. If you would like to delete a collection"<<endl;
-    cout<<"Select 4. If you would like to delete all collections"<<endl;
+    cout<<"When you created an account a collection was created for you"<<endl;
+    cout<<"Select 1. If you would like to add to a collection"<<endl;
+    cout<<"Select 2. If you would like to delete a collection"<<endl;
+    cout<<"Select 3. If you would like to delete all collections"<<endl;
     cin>> answer;
     if(answer=="1"||answer=="create"){
         CollectLinkedList userCollection;
@@ -62,13 +62,25 @@ void UserInterface::playListInterface(){
     //should have its own help class and the ability for the user to do all the methods
     // that were listed in the Userinteraction.H file
     string  answer;
-    cout<<"A playlist has already been created for you what you like to do now"<<endl;
-    cout<<"Select 2. If you would like to add to a playlist"<<endl;
-    cout<<"Select 3. If you would like to delete a playlist"<<endl;
-    cout<<"Select 4. If you would like to delete all playlist"<<endl;
+    cout<<"A playlist has already been created for you what would you like to do now"<<endl;
+    cout<<"Select 1. If you would like to add to a playlist"<<endl;
+    cout<<"Select 2. If you would like to delete a playlist"<<endl;
+    cout<<"Select 3. If you would like to delete all playlist"<<endl;
     cin>> answer;
     if(answer=="1"){
-      " What would you like to call the new playList?";}
+        string artistName;
+        string songTitle;
+        double duration;
+    cout<<"What is the name of the song you would like to add" ;
+    cin>> songTitle;
+    cout<<"Who is the song artist";
+    cin>>artistName;
+    cout<<"What is the duration of the song";
+    cin>>duration;
+    userInventory.addSong(artistName,songTitle,duration);
+    cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
+
+    }
 
 
 
