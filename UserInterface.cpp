@@ -49,8 +49,10 @@ void UserInterface:: test(){
     cout<<"Check";
 }
 void UserInterface::collectionInterface(){
-    //should have its own help class and the ability for the user to do all the methods
+    //should have its own help class and the ability for the user to do all the methods- Liz
     // that were listed in the Userinteraction.H file
+    //This can be implemented once the user is able to create their own objects-
+    //Names need to be assigned to playlists as well-Liz
     string answer;
     cout<<"When you created an account a collection was created for you"<<endl;
     cout<<"Select 1. If you would like to add to a collection"<<endl;
@@ -60,7 +62,7 @@ void UserInterface::collectionInterface(){
     cin>> answer;
     if(answer=="1"||answer=="add"){
          //userCollection.addPlaylist2(userPlaylist);
-         cout<<"Collection currently not implemented"<<endl;
+         cout<<"Collection method currently not implemented"<<endl;
          cout<<"Would you like to stay in collections or go to main"<<endl;
          cin>>answer;
          if(answer=="collections"){ collectionInterface();}
@@ -87,7 +89,8 @@ void UserInterface::collectionInterface(){
    }
    else if(answer!="1"&answer!="2"&answer!="3"&answer!="quit"){
        cout<<"Please enter a valid input"<<endl;
-       collectionInterface();}
+       collectionInterface();
+   }
 
 
 
