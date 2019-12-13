@@ -18,11 +18,7 @@ private:
     PlaylistLinkedQueue userPlaylist;
     Inventory userInventory;
     CollectLinkedList userCollection;
-
-
-
     std::string lastName;
-    bool exit=false;
 
 public:
     UserInterface();

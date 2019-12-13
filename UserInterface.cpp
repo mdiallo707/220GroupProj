@@ -113,9 +113,8 @@ void UserInterface:: commandsDJ(){
     cout<<"Library:Display all songs in Inventory "<<endl;
     cout<<"artist <artist>: Display all songs for the given artist. "<<endl;
     cout<<"Song<artist,title>:Display information about a particular song "<<endl;
-    cout<<"import<filename>\n"
-          "Add all songs from the given file to the library.Print a message to the user of any songs that already existed (do not add duplicates) "<<endl;
-    cout<<"discontinue <filename>:Display information about a particular song "<<endl;
+  //  cout<<"import<filename> Add all songs from the given file to the library.Print a message to the user of any songs that already existed (do not add duplicates) "<<endl;
+  //  cout<<"discontinue <filename>:Display information about a particular song "<<endl;
     cout<<"playlists: display the names of all playlists and their durations "<<endl;
     cout<<"playlist <name>: display all songs left in the given playlist, and the duration (time it will take to play the remaining songs)"<<endl;
     cout<<"new <name>: Make a new empty playlist with the given name"<<endl;
@@ -132,8 +131,29 @@ void UserInterface:: commandsDJ(){
         } else{ commandsDJ();}
     }
     else if (answer=="library"||"Library"){
+        //will print a list of of strings of whats in inventory
+        userInventory.check();}
+    else if (answer=="artist <artist>"){
+        //will print a list of of strings of whats in inventory
+        cout<<"What are artist's song do you want to see?";
+        cin>>answer;
+        userInventory.particularArtist(answer);
+        cout<<"Would you like to go to the main menu?";
+        cin>>answer;
+        if(answer=="yes"){
+            main();
+        } else{ commandsDJ();}}
+    else if (answer=="artist <artist>"){
+        //will print a list of of strings of whats in inventory
+        cout<<"What are artist's song do you want to see?";
+        cin>>answer;
+        userInventory.particularArtist(answer);
+        cout<<"Would you like to go to the main menu?";
+        cin>>answer;
+        if(answer=="yes"){
+            main();
+        } else{ commandsDJ();}}
 
-    }
 
     }
 

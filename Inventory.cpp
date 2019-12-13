@@ -52,6 +52,15 @@ void Inventory::particularArtist(std::string artistName) {
         temp=temp->getNext();
     }
 }
+void Inventory::particularAS(std::string artistName,string songtitle) {
+    SongsLinkedNode*temp=front;
+    while(temp!=nullptr){
+        if(temp->getArtistName()==artistName){
+            cout<<temp->getArtistName()+" "+ temp->getSongTitle()<<endl;
+        }
+        temp=temp->getNext();
+    }
+}
 
 
 void Inventory::check() {
@@ -67,7 +76,6 @@ void Inventory::check() {
         temp=temp->getNext();
         //cout<<end->getArtistName()+ " "+end->getSongName()<<endl;
     }
-    cout<<count;
 }
 
 

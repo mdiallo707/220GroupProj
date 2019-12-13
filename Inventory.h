@@ -9,6 +9,7 @@
 #include <string>
 #include <stdexcept>
 #include "SongsLinkedNode.h"
+using namespace std;
 
 class Inventory {
 private:
@@ -18,7 +19,7 @@ private:
 public:
     Inventory();
     std::string artistAllSongs(std::string artistName);
-
+    void particularAS(string artist,string songTitle);
     void getSongInfo();
     std::string endVal();
     //this will give you the object
