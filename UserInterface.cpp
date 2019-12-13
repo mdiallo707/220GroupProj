@@ -4,12 +4,14 @@
 //
 
 #include <iostream>
+#include <sstream>
+
+#include "UserInterface.h"
 #include <string>
 #include "UserInfo.h"
-#include "PlaylistLinkedQueue.h"
-
-
+#include <iomanip>
 using namespace std;
+
 
 // creat file for the new user
 // there should be a bool that is case sensitive that checks wether or not a given userName is avalible
@@ -37,21 +39,52 @@ return newUser;
 void UserInterface:: test(){
     cout<<"Check";
 }
-void collectionInterface(){
+void UserInterface::collectionInterface(){
     //should have its own help class and the ability for the user to do all the methods
-    // that were listed in the Userinteraction.H file- (Lei)
-};
-void playListInterface(){
-    PlaylistLinkedQueue newList;
-    //should have its own help class and the ability for the user to do all the methods
-    // that were listed in the Userinteraction.H file-
+    // that were listed in the Userinteraction.H file
+    cout<<"Select 1. If you would like to create a collection"<<endl;
+    cout<<"Select 2. If you would like to add to a collection"<<endl;
+    cout<<"Select 3. If you would like to delete a collection"<<endl;
+    cout<<"Select 4. If you would like to delete all collections"<<endl;
+
+
 
 };
-void inventoryInterface(){
+void UserInterface::playListInterface(){
     //should have its own help class and the ability for the user to do all the methods
-    // that were listed in the Userinteraction.H file- (Me)
-};
+    // that were listed in the Userinteraction.H file
+    cout<<"Select 1. If you would like to create a playlist"<<endl;
+    cout<<"Select 2. If you would like to add to a playlist"<<endl;
+    cout<<"Select 3. If you would like to delete a playlist"<<endl;
+    cout<<"Select 4. If you would like to delete all playlist"<<endl;
 
+};
+void UserInterface::inventoryInterface(){
+    //should have its own help class and the ability for the user to do all the methods
+    // that were listed in the Userinteraction.H file
+    cout<<"Select 1. If you would like to add a song to inventory"<<endl;
+    cout<<"Select 2. If you would like to delete a song from inventory"<<endl;
+    cout<<"Select 3. If you would like to delete all songs from inventory"<<endl;
+    cout<<"Select 4. If you would like see all the songs from a particular artist"<<endl;
+    cout<<"Select 5. If you would like to see all the songs from inventory"<<endl;
+    cout<<"Select 6. If you would like to go back to main"<<endl;
+    cout<<"If you need help "<<endl;
+
+
+
+
+
+};
+void UserInterface:: commandsDJ(){
+    cout<<"Commands"<<endl;
+    cout<<"Help:Provide a summary of all available commands "<<endl;
+    cout<<"Library:Display all songs in Inventory "<<endl;
+    cout<<"artist <artist>: Display all songs for the given artist. "<<endl;
+    cout<<":Display all songs in Inventory "<<endl;
+
+
+
+}
 void UserInterface:: help(){
     //will be a class that has all the possible
     // commands a user could choose there should be general help stuff and things
@@ -130,40 +163,40 @@ void UserInterface::setExitInterface() {
     exit=true;
 }
 void UserInterface::main() {
-    int answer;
+    string answer;
     cout<< "Hi "+firstName+" What would you like to do today";
-    cout<<"If you would like to makes change or get information about the songs in your inventory press 1."<<endl;
+    cout<<"If you would like to make changes or get information about the songs in your inventory press 1."<<endl;
     cout<<"If you would like to create a new playlist or make changes to your current playlist press 2"<<endl;
-    cout<<"If you would like create a new collection or update your current collect press 3"<<endl;
-    cout<<"If you would like help on how to use these options press 4"<<endl;
-    if (answer==1){
+    cout<<"If you would like create a new collection or update your current collection press 3"<<endl;
+    cout<<"If you would like help on how to use these options press 4 or type help"<<endl;
+    if (answer=="1"||answer=="inventory"){
 
     }
-    else if (answer==2){
+    else if (answer=="2"||answer=="playlist"){
 
     }
-    else if(answer==3){
+    else if(answer=="3"|| answer=="answer"){
 
     }
-    else if(answer==4){
+    else if(answer=="4"||answer=="help"){
 
     }
-    while(answer!=1||answer!=2||answer!=3||answer!=4) {
+    while(answer=="1"||answer=="inventory"||answer=="2"||answer=="playlist"||answer=="3"|| answer=="answer"||answer=="4"||answer=="help") {
             cout<<"You have an entered an invalid number"<<endl;
             cout<<"If you would like to add songs to your inventory press 1."<<endl;
             cout<<"If you would like to create a new playlist or add songs to your current playlist press 2"<<endl;
             cout<<"If you would like create a new collection or update your current collect press 3"<<endl;
             cout<<"If you would like help on how to use these options press 4"<<endl;
-            if (answer==1){
+            if (answer=="1"||answer=="inventory"){
 
             }
-            else if (answer==2){
+            else if (answer=="2"||answer=="playlist"){
 
             }
-            else if(answer==3){
+            else if(answer=="3"|| answer=="answer"){
 
             }
-            else if(answer==4){
+            else if(answer=="4"||answer=="help"){
 
             }
 
@@ -175,35 +208,11 @@ void UserInterface::main() {
 void UserInterface::Interface()  {
     // Keep answers as the only variable for cin
     // Allows for acess to different branches
-    int answer;
-    cout<<"Do you have an account?If not please select 1."<<endl;
-   cout<< "If you have an account please select 2"<<endl;
-   cout<<"If you would like please select 3"<<endl;
-    cin>> answer;
-    if (answer==1){
-        cout<<"Let's make an account"<<endl;
-        UserInfo newUser=createAccount();}
-    if(answer==2){
-        // you should go to main menu know
-        main();
-    }
-    if(answer==3){
-        help();
-    }
-    while(answer!=1&answer!=2&answer!=3){
-        cout<<"You have an entered an invalid number"<<endl;
-        cout<<"Do you have an account?If not please select 1"<<endl;
-        cout<<"If you have an account please select 2"<<endl;
-        cout<<"If you would like help please select 3"<<endl;
-        cin>>answer;}
-        if (answer==1){
-            cout<<"Let's make an account"<<endl;
-            UserInfo newUser=createAccount();}
-        if(answer==2){
-            // you should go to main menu know
-        }
-        if(answer==3){
-            help();
-        }
+    string answer;
+    cout<<"Let's create an account"<<endl;
+    UserInfo newUser=createAccount();
+    main();
+
+
 
     }
