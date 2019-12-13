@@ -38,23 +38,9 @@ void Inventory::addSong(std::string artistName,std::string title, double duratio
         end = newNode;
     }
     else {
-//break this up for the front , middle and end
-        if (newNode->getSongName() < front->getSongName()) {
-            Songs*oldnode=front;
-            newNode->setNext(oldnode);
-            front=newNode;}
-        if(newNode->getSongName()>front->getSongName()){
-            Songs*old=front->getNext();
-            front->setNext(newNode);
-            newNode->setNext(old);
-
-        }
-
-        if(newNode->getSongName()>end->getSongName()){
-            Songs*old=end;
-            end=newNode;
-            old->setNext(newNode);
-
+        //Alphabetical is not working to iterate throughout only somewhat
+        end->setNext(newNode);
+        end = newNode;
         }
 
 
