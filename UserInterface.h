@@ -12,6 +12,9 @@
 
 class UserInterface {
 private:
+  std::string  userName;
+  std::string firstName;
+  std::string lastName;
   PlaylistLinkedQueue userPlayList;
   CollectLinkedList userCollection;
 
@@ -23,7 +26,7 @@ public:
     void Interface();
     void setExitInterface();
     void getExit();
-    std::string exitInterface();
+    bool exitInterface();
     void collectionInterface();
     void playListInterface();
     void inventoryInterface();
@@ -48,6 +51,7 @@ public:
     void informationSelect();
     void informationAll();
     void saveFile();
+
     void main();
 
 

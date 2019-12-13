@@ -61,22 +61,21 @@ void UserInterface::collectionInterface(){
 void UserInterface::playListInterface(){
     //should have its own help class and the ability for the user to do all the methods
     // that were listed in the Userinteraction.H file
-    String playListName;
-    cout<<"Select 1. If you would like to create a playlist"<<endl;
+    string  answer;
+    cout<<"A playlist has already been created for you what you like to do now"<<endl;
     cout<<"Select 2. If you would like to add to a playlist"<<endl;
     cout<<"Select 3. If you would like to delete a playlist"<<endl;
     cout<<"Select 4. If you would like to delete all playlist"<<endl;
-    cin<<answer;
-    if(answer=="1"{
-      " What would you like to call the new playList?"
-      cin<<answer;
-      PlaylistLinkedQueue answer;
+    cin>> answer;
+    if(answer=="1"){
+      " What would you like to call the new playList?";}
+
 
 
     }
 
-    )
-};
+
+
 void UserInterface::inventoryInterface(){
     //should have its own help class and the ability for the user to do all the methods
     // that were listed in the Userinteraction.H file
@@ -111,20 +110,13 @@ void UserInterface:: commandsDJ(){
     }
 
 
-
-
-
-
-
-
-
-std::string UserInterface::exitInterface() {
+bool UserInterface::exitInterface() {
     if(exit==true){
         // when changes are being made they should automatically be saved so you do not have to check if things were saved or not.
        // It is important that everyone has save() add()  delete() for their section
         cout<<"Thank you for using DJ scenario. Goodbye";
     }
-
+    return  exit;
 
 }
 
