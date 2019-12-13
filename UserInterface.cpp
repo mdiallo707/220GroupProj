@@ -54,7 +54,7 @@ void UserInterface::collectionInterface(){
     cout<<"Select 2. If you would like to delete a collection"<<endl;
     cout<<"Select 3. If you would like to delete all collections"<<endl;
     cin>> answer;
-    if(answer=="1"||answer=="create"){
+    if(answer=="1"||answer=="add"){
         CollectLinkedList userCollection;
     }
 
@@ -84,9 +84,11 @@ void UserInterface::playListInterface(){
 
     }
 
-
-
     }
+
+
+
+
 
 
 
@@ -130,23 +132,13 @@ void UserInterface:: commandsDJ(){
             main();
         } else{ commandsDJ();}
     }
-    else if (answer=="library"||"Library"){
+    else if (answer=="library"){
         //will print a list of of strings of whats in inventory
         userInventory.check();}
     else if (answer=="artist <artist>"){
         //will print a list of of strings of whats in inventory
         cout<<"What are artist's song do you want to see?";
         cin>>answer;
-        userInventory.particularArtist(answer);
-        cout<<"Would you like to go to the main menu?";
-        cin>>answer;
-        if(answer=="yes"){
-            main();
-        } else{ commandsDJ();}}
-    else if (answer=="artist <artist>"){
-        string answer2;
-        //will print a list of of strings of whats in inventory
-        cout<<"What are artist's songs do you want to see?";
         userInventory.particularArtist(answer);
         cout<<"Would you like to go to the main menu?";
         cin>>answer;
@@ -205,6 +197,10 @@ void UserInterface:: commandsDJ(){
         if(answer=="yes"){
             main();
         } else{ commandsDJ();}}
+    else if(answer!="help"&answer!="playnext <name>"&answer!="add <artist, title>"&answer!="playlist <name>"&answer!="playlist"&answer!="Song<artist,title>"&answer!="artist <artist>"&answer!="library"&answer!="Library"){
+        cout<<"Enter a valid answer"<<endl;
+        commandsDJ();
+    }
 
     }
 
