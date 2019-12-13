@@ -56,11 +56,38 @@ void UserInterface::collectionInterface(){
     cout<<"Select 1. If you would like to add to a collection"<<endl;
     cout<<"Select 2. If you would like to delete a collection"<<endl;
     cout<<"Select 3. If you would like to delete all collections"<<endl;
+    cout<<"If you would like to exit the program type quit";
     cin>> answer;
     if(answer=="1"||answer=="add"){
          //userCollection.addPlaylist2(userPlaylist);
-         cout<<"Which playlist would you like to add";
+         cout<<"Collection currently not implemented"<<endl;
+         cout<<"Would you like to stay in collections or go to main"<<endl;
+         cin>>answer;
+         if(answer=="collections"){ collectionInterface();}
+         else if(answer=="main"){ main();}
     }
+   else if(answer=="2"){
+        //userCollection.addPlaylist2(userPlaylist);
+        cout<<"Collection method currently not implemented"<<endl;
+        cout<<"Would you like to stay in collections or go to main?"<<endl;
+        cin>>answer;
+        if(answer=="collections"){ collectionInterface();}
+        else if(answer=="main"){ main();}
+    }
+   else if(answer=="3"){
+        //userCollection.addPlaylist2(userPlaylist);
+        cout<<"Collection method currently not implemented"<<endl;
+        cout<<"Would you like to stay in collections or go to main?"<<endl;
+        cin>>answer;
+        if(answer=="collections"){ collectionInterface();}
+        else if(answer=="main"){ main();}
+    }
+   else if(answer=="quit"){
+       cout<<"Bye"<<endl;
+   }
+   else if(answer!="1"&answer!="2"&answer!="3"&answer!="quit"){
+       cout<<"Please enter a valid input"<<endl;
+       collectionInterface();}
 
 
 
