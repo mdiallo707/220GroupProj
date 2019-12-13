@@ -5,12 +5,12 @@
 #ifndef PROJECT_COLLECTLINKEDNODE_H
 #define PROJECT_COLLECTLINKEDNODE_H
 #include "PlaylistLinkedQueue.h"
-
+//this class is to work with the objects that we currently_Liz
+//Map is required to allow user to create new object-Liz
 
 
 class CollectLinkedNode2 {
 private:
-    CollectLinkedNode2(PlaylistLinkedQueue aPointer);
 
     std::string playlistTitle;
     PlaylistLinkedQueue playlistLink;
@@ -25,6 +25,8 @@ public:
     void setPlaylistTitle(std::string newPlaylistTitle);
     void setPlaylistLink(PlaylistLinkedQueue newPointer);
     void setNext(CollectLinkedNode2* newNext);
+
+    CollectLinkedNode2(PlaylistLinkedQueue aPointer);
 };
 
 
