@@ -4,7 +4,6 @@
 //
 
 #include <iostream>
-#include "UserInterface.h"
 #include <string>
 #include "UserInfo.h"
 #include "PlaylistLinkedQueue.h"
