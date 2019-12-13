@@ -7,6 +7,7 @@
 
 #include "CollectLinkedNode.h"
 #include "SongsLinkedNode.h"
+#include "PlaylistLinkedQueue.h"
 
 class CollectLinkedList {
 private:
@@ -95,8 +96,10 @@ public:
      */
     std::string removeValueAt(int index);
 
-//Private to disable copying and assigning from outside class, don't implement these methods
-CollectLinkedList(const CollectLinkedList& arrayListToCopy);
+
+
+    //Private to disable copying and assigning from outside class, don't implement these methods
+    CollectLinkedList(const CollectLinkedList& arrayListToCopy);
 };
 
 

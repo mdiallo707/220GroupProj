@@ -198,7 +198,6 @@ std::string CollectLinkedList::removeValueAtFront(){
         return result;
 
     }
-
 }
 
 /**
