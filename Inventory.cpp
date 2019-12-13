@@ -7,6 +7,8 @@
 #include <stdexcept>
 #include "Songs.h"
 #include "Inventory.h"
+#include "UserInterface.h"
+
 using namespace std;
 
 Inventory::Inventory(){
@@ -38,7 +40,6 @@ void Inventory::addSong(std::string artistName,std::string title, double duratio
         end = newNode;
     }
     else {
-        //Alphabetical is not working to iterate throughout only somewhat
         end->setNext(newNode);
         end = newNode;
         }

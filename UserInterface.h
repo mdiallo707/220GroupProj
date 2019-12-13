@@ -2,10 +2,6 @@
 // Created by emurray2 on 12/8/2019.
 //
 #include "UserInfo.h"
-#include "PlaylistLinkedQueue.h"
-#include "CollectLinkedList.h"
-#include "Inventory.h"
-
 
 #ifndef GITYPART_USERINTERFACE_H
 #define GITYPART_USERINTERFACE_H
@@ -13,15 +9,10 @@
 
 class UserInterface {
 private:
-  std::string  userName;
-  std::string firstName;
-  std::string lastName;
-  PlaylistLinkedQueue userPlayList;
-  CollectLinkedList userCollection;
-  //Inventory userInventory;
-
-
-  bool exit=false;
+    std::string  userName;
+    std::string firstName;
+    std::string lastName;
+    bool exit=false;
 
 public:
     UserInterface();
@@ -53,7 +44,6 @@ public:
     void informationSelect();
     void informationAll();
     void saveFile();
-
     void main();
 
 

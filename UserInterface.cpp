@@ -5,12 +5,15 @@
 
 #include <iostream>
 #include <sstream>
+#include "Inventory.h"
+
 #include "CollectLinkedList.h"
 #include "PlaylistLinkedQueue.h"
 #include "UserInterface.h"
 #include <string>
 #include "UserInfo.h"
 #include <iomanip>
+
 using namespace std;
 
 

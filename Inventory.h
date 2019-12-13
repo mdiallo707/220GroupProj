@@ -4,11 +4,13 @@
 
 #ifndef GITYPART_INVENTORY2_H
 #define GITYPART_INVENTORY2_H
-
+#include "Inventory.h"
 #include <iostream>
 #include <string>
 #include <stdexcept>
 #include "Songs.h"
+#include "UserInterface.h"
+
 
 class Inventory {
 private:
