@@ -1,5 +1,6 @@
 //
-//  Created by Mariama Diallo on 12/8/19.
+//  Created by Mariama Diallo on 12/4/19.
+//  PlaylistLinkedqueue interface
 //
 
 #ifndef STACKSANDQUEUES_QUEUE_H
@@ -11,36 +12,42 @@
 #include "PlayList.h"
 
 
-/**
- * Represents a FIFO data structure (First In First Out). Picture a line
- * to wait for something (first person in is the first person out)
- */
+
 class PlaylistLinkedQueue: public PlayList {
 private:
     SongsLinkedNode* front;
     SongsLinkedNode* end;
 
-public:
 
+
+
+public:
     
-    //Creates an empty queue
+    //Creates an empty playlist queue
     PlaylistLinkedQueue();
 
 
-    //adds an item to the end of the queue
+    //adds a song to the end of the playlist queue
     void enqueue(std::string songToAdd, std::string artistToAdd, double slToAdd);
 
-    //takes an item off the front of the queue and returns it
+    //takes an item off the front of the playlist queue and returns it
     //throws out_of_range exception if the queue is empty
+
+    std::string  removeSong(std::string plName, std::string artistName, std::string songTitle);
+
     std::string dequeue();
 
-    //returns true if the queue has no items, false otherwise
+
+    //returns true if the playlist queue has no songs, false otherwise
     bool isEmpty();
 
     /**
-     * plays the next song info the list
+     * plays the next song info in the playlist list
      * @return the song info
      */
+
+
+    void playNextSong(std::string plName);
     SongsLinkedNode* playNext();
 
 
@@ -57,14 +64,23 @@ public:
 
    void allSongsInPlaylist(std::string namePL);
 
-    void WriteToFile();
 
+/**
+    * Reads songs from file
+    * @post prints the songs currently in the song text file
+    */
     void ReadFromFile();
 
+    /**
+    * Write new user inputs to song file
+    * @post the file has an additional value in it, at the end
+    */
+   void WriteToFile();
 
-    void allSongsInPlaylist2();
 
-    void playNextInfo();
+
+
+
 };
 
 #endif //STACKSANDQUEUES_QUEUE_H
