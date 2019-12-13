@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include "CollectLinkedList.h"
+#include "Inventory.h"
 
 /**
     * Constructor
@@ -231,13 +232,36 @@ void CollectLinkedList::displaySelect(std::string playlistTitleIn){
 }
 
 void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
-    double countD = 0;
-    while (countD<=Duration){
+    CollectLinkedNode *tempNode = this->front;
+    double countD = 0.0;
+    int randNum = rand()% 9;
+    int counIndex = 0;
 
-    }
+    PlaylistLinkedQueue randomList;
+
     if(currCount!=0) {
+        while (countD<=Duration){
+            if(randNum==counIndex){
+                randomList.enqueue(tempNode->getPlaylistLink().playNext()->getSongTitle(),tempNode->getPlaylistLink().playNext()->getArtistName(),tempNode->getPlaylistLink().playNext()->getDuration());
+                countD = countD + tempNode->getPlaylistLink().playNext()->getDuration();
+            }else{
+                if (){
+                    tempNode = tempNode->getNext();
+                    counIndex = counIndex + 1;
+                }
+
+            }
+
+        }
         CollectLinkedNode *tempNode = this->front;
+        SongsLinkedNode *aPlaylist;
+        int numSongs = 0;
         while (tempNode != nullptr) {
+            while (tempNode->getPlaylistLink().playNext() != nullptr) {
+                aPlaylist = tempNode->getPlaylistLink().playNext();
+                numSongs = numSongs+1;
+            }
+
             tempNode->getPlaylistLink().allSongsInPlaylist(tempNode->getPlaylistTitle());
             tempNode = tempNode->getNext();
         }

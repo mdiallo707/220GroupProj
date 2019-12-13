@@ -74,7 +74,7 @@ void testCollectLinkedList(){
 
 }
 
-void testRandomPlaylist(std::string playlistTitleIn, double Duration){
+void testRandomPlaylist(){
 
 //    //count songs
 //    int numsongs =
@@ -90,7 +90,7 @@ void testRandomPlaylist(std::string playlistTitleIn, double Duration){
 }
 int main(){
     testCollectLinkedList();
-//    testRandomPlaylist("aList",10.0);
+//    testRandomPlaylist();
     return 0;
 }
 

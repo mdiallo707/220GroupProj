@@ -10,6 +10,7 @@
 #include "SongsLinkedNode.h"
 #include "PlaylistLinkedQueue.h"
 #include "CollectPlaylists.h"
+#include "Inventory.h"
 
 class CollectLinkedList: public CollectPlaylists {
 private:
