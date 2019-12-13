@@ -92,8 +92,7 @@ void UserInterface:: commandsDJ(){
     cout<<"discontinue <filename>:Display information about a particular song "<<endl;
     cout<<"playlists:\n"
           "display the names of all playlists and their durations "<<endl;
-    cout<<"\n"
-          "playlist <name> "<<endl;
+    cout<<"playlist <name> display all songs left in the given playlist, and the duration (time it will take to play the remaining songs)"<<endl;
 
 
 
