@@ -1,31 +1,38 @@
 //
-// Created by emurray2 on 11/28/2019.
+// Created by emurray2 on 12/11/2019.
 //
 
-#ifndef GITYPART_INVENTORY_H
-#define GITYPART_INVENTORY_H
+#ifndef GITYPART_INVENTORY2_H
+#define GITYPART_INVENTORY2_H
+
+#include <iostream>
 #include <string>
 #include <stdexcept>
 #include "Songs.h"
 
 class Inventory {
-    double runTime;
-    Songs*front;
+private:
     Songs*end;
-
-
+    Songs*front;
 public:
     Inventory();
-    void artistAllSongs(std::string artistName);
-    void songInfo(std::string artistN,std::string songTitle);
+    std::string artistAllSongs(std::string artistName);
 
-
+    void getSongInfo();
+    std::string endVal();
+    //this will give you the object
+    void addSong(std::string artistName,std::string songTitle,double duration);
+    void deleteSong(std::string artistName, std::string songName);
     void clearLibrary();
-
-    std::string displayInventory();
-
-    void enqueue(std::string artistName, std::string title, double duration);
+    void play();
+    void  displayInventory();
+    void time();
+    void check();
+    void particularArtist(std::string);
+    void removeSong(std:: string artistName,std::string sogName);
+    int countSongs();
+    void addAlphaSong(std::string artistName, std::string title, double duration);
 };
 
 
-#endif //GITYPART_INVENTORY_H
+#endif //GITYPART_INVENTORY2_H

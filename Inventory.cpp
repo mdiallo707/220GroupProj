@@ -1,46 +1,98 @@
 //
-// Created by emurray2 on 11/28/2019.
+// Created by emurray2 on 12/11/2019.
 //
-#include <iostream>
 
-#include "Inventory.h"
+#include <iostream>
+#include <string>
+#include <stdexcept>
 #include "Songs.h"
+#include "Inventory.h"
+using namespace std;
 
 Inventory::Inventory(){
-    front = nullptr;
-    end = nullptr;
+    this->end= nullptr;
+    this->front= nullptr;
+
 }
 
-void Inventory:: clearLibrary(){
-    if(front!=end){
-        Songs*newNode=front;
-        this->front=front->getNext();
-        delete newNode;
+void Inventory::removeSong(string artistName,string songName) {
+    Songs*temp= front;
+    while(temp!= nullptr){
+        Songs*oldTemp=temp;
+        if(temp->getArtistName()==artistName&temp->getSongName()==songName){
+            //
+            Songs*newNext= temp->getNext();
+            oldTemp->setNext(newNext);
+
+        }
     }
-    delete front;
-    delete end;
-    std::cout << "The library has been cleared " ;
-
+    temp=temp->getNext();
 }
 
-std::string Inventory:: displayInventory(){
-return "";
-}
-
-// have it alphabetize later
-void Inventory::enqueue(std::string artistName,std::string title, double duration){
-    Songs* newNode = new Songs(artistName,title,duration);
-    //if front is nullptr, end should be nullptr too
+void Inventory::addSong(std::string artistName,std::string title, double duration){
+    Songs* newNode = new Songs (artistName,title,duration);
+    Songs*temp=front;
     if (front == nullptr){
         front = newNode;
         end = newNode;
     }
     else {
-        end->setNext(newNode);
-        end = newNode;
+//break this up for the front , middle and end
+        if (newNode->getSongName() < front->getSongName()) {
+            Songs*oldnode=front;
+            newNode->setNext(oldnode);
+            front=newNode;}
+        if(newNode->getSongName()>front->getSongName()){
+            Songs*old=front->getNext();
+            front->setNext(newNode);
+            newNode->setNext(old);
+
+        }
+
+        if(newNode->getSongName()>end->getSongName()){
+            Songs*old=end;
+            end=newNode;
+            old->setNext(newNode);
+
+        }
+
+
     }
 }
 
-void addToLibrary(std::string artistName,std::string artistSong, int duration){
-    Songs*newSong=enquu
+void Inventory::particularArtist(std::string artistName) {
+    Songs*temp=front;
+    while(temp!=nullptr){
+        if(temp->getArtistName()==artistName){
+            cout<<temp->getArtistName()+" "+ temp->getSongName()<<endl;
+        }
+        temp=temp->getNext();
+    }
 }
+int Inventory::countSongs() {
+    Songs*  temp=front;
+    while(temp!= nullptr){
+        count=count+1;
+
+        temp=temp->getNext();}
+}
+
+void Inventory::check() {
+    // can  be used for display and to check alphabetical order
+    Songs*temp=front;
+    while(temp!= nullptr){
+
+
+        cout<<temp->getArtistName()+"  "+ temp->getSongName()<<endl;
+
+
+        temp=temp->getNext();
+        //cout<<end->getArtistName()+ " "+end->getSongName()<<endl;
+    }
+}
+
+
+
+
+
+

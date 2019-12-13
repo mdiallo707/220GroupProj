@@ -23,6 +23,7 @@ public:
     void collectionInterface();
     void playListInterface();
     void inventoryInterface();
+    void commandsDJ();
     UserInfo  createAccount();
     void test();
     void help();
