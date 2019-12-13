@@ -13,7 +13,6 @@ PlaylistLinkedQueue::PlaylistLinkedQueue(){
     front = nullptr;
     end = nullptr;
 
-
 }
 
 

@@ -5,7 +5,7 @@
 #include "CollectLinkedNode.h"
 #include <string>
 
-CollectLinkedNode::CollectLinkedNode(std::string playlistTitleIn,SongsLinkedNode *aPointer){
+CollectLinkedNode::CollectLinkedNode(std::string playlistTitleIn,PlaylistLinkedQueue aPointer){
     this->playlistTitle = playlistTitleIn;
     this->playlistLink = aPointer;
     next = nullptr;
@@ -18,7 +18,7 @@ CollectLinkedNode::CollectLinkedNode(const CollectLinkedNode& playlistLinkToCopy
 std::string CollectLinkedNode::getPlaylistTitle(){
     return playlistTitle;
 }
-SongsLinkedNode* CollectLinkedNode::getPlaylistLink(){
+PlaylistLinkedQueue CollectLinkedNode::getPlaylistLink(){
     return playlistLink;
 }
 
@@ -30,7 +30,7 @@ void CollectLinkedNode::setPlaylistTitle(std::string newPlaylistTitle){
     playlistTitle = newPlaylistTitle;
 }
 
-void CollectLinkedNode::setPlaylistLink(SongsLinkedNode *newPointer){
+void CollectLinkedNode::setPlaylistLink(PlaylistLinkedQueue newPointer){
     playlistLink = newPointer;
 }
 

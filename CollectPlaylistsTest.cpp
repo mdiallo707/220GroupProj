@@ -6,10 +6,8 @@
 #include "CollectPlaylists.h"
 #include "Inventory.h"
 using namespace std;
-
-void testRandomPlaylist(std::string playlistTitleIn, double Duration){
+void testLinklist(){
     //two songList
-    std::string weekendVibe;
     PlaylistLinkedQueue playList1 = PlaylistLinkedQueue();
     playList1.enqueue("AAAAA1", "Abra", 5.41);
     playList1.enqueue("AAAAA2", "Abra2", 5.11);
@@ -21,17 +19,29 @@ void testRandomPlaylist(std::string playlistTitleIn, double Duration){
 
     //Create a collection of song lists
     CollectLinkedList songCollection;
-    songCollection.insertAtEnd("songA",playList1.front);
-    songCollection.insertAtEnd("songB",playList2.front);
+    songCollection.insertAtEnd("songA",playList1);
+    songCollection.insertAtEnd("songB",playList2);
 
+    //test the address
     int address1 = songCollection.find("songA");
     int address2 = songCollection.find("songB");
-    std::cout << "Test get value at and find a playlist: " << std::endl;
-    std::cout << songCollection.getValueAt(address1) << std::endl;
-    std::cout << songCollection.getValueAt(address2) << std::endl;
+    std::cout << "Test getAddressValue at and find a playlist: " << std::endl;
+    std::cout << songCollection.getTitleValueAt(address1) << std::endl;
+    std::cout << songCollection.getTitleValueAt(address2) << std::endl;
+    std::cout << "---------------------------------------" << std::endl;
 
-    //count songs
+    //test display the song on one playlist
+    std::string Songs1;
+    std::cout << "Test print specific playlist: " << std::endl;
+    songCollection.getAddressValueAt(address1).allSongsInPlaylist(Songs1);
+    std::cout << "---------------------------------------" << std::endl;
 
+}
+
+void testRandomPlaylist(std::string playlistTitleIn, double Duration){
+
+//    //count songs
+//    int numsongs =
 //    //get a random lists
 //    double count = 0.0;
 //    int random = rand()% numSong;
@@ -43,7 +53,8 @@ void testRandomPlaylist(std::string playlistTitleIn, double Duration){
 
 }
 int main(){
-    testRandomPlaylist("aList",10.0);
+    testLinklist();
+//    testRandomPlaylist("aList",10.0);
     return 0;
 }
 

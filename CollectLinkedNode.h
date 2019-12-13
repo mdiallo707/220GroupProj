@@ -9,17 +9,17 @@
 class CollectLinkedNode {
 private:
     std::string playlistTitle;
-    SongsLinkedNode *playlistLink;
+    PlaylistLinkedQueue playlistLink;
     CollectLinkedNode* next;
 
 public:
-    CollectLinkedNode(std::string playlistTitleIn,SongsLinkedNode *aPointer);
+    CollectLinkedNode(std::string playlistTitleIn,PlaylistLinkedQueue aPointer);
     CollectLinkedNode(const CollectLinkedNode& nodeToCopy); //only copies item, next is set to nullptr
     std::string getPlaylistTitle();
-    SongsLinkedNode* getPlaylistLink();
+    PlaylistLinkedQueue getPlaylistLink();
     CollectLinkedNode* getNext();
     void setPlaylistTitle(std::string newPlaylistTitle);
-    void setPlaylistLink(SongsLinkedNode *newPointer);
+    void setPlaylistLink(PlaylistLinkedQueue newPointer);
     void setNext(CollectLinkedNode* newNext);
 };
 

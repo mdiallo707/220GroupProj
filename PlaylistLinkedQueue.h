@@ -17,14 +17,11 @@
  */
 class PlaylistLinkedQueue: public PlayList {
 private:
-
-
-
-
-
-public:
     SongsLinkedNode* front;
     SongsLinkedNode* end;
+    
+public:
+
     
     //Creates an empty queue
     PlaylistLinkedQueue();

@@ -11,7 +11,6 @@
 
 class CollectLinkedList {
 private:
-    //TODO: Your data here
     CollectLinkedNode* front;
     int currCount;
 
@@ -29,7 +28,7 @@ public:
      * appends the new item to the end of the list
      * @post the list has an additional value in it, at the end
      */
-    void insertAtEnd(std::string playlistTitleIn,SongsLinkedNode *aPointer);
+    void insertAtEnd(std::string playlistTitleIn, PlaylistLinkedQueue aPointer);
 
     /**
      * gets a value from the list
@@ -37,14 +36,15 @@ public:
      * @return a copy of the item at index
      * @throws out_of_range exception if index is invalid
      */
-    std::string getValueAt(int index);
+    std::string getTitleValueAt(int index);
+    PlaylistLinkedQueue getAddressValueAt(int index);
 
     /**
      * gives a string representation of the current list
      * @returns a string representing the given list in the exact format shown below
      * {1, 2, 3, 4, 5}
      */
-    std::string toString();
+    std::string PrintAllTitle();
 
     /**
      * checks if there are any valid items in the list

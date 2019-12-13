@@ -21,8 +21,8 @@ CollectLinkedList::~CollectLinkedList(){
  * appends the new item to the end of the list
  * @post the list has an additional value in it, at the end
  */
-void CollectLinkedList::insertAtEnd(std::string playlistTitleIn,SongsLinkedNode *aPointerIn){
-    auto* newNode = new CollectLinkedNode(playlistTitleIn, aPointerIn);
+void CollectLinkedList::insertAtEnd(std::string playlistTitleIn, PlaylistLinkedQueue aPointerIn){
+    CollectLinkedNode* newNode = new CollectLinkedNode(playlistTitleIn, aPointerIn);
     if(isEmpty()){
         this->front = newNode;
     }
@@ -42,23 +42,42 @@ void CollectLinkedList::insertAtEnd(std::string playlistTitleIn,SongsLinkedNode 
  * @return a copy of the item at index
  * @throws out_of_range exception if index is invalid
  */
-std::string CollectLinkedList::getValueAt(int index){
+std::string CollectLinkedList::getTitleValueAt(int index){
 
     CollectLinkedNode* node= front;
     if(index<0) {
-        throw std::out_of_range("getValueAt");
+        throw std::out_of_range("getTitleValueAt");
     }
     if(!isEmpty()) {
         for (int i = 0; i < index; i++) {
             if (node->getNext()== nullptr){
-                throw std::out_of_range("getValueAt");
+                throw std::out_of_range("getTitleValueAt");
             }
             node = node->getNext();
         }
         return node->getPlaylistTitle();
     }
     else{
-        throw std::out_of_range("getValueAt");
+        throw std::out_of_range("getTitleValueAt");
+    }
+}
+PlaylistLinkedQueue CollectLinkedList::getAddressValueAt(int index){
+
+    CollectLinkedNode* node= front;
+    if(index<0) {
+        throw std::out_of_range("getAddressValueAt");
+    }
+    if(!isEmpty()) {
+        for (int i = 0; i < index-1; i++) {
+            if (node->getNext()== nullptr){
+                throw std::out_of_range("getAddressValueAt");
+            }
+            node = node->getNext();
+        }
+        return node->getPlaylistLink();
+    }
+    else{
+        throw std::out_of_range("getAddressValueAt");
     }
 }
 
@@ -67,7 +86,7 @@ std::string CollectLinkedList::getValueAt(int index){
  * @returns a string representing the given list in the exact format shown below
  * {1, 2, 3, 4, 5}
  */
-std::string CollectLinkedList::toString(){
+std::string CollectLinkedList::PrintAllTitle(){
     std::string result = "{";
 
     CollectLinkedNode* tempNode= front;
