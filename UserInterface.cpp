@@ -67,62 +67,60 @@ void UserInterface::playListInterface(){
     string  answer;
     cout<<"A playlist has already been created for you what would you like to do now"<<endl;
     cout<<"Select 1. If you would like to add to a playlist"<<endl;
-    cout<<"Select 2. If you would like to delete a playlist"<<endl;
-    cout<<"Select 3. If you would like to delete all playlist"<<endl;
+    //cout<<"Select 2. If you would like to delete a playlist"<<endl;
+   // cout<<"Select 3. If you would like to delete all playlist"<<endl;
     cin>> answer;
-    if(answer=="1"){
+    if(answer=="1") {
         string artistName;
         string songTitle;
         double duration;
-    cout<<"What is the name of the song you would like to add" ;
-    cin>> songTitle;
-    cout<<"Who is the song artist";
-    cin>>artistName;
-    cout<<"What is the duration of the song";
-    cin>>duration;
-    userPlaylist.enqueue(songTitle,artistName,duration);
-    cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
-    cout<<"If you would like to go back to main :type main"<<endl;
-    cout<<"If you would like to continue work on playlist: type playlists"<<endl;
-    cin>>answer;
-    if(answer=="main"){
-        main();
-    }
-    else if(answer=="paylists"){
-        playListInterface();
-    }
-    else if(answer!="playlists"&answer!="main")
-        cout<<"Please enter a valid answer"<<endl;
-        playListInterface();
-    }
-    if(answer=="2"){
-        string artistName;
-        string songTitle;
-        double duration;
-        cout<<"What is the name of the song you would like to add" ;
-        cin>> songTitle;
-        cout<<"Who is the song artist";
-        cin>>artistName;
-        cout<<"What is the duration of the song";
-        cin>>duration;
-        userPlaylist.enqueue(songTitle,artistName,duration);
-        cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
-        cout<<"If you would like to go back to main :type main"<<endl;
-        cout<<"If you would like to continue work on playlist: type playlists"<<endl;
-        cin>>answer;
-        if(answer=="main"){
+        cout << "What is the name of the song you would like to add";
+        cin >> songTitle;
+        cout << "Who is the song artist";
+        cin >> artistName;
+        cout << "What is the duration of the song";
+        cin >> duration;
+        userPlaylist.enqueue(songTitle, artistName, duration);
+        cout << "The song" + songTitle + " by " + artistName + " has been added" << endl;
+        cout << "If you would like to go back to main :type main" << endl;
+        cout << "If you would like to continue work on playlist: type playlists" << endl;
+        cin >> answer;
+        if (answer == "main") {
             main();
-        }
-        else if(answer=="paylists"){
+        } else if (answer == "playlists") {
+            playListInterface();
+        } else if (answer != "playlists" & answer != "main") {
+            cout << "Please enter a valid answer" << endl;
             playListInterface();
         }
-        else if(answer!="playlists"&answer!="main")
-            cout<<"Please enter a valid answer"<<endl;
-        playListInterface();
-    }
+//    if(answer=="2"){
+//        string artistName;
+//        string songTitle;
+//        double duration;
+//        cout<<"What is the name of the song you would like to add" ;
+//        cin>> songTitle;
+//        cout<<"Who is the song artist";
+//        cin>>artistName;
+//        cout<<"What is the duration of the song";
+//        cin>>duration;
+//        userPlaylist.enqueue(songTitle,artistName,duration);
+//        cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
+//        cout<<"If you would like to go back to main :type main"<<endl;
+//        cout<<"If you would like to continue work on playlist: type playlists"<<endl;
+//        cin>>answer;
+//        if(answer=="main"){
+//            main();
+//        }
+//        else if(answer=="paylists"){
+//            playListInterface();
+//        }
+//        else if(answer!="playlists"&answer!="main")
+//            cout<<"Please enter a valid answer"<<endl;
+//        playListInterface();
+//    }
 
 
-    }
+    }  }
 
 
 
@@ -140,12 +138,39 @@ void UserInterface::inventoryInterface(){
     cout<<"Select 5. If you would like to see all the songs from inventory"<<endl;
     cout<<"Select 6. If you would like to go back to main"<<endl;
     cout<<"Select 7 or type help. If you need help  typ"<<endl;
+    string answer;
+    cin>>answer;
+    if(answer=="1"){
+        string artistName;
+        string songTitle;
+        double duration;
+        cout<<"What is the name of the song you would like to add?" ;
+        cin>> songTitle;
+        cout<<"Who is the artist of the song?";
+        cin>>artistName;
+        cout<<"What is the duration of the song";
+        cin>>duration;
+        userInventory.addSong(artistName,songTitle,duration);
+        cout<<"The song"+ songTitle+" by "+ artistName+" has been added"<<endl;
+        cout<<"If you would like to go back to main :type main"<<endl;
+        cout<<"If you would like to continue making changes to inventory type inventory"<<endl;
+        cin>>answer;
+        if(answer=="main"){
+            main();
+        }
+        else if(answer=="inventory"){
+            inventoryInterface();
+        }
+        else if(answer!="inventory"&answer!="main"){
+            cout<<"Please enter a valid answer"<<endl;
+        inventoryInterface();}
+    }}
 
 
 
 
 
-};
+
 void UserInterface:: commandsDJ(){
     string answer;
     cout<<"Commands"<<endl;
