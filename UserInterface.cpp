@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <sstream>
+#include "CollectLinkedList.h"
 
 #include "UserInterface.h"
 #include <string>
@@ -42,10 +43,15 @@ void UserInterface:: test(){
 void UserInterface::collectionInterface(){
     //should have its own help class and the ability for the user to do all the methods
     // that were listed in the Userinteraction.H file
-    cout<<"Select 1. If you would like to create a collection"<<endl;
+    string answer;
+    cout<<"Select 1 or type create. If you would like to create a collection"<<endl;
     cout<<"Select 2. If you would like to add to a collection"<<endl;
     cout<<"Select 3. If you would like to delete a collection"<<endl;
     cout<<"Select 4. If you would like to delete all collections"<<endl;
+    cin>> answer;
+    if(answer=="1"||answer=="create"){
+        CollectLinkedList userCollection;
+    }
 
 
 
@@ -80,7 +86,10 @@ void UserInterface:: commandsDJ(){
     cout<<"Help:Provide a summary of all available commands "<<endl;
     cout<<"Library:Display all songs in Inventory "<<endl;
     cout<<"artist <artist>: Display all songs for the given artist. "<<endl;
-    cout<<":Display all songs in Inventory "<<endl;
+    cout<<"Song<artist,title>:Display information about a particular song "<<endl;
+    cout<<"import<filename>\n"
+          "Add all songs from the given file to the library. Print a message to the user of any songs that already existed (do not add duplicates) "<<endl;
+
 
 
 
