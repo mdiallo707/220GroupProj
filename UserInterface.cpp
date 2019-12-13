@@ -166,7 +166,7 @@ void UserInterface::inventoryInterface(){
             cout<<"Please enter a valid answer"<<endl;
         inventoryInterface();}
     }
-    if(answer=="2"){
+    else if(answer=="2"){
         userInventory.clearLibrary();
         cout<<"The library has been cleared"<<endl;
         cout<<"If you would like to go back to main :type main"<<endl;
@@ -182,7 +182,7 @@ void UserInterface::inventoryInterface(){
             cout<<"Please enter a valid answer"<<endl;
             inventoryInterface();}
     }
-    if(answer=="3"){
+   else if(answer=="3"){
         string artistName;
 
         cout<<"What is the name of the artist you would like to see all songs for them?"<<endl ;
@@ -201,7 +201,7 @@ void UserInterface::inventoryInterface(){
             cout<<"Please enter a valid answer"<<endl;
             inventoryInterface();}
     }
-    if(answer=="4"){
+   else if(answer=="4"){
         string artistName;
 
         cout<<"Here all the songs currently in your inventory";
@@ -218,25 +218,19 @@ void UserInterface::inventoryInterface(){
         }
         else if(answer!="inventory"&answer!="main"){
             cout<<"Please enter a valid answer"<<endl;
-            inventoryInterface();}
-    }
-    if(answer=="5"||answer=="main"){
+            inventoryInterface();}}
+   else if(answer=="5"||answer=="main"){
         string artistName;
         cout<<"Going to main"<<endl ;
         main();
     }
-
-
-
-
-
-}
-
-
-
-
-
-
+   else if (answer=="quit"){
+       cout<<"Bye, hope to see you soon";
+   }
+   else if(answer!="1"&answer!="2"&answer!="3"&answer!="4"&answer!="5"&answer!="main"&answer!="quit"){
+       cout<<"Please enter a valid answer please";
+       inventoryInterface();
+   }}
 void UserInterface:: commandsDJ(){
     string answer;
     cout<<"Commands"<<endl;

@@ -17,19 +17,17 @@ Inventory::Inventory(){
 
 }
 
-//void Inventory::removeSong(string artistName,string songName) {
-//    Songs*temp= front;
-//    while(temp!= nullptr){
-//        Songs*oldTemp=temp;
-//        if(temp->getArtistName()==artistName&temp->getSongName()==songName){
-//            //
-//            Songs*newNext= temp->getNext();
-//            oldTemp->setNext(newNext);
-//
-//        }
-//    }
-//    temp=temp->getNext();
-//}
+void Inventory::clearLibrary(){
+    if(front!=end){
+        SongsLinkedNode*newNode=front;
+        this->front=front->getNext();
+        delete newNode;
+    }
+    delete front;
+    delete end;
+
+
+}
 
 void Inventory::addSong(std::string artistName,std::string title, double duration){
     SongsLinkedNode* newNode = new SongsLinkedNode (artistName,title,duration);
