@@ -5,7 +5,6 @@
 #include <fstream>
 #include <iostream>
 #include "CollectLinkedList.h"
-#include "Inventory.h"
 #include "ArrayLib.h"
 
 /**
@@ -261,10 +260,8 @@ void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration)
     int numSongs=0;//count how many songs
     int countPath = 1;//#of root
 
-
-
     //calculate how many songs
-    std::ifstream openFile ("/Users/leianna/CLionProjects/Project/ListofSongs.txt");
+    std::ifstream openFile ("ListofSongs.txt");
     std::string countTitle = "", countName = "", countDuration = "";
     if (openFile.is_open()){
 
