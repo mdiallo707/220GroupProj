@@ -73,13 +73,16 @@ void testCollectLinkedList(){
 }
 
 void testRandomPlaylist(){
+    std::cout << "Test-getRandom() " << std::endl;
     CollectLinkedList randomSongCollection;
-    randomSongCollection.RandomList("RandomA",12.0);
-//    printAssertEquals(1,randomSongCollection.itemCount());
-//    std::cout<<randomSongCollection.PrintAllTitle()<<std::endl;
-
-//    randomSongCollection.displaySelect("RandomA");
-    std::cout << randomSongCollection.PrintAllTitle()<<std::endl;
+    randomSongCollection.RandomList("RandomA",9.0);
+    std::cout << "less than 9 :"<<randomSongCollection.PrintAllTitle()<<std::endl;
+    randomSongCollection.displaySelect("RandomA");
+    std::cout << "---------------------------------------" << std::endl;
+    CollectLinkedList randomSongCollection2;
+    randomSongCollection2.RandomList("RandomB",15.8);
+    std::cout <<"less than 15.5 :"<<randomSongCollection2.PrintAllTitle()<<std::endl;
+    randomSongCollection2.displaySelect("RandomB");
 
 
 }

@@ -283,7 +283,7 @@ void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration)
 
     //get a random array of number
     int* randomNum = genShuffledArray(numSongs);
-    
+
     //creat a playlist
     PlaylistLinkedQueue randomPlaylist = PlaylistLinkedQueue();
 
@@ -299,9 +299,9 @@ void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration)
             count = count+1;
         }
         countD = countD + frontPtr->getDuration();
-
-        randomPlaylist.enqueue(frontPtr->getSongTitle(),frontPtr->getArtistName(),frontPtr->getDuration());
-        std::cout<<"Duration:"<<countD<<std::endl;
+        if(countD<Duration){
+            randomPlaylist.enqueue(frontPtr->getSongTitle(),frontPtr->getArtistName(),frontPtr->getDuration());
+        }
         //count
         counIndex = counIndex + 1;
         countPath = countPath + 1;
