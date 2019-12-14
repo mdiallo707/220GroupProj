@@ -141,7 +141,6 @@ void PlaylistLinkedQueue ::ReadFromFile(){
     in.open("ListofSongs.txt") ;
 
     std::string songTitle, artistName, duration;
-
     while (!in.eof())
     {
         getline(in, songTitle, '\n');
@@ -149,7 +148,7 @@ void PlaylistLinkedQueue ::ReadFromFile(){
         getline(in, duration, '\n');
 
 
-        SongsLinkedNode newSong(songTitle, artistName, std::stod(duration));
+        enqueue(songTitle, artistName, std::stod(duration));
 
     }
 

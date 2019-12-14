@@ -36,6 +36,12 @@ public:
      * @throws out_of_range exception if index is invalid
      */
     std::string getTitleValueAt(int index);
+    /**
+     * gets a address from the list
+     * @param index the location from which to get the address
+     * @return a copy of the address at index
+     * @throws out_of_range exception if index is invalid
+     */
     PlaylistLinkedQueue getAddressValueAt(int index);
 
     /**
@@ -64,7 +70,7 @@ public:
     void clearList();
 
     /**
-     * Searches an int array for a certain value
+     * Searches playlist title for a certain value
      * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
      */
     int find(std::string playlistTitleIn);
@@ -79,13 +85,27 @@ public:
      */
     std::string removeValueAt(int index);
 
+    /**
+     * remove a playlist from the linked list if the playlist is empty
+     */
     void removeEmpty();
 
+    /**
+     * print out all the songs in all playlist
+     */
     void displayAll();
 
+    /**
+     * print out songs from the playlist choose
+     * @param playlistTitleIn
+     */
     void displaySelect(std::string playlistTitleIn);
 
-
+    /**
+     * get a random list with songs that are not repeat and in require duration
+     * @param playlistTitleIn
+     * @param Duration the total duration in a playlist
+     */
     void RandomList(std::string playlistTitleIn, double Duration);
 
     //Private to disable copying and assigning from outside class, don't implement these methods

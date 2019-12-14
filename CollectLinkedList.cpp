@@ -61,6 +61,12 @@ std::string CollectLinkedList::getTitleValueAt(int index){
         throw std::out_of_range("getTitleValueAt");
     }
 }
+/**
+     * gets a address from the list
+     * @param index the location from which to get the address
+     * @return a copy of the address at index
+     * @throws out_of_range exception if index is invalid
+     */
 PlaylistLinkedQueue CollectLinkedList::getAddressValueAt(int index){
 
     CollectLinkedNode* node= front;
@@ -174,12 +180,12 @@ int CollectLinkedList::find(std::string playlistTitleIn){
 
 
 /**
- * removes the item at index from the list, and returns a copy of that item
- * @param index the location from which to get the value
- * @post the item at index is removed from the list, everything else is shifted down one
- * @return a copy of the item at index
- * @throws out_of_range exception if index is invalid
- */
+     * removes the item at index from the list, and returns a copy of that item
+     * @param index the location from which to get the value
+     * @post the item at index is removed from the list, everything else is shifted down one
+     * @return a copy of the item at index
+     * @throws out_of_range exception if index is invalid
+     */
 std::string CollectLinkedList::removeValueAt(int index){
     CollectLinkedNode *tempNode = this->front;
     CollectLinkedNode *tempNodeBefore = this->front;
@@ -202,6 +208,9 @@ std::string CollectLinkedList::removeValueAt(int index){
         return itemReturn;
     }
 }
+/**
+     * remove a playlist from the linked list if the playlist is empty
+     */
 void CollectLinkedList::removeEmpty(){
     CollectLinkedNode *tempNode = this->front;
     int countIndex = 1;
@@ -213,6 +222,9 @@ void CollectLinkedList::removeEmpty(){
         countIndex = countIndex +1;
     }
 }
+/**
+     * print out all the songs in all playlist
+     */
 void CollectLinkedList::displayAll(){
     if(currCount!=0) {
         int index = 1;
@@ -226,13 +238,21 @@ void CollectLinkedList::displayAll(){
     }
 
 }
+/**
+ * print out songs from the playlist choose
+ * @param playlistTitleIn
+ */
 void CollectLinkedList::displaySelect(std::string playlistTitleIn){
     std::string SongsList;
     int address = find(playlistTitleIn);
     getAddressValueAt(address).allSongsInPlaylist(SongsList);
 }
 
-
+/**
+ * get a random list with songs that are not repeat and in require duration
+     * @param playlistTitleIn
+     * @param Duration the total duation in a playlist
+     */
 void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
     PlaylistLinkedQueue newPlaylist = PlaylistLinkedQueue();
     addPlaylist(playlistTitleIn,newPlaylist);
