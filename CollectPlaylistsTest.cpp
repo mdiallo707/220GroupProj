@@ -75,7 +75,9 @@ void testCollectLinkedList(){
 void testRandomPlaylist(){
     CollectLinkedList randomSongCollection;
     randomSongCollection.RandomList("RandomA",12.0);
-    randomSongCollection.displaySelect("RandomA");
+    printAssertEquals(1,randomSongCollection.itemCount());
+    std::cout<<randomSongCollection.PrintAllTitle()<<std::endl;
+    //    randomSongCollection.displaySelect("RandomA");
 
 
 }

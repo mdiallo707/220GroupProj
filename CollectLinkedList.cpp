@@ -254,49 +254,60 @@ void CollectLinkedList::displaySelect(std::string playlistTitleIn){
      * @param Duration the total duation in a playlist
      */
 void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
-    PlaylistLinkedQueue newPlaylist = PlaylistLinkedQueue();
-    addPlaylist(playlistTitleIn,newPlaylist);
-    int numSongs=0;
+    //initialize counting number
     double countD = 0.0;
     int counIndex = 0;
+    int numSongs=0;
+    int countPath = 0;
+
+    //creat a playlist
+    PlaylistLinkedQueue newPlaylist = PlaylistLinkedQueue();
+
+    //Add to collection of playlists
+    addPlaylist(playlistTitleIn,newPlaylist);
 
     //calculate how many songs
-    std::ifstream in;
-    in.open("ListofSongs.txt") ;
-    std::string songTitle, artistName, duration;
-    while (!in.eof())
-    {
-        getline(in, songTitle, '\n');
-        getline(in, artistName, '\n');
-        getline(in, duration, '\n');
-        numSongs = numSongs + 1;
-        std::cout << numSongs <<std::endl;
+    std::ifstream openFile ("/Users/leianna/CLionProjects/Project/ListofSongs.txt");
+    std::string countTitle = "", countName = "", countDuration = "";
+    if (openFile.is_open()){
+
+        while (!openFile.eof())
+        {
+            getline(openFile, countTitle,'\n');
+            getline(openFile, countName,'\n');
+            getline(openFile, countDuration,'\n');
+            numSongs = numSongs + 1;
+        }
+        openFile.close();
+    }else{
+        throw std::out_of_range("RandomList: Files not open");
     }
 
-//    //get a random array of number
-//    int* randomNum = genRandArray(numSongs, 0, numSongs);
-//    sort(randomNum,numSongs);
-//
-//    //get
-//
-//    std::ifstream find;
-//    find.open("ListofSongs.txt") ;
-//    std::string RSongTitle, RArtistName, RDuration;
-//    while (!find.eof()||countD<Duration){
-//        getline(find, RSongTitle, '\n');
-//        getline(find, RArtistName, '\n');
-//        getline(find, RDuration, '\n');
-//        if(numSongs==randomNum[counIndex]){
-//            countD = countD + std::stod(RDuration);
-//            newPlaylist.enqueue(RSongTitle, RArtistName, std::stod(RDuration));
-//            counIndex = counIndex + 1;
-//        }
-//        numSongs = numSongs + 1;
-//    }
 
+    //get a random array of number
+    int* randomNum = genShuffledArray(numSongs);
 
+    //get
+    std::ifstream readFile ("/Users/leianna/CLionProjects/Project/ListofSongs.txt");
+    std::string songTitle = "", artistName = "", duration = "";
+    if (openFile.is_open()){
 
-
+        while (!openFile.eof())
+        {
+            getline(openFile, songTitle,'\n');
+            getline(openFile, artistName,'\n');
+            getline(openFile, duration,'\n');
+            if(countPath==randomNum[counIndex]){
+                countD = countD + std::stod(duration);
+                newPlaylist.enqueue(songTitle, artistName, std::stod(duration));
+                counIndex = counIndex + 1;
+            }
+            countPath = countPath + 1;
+        }
+        openFile.close();
+    }else{
+        throw std::out_of_range("RandomList: Files2 not open");
+    }
 
 }
 

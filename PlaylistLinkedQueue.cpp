@@ -13,8 +13,6 @@
 PlaylistLinkedQueue::PlaylistLinkedQueue(){
     front = nullptr;
     end = nullptr;
-
-
 }
 
 
@@ -139,7 +137,6 @@ void PlaylistLinkedQueue ::  allSongsInPlaylist(std::string namePL){
 void PlaylistLinkedQueue ::ReadFromFile(){
     std::ifstream in;
     in.open("ListofSongs.txt") ;
-
     std::string songTitle, artistName, duration;
     while (!in.eof())
     {

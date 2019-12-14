@@ -65,24 +65,23 @@ std::string toString(const int* arrayPtr, int size){
 }
 
 
-int find(const int* arrayPtr, int size, int numToFind, int& numLinesRun){
-    (numLinesRun)+= 5;//parameters + if statement
+int find(const int* arrayPtr, int size, int numToFind){
     if(size<1){
-        (numLinesRun)+= 1;//return
+
         return -1;
     } else{
-        (numLinesRun)+= 2;//while
+
         int num=0;
         while(num<size-1 && arrayPtr[num]!=numToFind){
             num++;
-            (numLinesRun)+= 2;
+
         }
-        (numLinesRun)+= 1;//if
+
         if(arrayPtr[num]==numToFind){
-            (numLinesRun)+= 1;//return
+
             return num;
         } else{
-            (numLinesRun)+= 1;//return
+
             return -1;
         }
 
@@ -154,43 +153,28 @@ int* copyArray(const int* arrayToCopy, int size, int& numLinesRun){
 }
 
 
-int* genShuffledArray(int size, int& numLinesRun){
-    (numLinesRun)+= 3;
+int* genShuffledArray(int size){
     if (size < 1){
-        (numLinesRun)+= 1;
         return nullptr;
     } else {
-        (numLinesRun) += 4;
         int *aList = new int[size];
         int *bList = new int[size];
         for (int x = 0; x < size; x++) {
-            (numLinesRun) += 3;
             bList[x] = x + 1;
         }
-        (numLinesRun) += 2;
         for (int y = 0; y < size; y++) {
-            (numLinesRun) += 4;
             aList[y] = rand() % size + 1;
-            while (find(bList, size, aList[y], numLinesRun) == -1) {
+            while (find(bList, size, aList[y]) == -1) {
                 aList[y] = rand() % size + 1;
-                (numLinesRun) += 2;
             }
-            (numLinesRun) += 1;
-            while (find(bList, size, aList[y], numLinesRun) != -1) {
-                (numLinesRun) += 2;
+            while (find(bList, size, aList[y]) != -1) {
                 for (int z = 0; z < size; z++) {
-                    (numLinesRun) += 1;//if
                     if (bList[z] == aList[y]) {
-                        (numLinesRun) += 1;
                         bList[z] = -1;
                     }
-                    (numLinesRun) += 2;//for
                 }
-                (numLinesRun) += 1;//while
             }
         }
-
-        (numLinesRun) += 1;
         return aList;
     }
 }

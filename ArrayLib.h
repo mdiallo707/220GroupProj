@@ -40,7 +40,7 @@ std::string toString(const int* arrayPtr, int size);
  * @post numLinesRun is updated to add the number of lines run by this function
  * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
  */
-int find(const int* arrayPtr, int size, int numToFind, int& numLinesRun);
+int find(const int* arrayPtr, int size, int numToFind);
 
 /**
  * Searches an int array for a certain value
@@ -71,7 +71,7 @@ int* copyArray(const int* arrayToCopy, int size, int& numLinesRun);
  * @post numLinesRun is updated to add the number of lines run by this function
  * @return a pointer to the array, which must be deleted by the user, or nullptr if size < 1
  */
-int* genShuffledArray(int size, int& numLinesRun);
+int* genShuffledArray(int size);
 
 /**
  * Counts the number of times a certain value occurs within an array
