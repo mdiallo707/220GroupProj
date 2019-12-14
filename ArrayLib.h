@@ -65,7 +65,7 @@ int findMaxIndex(const int* arrayPtr, int size, int& numLinesRun);
 int* copyArray(const int* arrayToCopy, int size, int& numLinesRun);
 
 /**
- * Generates an array with all values 1 through size occurring once each, shuffled in random order
+ * Generates an array with all values 0 through size occurring once each, shuffled in random order
  * example: genShuffledArray(5) might yield {2, 1, 4, 5, 3}
  * @pre srand must be called once before this function is used the first time
  * @post numLinesRun is updated to add the number of lines run by this function

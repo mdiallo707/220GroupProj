@@ -160,12 +160,12 @@ int* genShuffledArray(int size){
         int *aList = new int[size];
         int *bList = new int[size];
         for (int x = 0; x < size; x++) {
-            bList[x] = x + 1;
+            bList[x] = x;
         }
         for (int y = 0; y < size; y++) {
-            aList[y] = rand() % size + 1;
+            aList[y] = rand() % size;
             while (find(bList, size, aList[y]) == -1) {
-                aList[y] = rand() % size + 1;
+                aList[y] = rand() % size;
             }
             while (find(bList, size, aList[y]) != -1) {
                 for (int z = 0; z < size; z++) {

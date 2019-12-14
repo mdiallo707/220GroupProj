@@ -102,7 +102,8 @@ std::string CollectLinkedList::PrintAllTitle(){
     }
     else{
         while(tempNode->getNext()!= nullptr){
-            result+=tempNode->getPlaylistTitle()+", ";
+            double tempDuration = tempNode->getPlaylistLink().calcDuration();
+            result+=tempNode->getPlaylistTitle()+ " - " + std::to_string(tempDuration)+", ";
             tempNode=tempNode->getNext();
         }
         result+=tempNode->getPlaylistTitle();
@@ -286,27 +287,28 @@ void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration)
 
     //get a random array of number
     int* randomNum = genShuffledArray(numSongs);
+    std::cout << toString(randomNum,numSongs)<<std::endl;
 
     //get
-    std::ifstream readFile ("/Users/leianna/CLionProjects/Project/ListofSongs.txt");
-    std::string songTitle = "", artistName = "", duration = "";
-    if (openFile.is_open()){
+    PlaylistLinkedQueue copyPlaylist = PlaylistLinkedQueue();
+    copyPlaylist.ReadFromFile();
 
-        while (!openFile.eof())
-        {
-            getline(openFile, songTitle,'\n');
-            getline(openFile, artistName,'\n');
-            getline(openFile, duration,'\n');
-            if(countPath==randomNum[counIndex]){
-                countD = countD + std::stod(duration);
-                newPlaylist.enqueue(songTitle, artistName, std::stod(duration));
-                counIndex = counIndex + 1;
-            }
-            countPath = countPath + 1;
-        }
-        openFile.close();
-    }else{
-        throw std::out_of_range("RandomList: Files2 not open");
+    copyPlaylist.allSongsInPlaylist("aRandom");
+
+
+    std::cout<<numSongs<<std::endl;
+    std::cout<<"Test: "<<randomNum[1]<<std::endl;
+    std::cout<<"Test: "<<randomNum[5]<<std::endl;
+//    std::cout<<"Test: "<<copyLinkedNode->getArtistName()<<std::endl;
+    while(countD<Duration&&countPath<numSongs){
+        std::cout<<countPath<<std::endl;
+//        if(countPath==randomNum[counIndex]){
+//                countD = countD + copyPlaylist.playNext()->getDuration();
+//                newPlaylist.enqueue(copyPlaylist.playNext()->getSongTitle(),copyPlaylist.playNext()->getArtistName(),copyPlaylist.playNext()->getDuration());
+//                counIndex = counIndex + 1;
+//            }
+        countPath = countPath + 1;
+        countD = countD + 1.5;
     }
 
 }

@@ -57,7 +57,7 @@ void testCollectLinkedList(){
     std::cout << "Test-getTitleValue(), find(), PrintAllTitle(): " << std::endl;
     std::cout << songCollection.getTitleValueAt(address1) << std::endl;
     std::cout << songCollection.getTitleValueAt(address2) << std::endl;
-    std::cout << songCollection.getTitleValueAt(address2) << std::endl;
+    std::cout << songCollection.getTitleValueAt(address3) << std::endl;
     std::cout << songCollection.PrintAllTitle() << std::endl;
     std::cout << "---------------------------------------" << std::endl;
 
@@ -77,7 +77,7 @@ void testRandomPlaylist(){
     randomSongCollection.RandomList("RandomA",12.0);
     printAssertEquals(1,randomSongCollection.itemCount());
     std::cout<<randomSongCollection.PrintAllTitle()<<std::endl;
-    //    randomSongCollection.displaySelect("RandomA");
+//    randomSongCollection.displaySelect("RandomA");
 
 
 }

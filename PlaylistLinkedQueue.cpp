@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <cmath>
 #include "PlaylistLinkedQueue.h"
 #include "SongsLinkedNode.h"
 
@@ -140,15 +141,13 @@ void PlaylistLinkedQueue ::ReadFromFile(){
     std::string songTitle, artistName, duration;
 
     std::cout << in.is_open() << std::endl;
-
+    PlaylistLinkedQueue newSonglist = PlaylistLinkedQueue();
     while (!in.eof())
     {
         getline(in, songTitle, '\n');
         getline(in, artistName, '\n');
         getline(in, duration, '\n');
-
-        std::cout << songTitle << " | " << artistName << " | " << duration << std::endl;
-        SongsLinkedNode newSong(songTitle, artistName, std::stod(duration));
+        enqueue(songTitle, artistName, std::stod(duration));
 
     }
 
