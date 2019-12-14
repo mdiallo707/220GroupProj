@@ -5,7 +5,6 @@
 #include <fstream>
 #include <iostream>
 #include "CollectLinkedList.h"
-#include "Inventory.h"
 #include "ArrayLib.h"
 
 /**
@@ -61,6 +60,12 @@ std::string CollectLinkedList::getTitleValueAt(int index){
         throw std::out_of_range("getTitleValueAt");
     }
 }
+/**
+     * gets a address from the list
+     * @param index the location from which to get the address
+     * @return a copy of the address at index
+     * @throws out_of_range exception if index is invalid
+     */
 PlaylistLinkedQueue CollectLinkedList::getAddressValueAt(int index){
 
     CollectLinkedNode* node= front;
@@ -96,10 +101,11 @@ std::string CollectLinkedList::PrintAllTitle(){
     }
     else{
         while(tempNode->getNext()!= nullptr){
-            result+=tempNode->getPlaylistTitle()+", ";
+            double tempDuration = tempNode->getPlaylistLink().calcDuration();
+            result+=tempNode->getPlaylistTitle()+ " - " + std::to_string(tempDuration)+", ";
             tempNode=tempNode->getNext();
         }
-        result+=tempNode->getPlaylistTitle();
+        result+=tempNode->getPlaylistTitle()+ " - " + std::to_string(tempNode->getPlaylistLink().calcDuration());
         result+="}";
         return result;
     }
@@ -174,12 +180,12 @@ int CollectLinkedList::find(std::string playlistTitleIn){
 
 
 /**
- * removes the item at index from the list, and returns a copy of that item
- * @param index the location from which to get the value
- * @post the item at index is removed from the list, everything else is shifted down one
- * @return a copy of the item at index
- * @throws out_of_range exception if index is invalid
- */
+     * removes the item at index from the list, and returns a copy of that item
+     * @param index the location from which to get the value
+     * @post the item at index is removed from the list, everything else is shifted down one
+     * @return a copy of the item at index
+     * @throws out_of_range exception if index is invalid
+     */
 std::string CollectLinkedList::removeValueAt(int index){
     CollectLinkedNode *tempNode = this->front;
     CollectLinkedNode *tempNodeBefore = this->front;
@@ -202,6 +208,9 @@ std::string CollectLinkedList::removeValueAt(int index){
         return itemReturn;
     }
 }
+/**
+     * remove a playlist from the linked list if the playlist is empty
+     */
 void CollectLinkedList::removeEmpty(){
     CollectLinkedNode *tempNode = this->front;
     int countIndex = 1;
@@ -213,6 +222,9 @@ void CollectLinkedList::removeEmpty(){
         countIndex = countIndex +1;
     }
 }
+/**
+     * print out all the songs in all playlist
+     */
 void CollectLinkedList::displayAll(){
     if(currCount!=0) {
         int index = 1;
@@ -226,41 +238,74 @@ void CollectLinkedList::displayAll(){
     }
 
 }
+/**
+ * print out songs from the playlist choose
+ * @param playlistTitleIn
+ */
 void CollectLinkedList::displaySelect(std::string playlistTitleIn){
     std::string SongsList;
     int address = find(playlistTitleIn);
     getAddressValueAt(address).allSongsInPlaylist(SongsList);
 }
 
-
+/**
+ * get a random list with songs that are not repeat and in require duration
+     * @param playlistTitleIn
+     * @param Duration the total duation in a playlist
+     */
 void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
+    //initialize counting number
+    double countD = 0.0;//count the total duration
+    int counIndex = 0;//count the index in random arraylist
+    int numSongs=0;//count how many songs
+    int countPath = 1;//#of root
 
-//    CollectLinkedNode *tempNode = this->front;
-//    int numSongs=0;
-//    double countD = 0.0;
-//    int randNum = rand()% 9;
-//    int counIndex = 0;
-//
-//    //calculate songs
-//    std::ifstream in;
-//    in.open("ListofSongs.txt") ;
-//    std::string songTitle, artistName, duration;
-//    while (!in.eof())
-//    {
-//        getline(in, songTitle, '\n');
-//        getline(in, artistName, '\n');
-//        getline(in, duration, '\n');
-//        numSongs = numSongs + 1;
-//    }
-//
-//    //get a random array of number
-//
-//    int randomNum;
-//    randomNum = genRandArray(numSongs, 0, numSongs);
-//
-//    PlaylistLinkedQueue randomList;
-//    randomList.ReadFromFile();
+    //calculate how many songs
+    std::ifstream openFile ("ListofSongs.txt");
+    std::string countTitle = "", countName = "", countDuration = "";
+    if (openFile.is_open()){
 
+        while (!openFile.eof())
+        {
+            getline(openFile, countTitle,'\n');
+            getline(openFile, countName,'\n');
+            getline(openFile, countDuration,'\n');
+            numSongs = numSongs + 1;
+        }
+        openFile.close();
+    }else{
+        throw std::out_of_range("RandomList: Files not open");
+    }
+
+
+    //get a random array of number
+    int* randomNum = genShuffledArray(numSongs);
+
+    //creat a playlist
+    PlaylistLinkedQueue randomPlaylist = PlaylistLinkedQueue();
+
+    //copy
+    while(countD<Duration&&countPath<numSongs){
+        PlaylistLinkedQueue copyPlaylist = PlaylistLinkedQueue();
+        copyPlaylist.ReadFromFile();
+        SongsLinkedNode* frontPtr = copyPlaylist.returnBegin();
+
+        int count = 1;//count num
+        while(count!=randomNum[counIndex]){
+            frontPtr = frontPtr->getNext();
+            count = count+1;
+        }
+        countD = countD + frontPtr->getDuration();
+        if(countD<Duration){
+            randomPlaylist.enqueue(frontPtr->getSongTitle(),frontPtr->getArtistName(),frontPtr->getDuration());
+        }
+        //count
+        counIndex = counIndex + 1;
+        countPath = countPath + 1;
+    }
+
+    //Add to collection of playlists
+    addPlaylist(playlistTitleIn,randomPlaylist);
 
 }
 

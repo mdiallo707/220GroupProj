@@ -15,14 +15,14 @@
 
 class PlaylistLinkedQueue: public PlayList {
 private:
+
     SongsLinkedNode* front;
     SongsLinkedNode* end;
 
 
 
-
 public:
-    
+
     //Creates an empty playlist queue
     PlaylistLinkedQueue();
 
@@ -36,7 +36,7 @@ public:
     std::string  removeSong(std::string plName, std::string artistName, std::string songTitle);
 
     std::string dequeue();
-
+    SongsLinkedNode* returnBegin();
 
     //returns true if the playlist queue has no songs, false otherwise
     bool isEmpty();

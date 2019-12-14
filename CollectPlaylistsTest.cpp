@@ -57,7 +57,7 @@ void testCollectLinkedList(){
     std::cout << "Test-getTitleValue(), find(), PrintAllTitle(): " << std::endl;
     std::cout << songCollection.getTitleValueAt(address1) << std::endl;
     std::cout << songCollection.getTitleValueAt(address2) << std::endl;
-    std::cout << songCollection.getTitleValueAt(address2) << std::endl;
+    std::cout << songCollection.getTitleValueAt(address3) << std::endl;
     std::cout << songCollection.PrintAllTitle() << std::endl;
     std::cout << "---------------------------------------" << std::endl;
 
@@ -73,22 +73,22 @@ void testCollectLinkedList(){
 }
 
 void testRandomPlaylist(){
-
-//    //count songs
-//    int numsongs =
-//    //get a random lists
-//    double count = 0.0;
-//    int random = rand()% numSong;
-//    while (count + random < Duration){
-//        random = rand()% numSong;
-//
-//    }
+    std::cout << "Test-getRandom() " << std::endl;
+    CollectLinkedList randomSongCollection;
+    randomSongCollection.RandomList("RandomA",9.0);
+    std::cout << "less than 9 :"<<randomSongCollection.PrintAllTitle()<<std::endl;
+    randomSongCollection.displaySelect("RandomA");
+    std::cout << "---------------------------------------" << std::endl;
+    CollectLinkedList randomSongCollection2;
+    randomSongCollection2.RandomList("RandomB",15.8);
+    std::cout <<"less than 15.5 :"<<randomSongCollection2.PrintAllTitle()<<std::endl;
+    randomSongCollection2.displaySelect("RandomB");
 
 
 }
 int main(){
     testCollectLinkedList();
-//    testRandomPlaylist();
+    testRandomPlaylist();
     return 0;
 }
 

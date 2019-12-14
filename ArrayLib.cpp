@@ -21,31 +21,26 @@ int genRandInt(int min, int max, int& numLinesRun){
 
 
 }
-int* genRandArray(int size, int min, int max, int& numLinesRun){
+int* genRandArray(int size, int min, int max){
     int* array = new int[size];
-    (numLinesRun)+= 6;//parameters+array+ if statement
+
     if (size<1){
-        (numLinesRun)+= 1;//return
+
         return nullptr;
     }
     else{
-        (numLinesRun)+= 1;//if loop
+
         if (min<max){
-            (numLinesRun)+= 2;//for loop
+
             for (int i = 0; i<size;i++){
-                (numLinesRun)+= 3;
                 array[i]=rand()%(max-min+1)+min;
             }
-            (numLinesRun)+= 1;//return
             return array;
         }
         else{
-            (numLinesRun)+= 2;//for loop
             for (int i = 0; i<size;i++){
-                (numLinesRun)+= 3;
                 array[i]=rand()%(min-max+1)+max;
             }
-            (numLinesRun)+= 1;//return
             return array;
         }
     }
@@ -70,24 +65,23 @@ std::string toString(const int* arrayPtr, int size){
 }
 
 
-int find(const int* arrayPtr, int size, int numToFind, int& numLinesRun){
-    (numLinesRun)+= 5;//parameters + if statement
+int find(const int* arrayPtr, int size, int numToFind){
     if(size<1){
-        (numLinesRun)+= 1;//return
+
         return -1;
     } else{
-        (numLinesRun)+= 2;//while
+
         int num=0;
         while(num<size-1 && arrayPtr[num]!=numToFind){
             num++;
-            (numLinesRun)+= 2;
+
         }
-        (numLinesRun)+= 1;//if
+
         if(arrayPtr[num]==numToFind){
-            (numLinesRun)+= 1;//return
+
             return num;
         } else{
-            (numLinesRun)+= 1;//return
+
             return -1;
         }
 
@@ -159,43 +153,28 @@ int* copyArray(const int* arrayToCopy, int size, int& numLinesRun){
 }
 
 
-int* genShuffledArray(int size, int& numLinesRun){
-    (numLinesRun)+= 3;
+int* genShuffledArray(int size){
     if (size < 1){
-        (numLinesRun)+= 1;
         return nullptr;
     } else {
-        (numLinesRun) += 4;
         int *aList = new int[size];
         int *bList = new int[size];
         for (int x = 0; x < size; x++) {
-            (numLinesRun) += 3;
-            bList[x] = x + 1;
+            bList[x] = x;
         }
-        (numLinesRun) += 2;
         for (int y = 0; y < size; y++) {
-            (numLinesRun) += 4;
-            aList[y] = rand() % size + 1;
-            while (find(bList, size, aList[y], numLinesRun) == -1) {
-                aList[y] = rand() % size + 1;
-                (numLinesRun) += 2;
+            aList[y] = rand() % size;
+            while (find(bList, size, aList[y]) == -1) {
+                aList[y] = rand() % size;
             }
-            (numLinesRun) += 1;
-            while (find(bList, size, aList[y], numLinesRun) != -1) {
-                (numLinesRun) += 2;
+            while (find(bList, size, aList[y]) != -1) {
                 for (int z = 0; z < size; z++) {
-                    (numLinesRun) += 1;//if
                     if (bList[z] == aList[y]) {
-                        (numLinesRun) += 1;
                         bList[z] = -1;
                     }
-                    (numLinesRun) += 2;//for
                 }
-                (numLinesRun) += 1;//while
             }
         }
-
-        (numLinesRun) += 1;
         return aList;
     }
 }
@@ -217,24 +196,24 @@ int countOccurrences(const int* arrayPtr, int size, int numToFind, int& numLines
 }
 
 
-void sort(int* arrayToSort, int size, int& numLinesRun){
-    (numLinesRun)+= 5;//parameters + num +minIndex
+void sort(int* arrayToSort, int size){
+
     int num;
     int minIndex;
-    (numLinesRun)+= 2;//for
+
     for(int i = 0; i < size-1 ; i++){
-        (numLinesRun)+= 5;//for
+
         minIndex = i;
         for(int y = i+1; y < size;y++) {
-            (numLinesRun)+= 3;//for + if
+
             if (arrayToSort[y]<arrayToSort[minIndex]) {
-                (numLinesRun)+= 1;
+
                 minIndex = y;
             }
         }
-        (numLinesRun)+= 1;//if
+
         if(minIndex!=i){
-            (numLinesRun)+= 3;
+
             num = arrayToSort[minIndex];
             arrayToSort[minIndex] = arrayToSort[i];
             arrayToSort[i] = num;

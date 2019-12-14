@@ -24,7 +24,7 @@ int genRandInt(int min, int max, int& numLinesRun);
  * @post numLinesRun is updated to add the number of lines run by this function
  * @return a pointer to the array, which must be deleted by the user, or nullptr if size < 1
  */
-int* genRandArray(int size, int min, int max, int& numLinesRun);
+int* genRandArray(int size, int min, int max);
 
 /**
  * creates a string representation of an int array for easy printing
@@ -40,7 +40,7 @@ std::string toString(const int* arrayPtr, int size);
  * @post numLinesRun is updated to add the number of lines run by this function
  * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
  */
-int find(const int* arrayPtr, int size, int numToFind, int& numLinesRun);
+int find(const int* arrayPtr, int size, int numToFind);
 
 /**
  * Searches an int array for a certain value
@@ -65,13 +65,13 @@ int findMaxIndex(const int* arrayPtr, int size, int& numLinesRun);
 int* copyArray(const int* arrayToCopy, int size, int& numLinesRun);
 
 /**
- * Generates an array with all values 1 through size occurring once each, shuffled in random order
+ * Generates an array with all values 0 through size occurring once each, shuffled in random order
  * example: genShuffledArray(5) might yield {2, 1, 4, 5, 3}
  * @pre srand must be called once before this function is used the first time
  * @post numLinesRun is updated to add the number of lines run by this function
  * @return a pointer to the array, which must be deleted by the user, or nullptr if size < 1
  */
-int* genShuffledArray(int size, int& numLinesRun);
+int* genShuffledArray(int size);
 
 /**
  * Counts the number of times a certain value occurs within an array
@@ -84,7 +84,7 @@ int countOccurrences(const int* arrayPtr, int size, int numToFind, int& numLines
  * @post numLinesRun is updated to include lines run by this function
  * @post the array is sorted in ascending order (from min to max values)
  */
-void sort(int* arrayToSort, int size, int& numLinesRun);
+void sort(int* arrayToSort, int size);
 
 /**
  * uses binary search on an int array for a certain value

@@ -13,8 +13,6 @@
 PlaylistLinkedQueue::PlaylistLinkedQueue(){
     front = nullptr;
     end = nullptr;
-
-
 }
 
 
@@ -83,6 +81,11 @@ SongsLinkedNode* PlaylistLinkedQueue::playNext(){
 
 }
 
+SongsLinkedNode* PlaylistLinkedQueue::returnBegin(){
+    SongsLinkedNode* copyFront = front;
+    return copyFront;
+}
+
 void PlaylistLinkedQueue::playNextSong(std::string plName) {
     SongsLinkedNode *current = this->front;
     current = current->getNext();
@@ -139,17 +142,16 @@ void PlaylistLinkedQueue ::  allSongsInPlaylist(std::string namePL){
 void PlaylistLinkedQueue ::ReadFromFile(){
     std::ifstream in;
     in.open("ListofSongs.txt") ;
-
     std::string songTitle, artistName, duration;
 
+//    std::cout << in.is_open() << std::endl;
+    PlaylistLinkedQueue newSonglist = PlaylistLinkedQueue();
     while (!in.eof())
     {
         getline(in, songTitle, '\n');
         getline(in, artistName, '\n');
         getline(in, duration, '\n');
-
-
-        SongsLinkedNode newSong(songTitle, artistName, std::stod(duration));
+        enqueue(songTitle, artistName, std::stod(duration));
 
     }
 

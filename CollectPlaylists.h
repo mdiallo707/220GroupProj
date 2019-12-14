@@ -34,21 +34,19 @@ public:
     virtual bool isEmpty() = 0;
 
     /**
-     * display all the songs - title and duration
+     * display all the songs - title, author, and duration
      */
     virtual void displayAll() = 0;
 
     /**
-     * display selected playlist - song title and duration
+     * display selected playlist - song title, author, and duration
      */
     virtual void displaySelect(std::string playlistTitleIn) = 0;
 
     /**
-     * clear entire playlist
+     * clear entire collection of playlists
      */
     virtual void clearList() = 0;
-
-
 
     /**
      * remove a playlist if it's empty
@@ -57,7 +55,7 @@ public:
 
 
     /**
-     * create a random list with random songs in other list
+     * create a random list with random songs from other playlist
      * @param listName
      */
     virtual void RandomList(std::string playlistTitleIn, double Duration) = 0;
