@@ -1,7 +1,6 @@
 //
 // Created by emurray2 on 12/8/2019.
 //
-#include "UserInfo.h"
 #include "PlaylistLinkedQueue.h"
 #include "Inventory.h"
 #include "CollectLinkedList.h"
@@ -13,8 +12,7 @@
 
 class UserInterface {
 private:
-    std::string  userName;
-    std::string firstName;
+
     PlaylistLinkedQueue userPlaylist;
     Inventory userInventory;
     CollectLinkedList userCollection;
@@ -23,14 +21,8 @@ private:
 public:
     UserInterface();
     void Interface();
-    void collectionInterface();
-    void playListInterface();
-    void inventoryInterface();
     void commandsDJ();
-    UserInfo  createAccount();
-    void test();
     void help();
-    bool availableUserName(); // check if a given userName is availible;
     void add(); // add song
     void clear(); // clear inventory
     void deleteStuff(); // delete songs

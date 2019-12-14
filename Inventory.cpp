@@ -72,7 +72,7 @@ void Inventory::check() {
     while(temp!= nullptr){
 
 
-        cout<<temp->getArtistName()+"  "+ temp->getSongTitle()<<endl;
+        cout<<temp->getArtistName();
         //count=count+1;
         count=count+1;
         temp=temp->getNext();
