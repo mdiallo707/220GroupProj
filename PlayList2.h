@@ -82,6 +82,8 @@ public:
     void addSongEnd(std::string playListName, std::string artistName, std::string songTitle);
 
     void ReadFromFile(std::string playListName);
+
+    std::string getPlayListName();
 };
 
 
