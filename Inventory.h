@@ -30,7 +30,7 @@ public:
     void play();
     void  displayInventory();
     void time();
-    void check();
+    void currentSongs();
     int countSongs();
     void particularArtist(std::string);
     void removeSong(std:: string artistName,std::string sogName);
