@@ -78,6 +78,7 @@ void PlaylistLinkedQueue::removeSong(std::string songTitle, std::string artistNa
             while (front!= nullptr) {
                 if(front->getSongTitle()== songTitle && front->getArtistName()== artistName && front->getDuration()==songDuration){
                     num = num + 1;
+
                 }else{
                     newCopy.enqueue(front->getSongTitle(),front->getArtistName(),front->getDuration());
                 }
@@ -108,16 +109,16 @@ SongsLinkedNode* PlaylistLinkedQueue::returnBegin(){
 
 //prints the next song information, then that song is deleted
 void PlaylistLinkedQueue::playNextSong(std::string plName) {
-    SongsLinkedNode *current = this->front;
-    current = current->getNext();
+    while (front->getNext() != nullptr){
+        SongsLinkedNode *current = this->front;
+        current = current->getNext();
 
-    std::cout << plName + "next song" << std::endl;
+        std::cout << plName + "next song: " << std::endl;
 
-    current->printSongs();
-    front->getNext();
-    dequeue();
-
-
+        current->printSongs();
+        front->getNext();
+        dequeue();
+    }
 }
 ///Liz: This  class in particular needs PlayListLinkedQueue to have a name to go into a specific
 ///playlist not just anything

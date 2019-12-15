@@ -81,14 +81,9 @@ void PlayNextSongsTest(){
     playList1.enqueue("Fruit2", "Abra2", 5.41);
     playList1.enqueue("Fruit3", "Abra3", 5.41);
     if (!playList1.isEmpty()) {
-        playList1.allSongsInPlaylist(weekendVibe);
         playList1.playNextSong(weekendVibe);
-        playList1.allSongsInPlaylist(weekendVibe);
         playList1.playNextSong(weekendVibe);
-        playList1.allSongsInPlaylist(weekendVibe);
-        playList1.playNextSong(weekendVibe);
-        playList1.allSongsInPlaylist(weekendVibe);
-
+//        playList1.playNextSong(weekendVibe);
     }
     else {
 
@@ -111,10 +106,10 @@ void WriteToFileTest(){
 
 
 int main() {
-//    EnqueueAndCalcDurationTest( );
+    EnqueueAndCalcDurationTest( );
     RemoveSongsTest();
-//    AllSongsInPlaylistTest();
+    AllSongsInPlaylistTest();
 //    WriteToFileTest();
-//    PlayNextSongsTest();
+    PlayNextSongsTest();
 
 }
