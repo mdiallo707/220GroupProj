@@ -315,6 +315,7 @@ void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration)
 
         //Add to collection of playlists
         addPlaylist(playlistTitleIn,randomPlaylist);
+        currCount = currCount+1;
     }
 
 
