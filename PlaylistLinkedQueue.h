@@ -82,6 +82,10 @@ public:
 
 
     void allSongsInPlaylist2();
+
+    void addSongEnd();
+
+    void addSongEnd(std::string playListName, std::string artistName, std::string songTitle);
 };
 
 #endif //STACKSANDQUEUES_QUEUE_H
