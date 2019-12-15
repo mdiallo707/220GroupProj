@@ -22,9 +22,7 @@ int main() {
 //check.addSong("Waterhouse","fjfjf",10);
 //check.check();();
 cout<<"here";
-PlaylistLinkedQueue test;
-test.ReadFromFile();
-test.allSongsInPlaylist2();
+PlayList testPlayList("testPlayLIst");
 
 }
 

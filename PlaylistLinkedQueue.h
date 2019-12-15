@@ -9,11 +9,9 @@
 #include <string>
 #include <stdexcept>
 #include "SongsLinkedNode.h"
-#include "PlayList.h"
 
 
-
-class PlaylistLinkedQueue: public PlayList {
+class PlaylistLinkedQueue {
 private:
 
     PlaylistLinkedQueue(std::string playListName);
