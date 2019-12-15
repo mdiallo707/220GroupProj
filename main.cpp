@@ -20,10 +20,8 @@ int main() {
 //check.addSong("Bey","djdjjd",6.5);
 //check.addSong("Suki","dkdkdk",10);
 //check.addSong("Waterhouse","fjfjf",10);
-//check.check();
-
+//check.check();();
 cout<<"here";
-
 
 }
 

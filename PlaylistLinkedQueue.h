@@ -16,8 +16,11 @@
 class PlaylistLinkedQueue: public PlayList {
 private:
 
+    PlaylistLinkedQueue(std::string playListName);
+
     SongsLinkedNode* front;
     SongsLinkedNode* end;
+    std::string playListName;
 
 
 
