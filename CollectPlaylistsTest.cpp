@@ -70,6 +70,7 @@ void testCollectLinkedList(){
     songCollection.displaySelect("songA");
     std::cout << "---------------------------------------" << std::endl;
 
+
 }
 
 void testRandomPlaylist(){
