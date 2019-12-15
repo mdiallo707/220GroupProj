@@ -79,7 +79,7 @@ public:
     * Write new user inputs to song file
     * @post the file has an additional value in it, at the end
     */
-   void WriteToFile();
+   void WriteToFile(std::string songToAdd, std::string artistToAdd, std::string slToAdd);
 
 
     void allSongsInPlaylist2();
