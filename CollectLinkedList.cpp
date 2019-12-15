@@ -280,6 +280,8 @@ void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration)
 
     //get a random array of number
     int* randomNum = genShuffledArray(numSongs);
+//    std::cout<<"Random list: "<<toString(randomNum,numSongs)<<std::endl;
+
 
     //creat a playlist
     PlaylistLinkedQueue randomPlaylist = PlaylistLinkedQueue();
