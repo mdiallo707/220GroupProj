@@ -32,8 +32,7 @@ public:
   * throws out_of_range exception if the playlist is empty
   * removes song item
   */
-    virtual std::string  removeSong(std::string plName, std::string artistName, std::string songTitle)=0;
-    virtual  std::string dequeue()=0;
+    virtual void removeSong(std::string songTitle, std::string artistName, double songDuration)=0;    virtual  std::string dequeue()=0;
 
 
 /**

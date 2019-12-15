@@ -55,23 +55,41 @@ std::string PlaylistLinkedQueue::dequeue(){
     }
 
 }
-std::string PlaylistLinkedQueue::removeSong(std::string plName, std::string artistName, std::string songTitle) {
-    std::cout<<plName +" "+artistName+" " +songTitle +" "+"deleting song from playlist"<<std::endl;
+
+void PlaylistLinkedQueue::removeSong(std::string songTitle, std::string artistName, double songDuration) {
+    std::cout<<" "+artistName+" " +songTitle +" " + to_string(songDuration)+" deleting song from playlist"<<std::endl;
     if( isEmpty()){
         throw std::out_of_range("queue is empty");
     }
     else {
-        if(front == end){
-            end = nullptr;
+        std::string itemReturn;
+        if(front->getSongTitle()==songTitle && front->getArtistName()==artistName && front->getDuration()==songDuration){
+            if(front==end){
+                front= nullptr;
+            }else{
+                front=front->getNext();
+            }
+        }else {
+            //copy the entire song list
+            SongsLinkedNode* copyNode = this->front;
+            PlaylistLinkedQueue newCopy = PlaylistLinkedQueue();
+
+            int num = 0;
+            while (front!= nullptr) {
+                if(front->getSongTitle()== songTitle && front->getArtistName()== artistName && front->getDuration()==songDuration){
+                    num = num + 1;
+                }else{
+                    newCopy.enqueue(front->getSongTitle(),front->getArtistName(),front->getDuration());
+                }
+                front = front->getNext();
+            }
+//            std::string check;
+//            newCopy.allSongsInPlaylist(check);
+            this->front = newCopy.front;
+            this->end = newCopy.end;
+
         }
-        std::string str=front->getSongTitle();
-        SongsLinkedNode *newNode = front;
-        front = newNode->getNext();
-        delete newNode;
-        return str;
     }
-
-
 }
 
 //returns true if the queue has no items, false otherwise

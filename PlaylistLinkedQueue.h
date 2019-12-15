@@ -37,8 +37,7 @@ public:
     //takes an item off the front of the playlist queue and returns it
     //throws out_of_range exception if the queue is empty
 
-    std::string  removeSong(std::string plName, std::string artistName, std::string songTitle);
-
+    void removeSong(std::string songTitle, std::string artistName, double songDuration);
     std::string dequeue();
     SongsLinkedNode* returnBegin();
 

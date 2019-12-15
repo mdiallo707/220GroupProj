@@ -62,7 +62,9 @@ void RemoveSongsTest(){
     playList1.enqueue("Fruit3", "Abra3", 5.41);
     if (!playList1.isEmpty()) {
         playList1.allSongsInPlaylist(weekendVibe);
-        playList1.removeSong(weekendVibe,"Abra","Fruit");
+        std::cout << "----------------" << std::endl;
+        playList1.removeSong("Fruit2","Abra2",5.41);
+        std::cout << "----------------" << std::endl;
         playList1.allSongsInPlaylist(weekendVibe);
 
     } else {
@@ -109,10 +111,10 @@ void WriteToFileTest(){
 
 
 int main() {
-    EnqueueAndCalcDurationTest( );
+//    EnqueueAndCalcDurationTest( );
     RemoveSongsTest();
-    AllSongsInPlaylistTest();
-    WriteToFileTest();
+//    AllSongsInPlaylistTest();
+//    WriteToFileTest();
 //    PlayNextSongsTest();
 
 }
