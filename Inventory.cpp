@@ -75,7 +75,7 @@ void Inventory::particularAS(std::string artistName,string songtitle) {
 }
 
 
-void Inventory::check() {
+void Inventory::currentSongs() {
     count=0;
     // can  be used for display and to check alphabetical order
     SongsLinkedNode*temp=front;
