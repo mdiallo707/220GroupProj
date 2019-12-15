@@ -16,7 +16,17 @@ Inventory::Inventory(){
     int count=0;
 
 }
-
+void Inventory::particularSong(string artistName,string songTitle) {
+    Songs*temp=front;
+    while(temp!=nullptr){
+        if(temp->getArtistName()==artistName&temp->getSongName()==songTitle){
+            cout<<temp->getArtistName()+" "+ temp->getSongName()<<endl;
+            cout<<"The length of the song is";
+            cout<<temp->getDuration();
+        }
+        temp=temp->getNext();
+    }
+}
 void Inventory::clearLibrary(){
     if(front!=end){
         SongsLinkedNode*newNode=front;
@@ -29,7 +39,7 @@ void Inventory::clearLibrary(){
 
 }
 
-void Inventory::addSong(std::string artistName,std::string title, double duration){
+void Inventory::addSong(std::string artistName,std::string title){
     SongsLinkedNode* newNode = new SongsLinkedNode (artistName,title,duration);
     SongsLinkedNode*temp=front;
     if (front == nullptr){

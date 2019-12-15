@@ -29,6 +29,7 @@ void UserInterface::help() {
     }
     else if(answer=="playlist<name>"){
         // the amount of songs in a particular playlists and the amount of time required for all the songs
+        userCollection.displayAll()
     }
     else if(answer=="new <name>"){
     }

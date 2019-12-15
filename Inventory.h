@@ -18,12 +18,13 @@ private:
     int count;
 public:
     Inventory();
+    void particularSong(string artistName,string songTitle);
     std::string artistAllSongs(std::string artistName);
     void particularAS(string artist,string songTitle);
     void getSongInfo();
     std::string endVal();
     //this will give you the object
-    void addSong(std::string artistName,std::string songTitle,double duration);
+    void addSong(std::string artistName,std::string songTitle);
     void deleteSong(std::string artistName, std::string songName);
     void clearLibrary();
     void play();

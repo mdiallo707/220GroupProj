@@ -7,6 +7,7 @@
 #include <iostream>
 #include "PlaylistLinkedQueue.h"
 #include "SongsLinkedNode.h"
+using namespace std;
 
 
 //Creates an empty playlist queue
@@ -98,6 +99,13 @@ void PlaylistLinkedQueue::playNextSong(std::string plName) {
 
 
 }
+///Liz: This  class in particular needs PlayListLinkedQueue to have a name to go into a specific
+///playlist not just anything
+///the parameters are based off of the addCommand
+void PlaylistLinkedQueue::addSongEnd(string playListName,string artistName,string songTitle ){
+
+    enqueue(songTitle,artistName,5);
+}
 
 
 
@@ -124,6 +132,8 @@ double PlaylistLinkedQueue ::  calcDuration() {
     */
 
 void PlaylistLinkedQueue ::  allSongsInPlaylist(std::string namePL){
+    ///Playlist needs a property name for this to apply to a specific playlist-liz
+    ///the string is just being used to print
     SongsLinkedNode* current=this->front;
     int x=1;
     std::cout<<namePL+"full playlist"<<std::endl;
