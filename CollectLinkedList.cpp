@@ -254,13 +254,15 @@ void CollectLinkedList::displaySelect(std::string playlistTitleIn){
      * @param Duration the total duation in a playlist
      */
 void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
-    //initialize counting number
+
 
     PlaylistLinkedQueue testPlaylist = PlaylistLinkedQueue();
     testPlaylist.ReadFromFile();
-    if(testPlaylist.calcDuration()<Duration){
-        throw std::out_of_range("RandomList: Duration too long");
+    //check error if duration enter is longer than all the songs duration in library
+    if(testPlaylist.calcDuration()<Duration||Duration<0){
+        throw std::out_of_range("RandomList: Duration too long/negative");
     }else{
+        //initialize counting number
         double countD = 0.0;//count the total duration
         int counIndex = 0;//count the index in random arraylist
         int numSongs=0;//count how many songs

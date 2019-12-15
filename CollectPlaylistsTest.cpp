@@ -84,8 +84,6 @@ void testRandomPlaylist(){
     randomSongCollection2.RandomList("RandomB",15.8);
     std::cout <<"less than 15.5 :"<<randomSongCollection2.PrintAllTitle()<<std::endl;
     randomSongCollection2.displaySelect("RandomB");
-
-
 }
 int main(){
     testCollectLinkedList();
