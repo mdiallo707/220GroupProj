@@ -255,59 +255,66 @@ void CollectLinkedList::displaySelect(std::string playlistTitleIn){
      */
 void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration){
     //initialize counting number
-    double countD = 0.0;//count the total duration
-    int counIndex = 0;//count the index in random arraylist
-    int numSongs=0;//count how many songs
-    int countPath = 1;//#of root
 
-    //calculate how many songs
-    std::ifstream openFile ("ListofSongs.txt");
-    std::string countTitle = "", countName = "", countDuration = "";
-    if (openFile.is_open()){
-
-        while (!openFile.eof())
-        {
-            getline(openFile, countTitle,'\n');
-            getline(openFile, countName,'\n');
-            getline(openFile, countDuration,'\n');
-            numSongs = numSongs + 1;
-        }
-        openFile.close();
+    PlaylistLinkedQueue testPlaylist = PlaylistLinkedQueue();
+    testPlaylist.ReadFromFile();
+    if(testPlaylist.calcDuration()<Duration){
+        throw std::out_of_range("RandomList: Duration too long");
     }else{
-        throw std::out_of_range("RandomList: Files not open");
-    }
+        double countD = 0.0;//count the total duration
+        int counIndex = 0;//count the index in random arraylist
+        int numSongs=0;//count how many songs
+        int countPath = 1;//#of root
 
+        //calculate how many songs
+        std::ifstream openFile ("ListofSongs.txt");
+        std::string countTitle = "", countName = "", countDuration = "";
+        if (openFile.is_open()){
 
-    //get a random array of number
-    int* randomNum = genShuffledArray(numSongs);
+            while (!openFile.eof())
+            {
+                getline(openFile, countTitle,'\n');
+                getline(openFile, countName,'\n');
+                getline(openFile, countDuration,'\n');
+                numSongs = numSongs + 1;
+            }
+            openFile.close();
+        }else{
+            throw std::out_of_range("RandomList: Files not open");
+        }
+
+        //get a random array of number
+        int* randomNum = genShuffledArray(numSongs);
 //    std::cout<<"Random list: "<<toString(randomNum,numSongs)<<std::endl;
 
 
-    //creat a playlist
-    PlaylistLinkedQueue randomPlaylist = PlaylistLinkedQueue();
+        //creat a playlist
+        PlaylistLinkedQueue randomPlaylist = PlaylistLinkedQueue();
 
-    //copy
-    while(countD<Duration&&countPath<numSongs){
-        PlaylistLinkedQueue copyPlaylist = PlaylistLinkedQueue();
-        copyPlaylist.ReadFromFile();
-        SongsLinkedNode* frontPtr = copyPlaylist.returnBegin();
+        //copy
+        while(countD<Duration&&countPath<numSongs){
+            PlaylistLinkedQueue copyPlaylist = PlaylistLinkedQueue();
+            copyPlaylist.ReadFromFile();
+            SongsLinkedNode* frontPtr = copyPlaylist.returnBegin();
 
-        int count = 1;//count num
-        while(count!=randomNum[counIndex]){
-            frontPtr = frontPtr->getNext();
-            count = count+1;
+            int count = 1;//count num
+            while(count!=randomNum[counIndex]){
+                frontPtr = frontPtr->getNext();
+                count = count+1;
+            }
+            countD = countD + frontPtr->getDuration();
+            if(countD<Duration){
+                randomPlaylist.enqueue(frontPtr->getSongTitle(),frontPtr->getArtistName(),frontPtr->getDuration());
+            }
+            //count
+            counIndex = counIndex + 1;
+            countPath = countPath + 1;
         }
-        countD = countD + frontPtr->getDuration();
-        if(countD<Duration){
-            randomPlaylist.enqueue(frontPtr->getSongTitle(),frontPtr->getArtistName(),frontPtr->getDuration());
-        }
-        //count
-        counIndex = counIndex + 1;
-        countPath = countPath + 1;
+
+        //Add to collection of playlists
+        addPlaylist(playlistTitleIn,randomPlaylist);
     }
 
-    //Add to collection of playlists
-    addPlaylist(playlistTitleIn,randomPlaylist);
 
 }
 
