@@ -21,6 +21,7 @@ private:
     SongsLinkedNode* front;
     SongsLinkedNode* end;
     std::string playListName;
+    double duration;
 
 
 
