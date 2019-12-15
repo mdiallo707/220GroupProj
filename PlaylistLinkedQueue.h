@@ -16,8 +16,11 @@
 class PlaylistLinkedQueue: public PlayList {
 private:
 
+    PlaylistLinkedQueue(std::string playListName);
+
     SongsLinkedNode* front;
     SongsLinkedNode* end;
+    std::string playListName;
 
 
 
@@ -78,9 +81,7 @@ public:
    void WriteToFile();
 
 
-
-
-
+    void allSongsInPlaylist2();
 };
 
 #endif //STACKSANDQUEUES_QUEUE_H
