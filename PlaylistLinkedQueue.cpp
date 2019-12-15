@@ -88,6 +88,7 @@ SongsLinkedNode* PlaylistLinkedQueue::returnBegin(){
     return copyFront;
 }
 
+//prints the next song information, then that song is deleted
 void PlaylistLinkedQueue::playNextSong(std::string plName) {
     SongsLinkedNode *current = this->front;
     current = current->getNext();
@@ -149,7 +150,7 @@ void PlaylistLinkedQueue ::  allSongsInPlaylist(std::string namePL){
 
 }
 
-
+//Reads the ListofSongs.txt file
 void PlaylistLinkedQueue ::ReadFromFile(){
     std::ifstream in;
     in.open("ListofSongs.txt") ;
@@ -168,7 +169,7 @@ void PlaylistLinkedQueue ::ReadFromFile(){
 
 
 }
-
+//Writes to the ListofSongs.txt file
 void PlaylistLinkedQueue :: WriteToFile(std::string songToAdd, std::string artistToAdd, std::string slToAdd){
     //test if it's in library
     std::ifstream in;
