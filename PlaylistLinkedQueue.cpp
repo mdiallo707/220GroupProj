@@ -14,6 +14,7 @@ using namespace std;
 PlaylistLinkedQueue::PlaylistLinkedQueue(){
     front = nullptr;
     end = nullptr;
+    double duration;
 }
 
 
