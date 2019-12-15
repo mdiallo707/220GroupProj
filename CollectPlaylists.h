@@ -6,7 +6,6 @@
 #define PROJECT_COLLPLAYLISTS_H
 #include <string>
 #include <stdexcept>
-#include "PlayList.h"
 #include "PlaylistLinkedQueue.h"
 
 

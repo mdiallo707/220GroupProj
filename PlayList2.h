@@ -8,7 +8,7 @@
 
 #include "Songs.h"
 
-class PlayList {
+class PlayList2 {
 
 private:
 
@@ -22,7 +22,7 @@ private:
 public:
 
     //Creates an empty playlist queue
-    PlayList(std::string playListName);
+    PlayList2(std::string playListName);
 
 
     //adds a song to the end of the playlist queue

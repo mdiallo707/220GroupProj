@@ -14,7 +14,6 @@
 class PlaylistLinkedQueue {
 private:
 
-    PlaylistLinkedQueue(std::string playListName);
 
     SongsLinkedNode* front;
     SongsLinkedNode* end;
