@@ -2,11 +2,12 @@
 // Created by emurray2 on 12/15/2019.
 //
 
-#ifndef INC_220_32_IO_PLAYLIST_H
-#define INC_220_32_IO_PLAYLIST_H
+#ifndef INC_220_32_IO_PLAYLIST2_H
+#define INC_220_32_IO_PLAYLIST2_H
 
 
 #include "Songs.h"
+
 
 class PlayList2 {
 
@@ -78,14 +79,13 @@ public:
     void allSongsInPlaylist2();
 
     void addSongEnd();
+    std::string getPlayListName();
 
     void addSongEnd(std::string playListName, std::string artistName, std::string songTitle);
 
     void ReadFromFile(std::string playListName);
-
-    std::string getPlayListName();
 };
 
 
 
-#endif //INC_220_32_IO_PLAYLIST_H
+#endif //INC_220_32_IO_PLAYLIST2_H

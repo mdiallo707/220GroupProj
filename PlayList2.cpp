@@ -13,7 +13,9 @@ PlayList2::PlayList2(std::string playListName){
     double duration;
 }
 
-
+string PlayList2::getPlayListName() {
+    return this->playListName;
+}
 //adds a song to the end of the queue
 void PlayList2::enqueue(std::string songToAdd, std::string artistToAdd, double slToAdd){
     Songs* newNode = new Songs(artistToAdd,  songToAdd,  slToAdd);
