@@ -96,6 +96,15 @@ void PlayNextSongsTest(){
 
 }
 
+void WriteToFileTest(){
+    PlaylistLinkedQueue testFile = PlaylistLinkedQueue();
+    testFile.WriteToFile("SongA","authorA","2.33");
+    testFile.WriteToFile("SongB","authorB","3.33");
+    testFile.WriteToFile("SongC","authorC","3.12");
+    //test throw error (if there's repeat songs)
+    //testFile.WriteToFile("Skeletun","Tekno","3.12");
+
+}
 
 
 
@@ -103,6 +112,7 @@ int main() {
     EnqueueAndCalcDurationTest( );
     RemoveSongsTest();
     AllSongsInPlaylistTest();
-    PlayNextSongsTest();
+    WriteToFileTest();
+//    PlayNextSongsTest();
 
 }

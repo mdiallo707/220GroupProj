@@ -158,8 +158,32 @@ void PlaylistLinkedQueue ::ReadFromFile(){
 
 }
 
-void PlaylistLinkedQueue :: WriteToFile(){
-
+void PlaylistLinkedQueue :: WriteToFile(std::string songToAdd, std::string artistToAdd, std::string slToAdd){
+    //test if it's in library
+    std::ifstream in;
+    in.open("ListofSongs.txt") ;
+    std::string songTitle, artistName, duration;
+    while (!in.eof())
+    {
+        getline(in, songTitle, '\n');
+        getline(in, artistName, '\n');
+        getline(in, duration, '\n');
+        if(songTitle==songToAdd&& artistName==artistToAdd && duration==slToAdd){
+             throw std::out_of_range("WriteToFile: song repeats");
+        }
+    }
+    //write a song
+    std::ofstream writeFile ("ListofSongs.txt",std::ios_base::app | std::ios_base::out);
+    if (writeFile.is_open())
+    {
+        writeFile <<"\n"<<songToAdd<<"\n";
+        writeFile << artistToAdd<<"\n";
+        writeFile << slToAdd;
+        writeFile.close();
+    }
+    else{
+        throw std::out_of_range("WriteToFile: Files not open");
+    }
 }
 
 

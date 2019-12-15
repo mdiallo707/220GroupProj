@@ -67,8 +67,9 @@ public:
     * Write new user inputs to song file
     * @post the file has an additional value in it, at the end
     */
-    virtual void WriteToFile()=0;
-/**
+    virtual void WriteToFile(std::string songToAdd, std::string artistToAdd, std::string slToAdd) = 0;
+
+    /**
     * Reads songs from file
     * @post prints the songs currently in the song text file
     */
