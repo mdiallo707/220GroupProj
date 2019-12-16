@@ -70,3 +70,7 @@ void SongsLinkedNode::printSongs() {
 
 
 }
+
+std::string SongsLinkedNode ::getSongName(){
+    return this->songTitle;
+}

@@ -31,10 +31,13 @@ public:
     void  displayInventory();
     void time();
     void currentSongs();
-    int countSongs();
+    void countSongs();
+    int returnSongs();
     void particularArtist(std::string);
     void removeSong(std:: string artistName,std::string sogName);
     void addAlphaSong(std::string artistName, std::string title, double duration);
+
+    void addSong(string artistName, string title, double duration);
 };
 
 

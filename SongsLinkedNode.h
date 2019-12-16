@@ -28,6 +28,7 @@ public:
 
     void setDuration(double durationCount);
     void setNext(SongsLinkedNode* newNext);
+    std::string getSongName();
 
     void printSongs();
 };

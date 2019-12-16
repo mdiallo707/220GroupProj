@@ -17,7 +17,7 @@ Inventory::Inventory(){
 
 }
 void Inventory::particularSong(string artistName,string songTitle) {
-    Songs*temp=front;
+    SongsLinkedNode*temp=front;
     while(temp!=nullptr){
         if(temp->getArtistName()==artistName&temp->getSongName()==songTitle){
             cout<<temp->getArtistName()+" "+ temp->getSongName()<<endl;
@@ -66,25 +66,31 @@ void Inventory::particularAS(std::string artistName,string songtitle) {
 
 
 void Inventory::currentSongs() {
-    count=0;
     // can  be used for display and to check alphabetical order
     SongsLinkedNode*temp=front;
     while(temp!= nullptr){
 
 
-        cout<<temp->getArtistName();
+        cout<<temp->getArtistName() +""+temp->getArtistName();
         //count=count+1;
-        count=count+1;
         temp=temp->getNext();
         //cout<<end->getArtistName()+ " "+end->getSongName()<<endl;
     }
 }
 
+void Inventory::countSongs() {
+    SongsLinkedNode*temp=front;
+    while(temp!= nullptr){
+
+
+
+    }
+}
 
 
 void Inventory::addSong(std::string artistName,std::string title, double duration) {
-    Songs *newNode = new Songs(artistName, title, duration);
-    Songs *temp = front;
+    SongsLinkedNode *newNode = new SongsLinkedNode(artistName, title, duration);
+    SongsLinkedNode *temp = front;
     if (front == nullptr) {
         front = newNode;
         end = newNode;
@@ -120,3 +126,38 @@ void Inventory::addSong(std::string artistName,std::string title, double duratio
 }
 
 
+void Inventory::removeSong(string artistName,string songName) {
+    if (front->getArtistName()==artistName&front->getSongName()==songName) {
+        if(front==end){
+            front= nullptr;
+            end= nullptr;
+        }
+    }
+    else if(songName==end->getSongName()&artistName==end->getArtistName()) {
+
+        SongsLinkedNode*temp=front;
+        while(temp->getNext()!=end){
+            temp=temp->getNext();
+        }
+        delete end;
+        end=temp;
+        end->setNext(nullptr);}
+
+    else{
+        SongsLinkedNode*temp=front->getNext();
+        while(temp->getNext()->getArtistName()!=artistName&temp->getNext()->getSongName()!=songName){
+            temp=temp->getNext();
+        }
+        if(temp->getNext()->getArtistName()==artistName&temp->getNext()->getSongName()==songName){
+            delete temp->getNext();
+            temp->setNext(temp->getNext()->getNext());}
+        else{
+            cout<<"Song is not in the inventory."<<endl;
+        }
+
+
+
+
+    }
+
+}

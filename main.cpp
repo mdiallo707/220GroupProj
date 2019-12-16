@@ -10,7 +10,7 @@ int main() {
 PlayList2 test("testPlayList");
 test.ReadFromFile("ListofSongs.txt");
 test.dequeue();
-
+Inventory check;
 
 }
 
