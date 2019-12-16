@@ -39,40 +39,7 @@ void Inventory::clearLibrary(){
 
 }
 
-void Inventory::addSong(std::string artistName,std::string title, double duration) {
-    Songs *newNode = new Songs(artistName, title, duration);
-    Songs *temp = front;
-    if (front == nullptr) {
-        front = newNode;
-        end = newNode;
-    } else {
-        temp = front;
-        //Songs *ahead;
 
-
-        if (newNode->getArtistName() < front->getArtistName()) {
-
-            newNode->setNext(front);
-            front = newNode;}
-
-        else if (newNode->getArtistName() > end->getArtistName()) {
-            end->setNext(newNode);
-            end = newNode;
-        }
-        else{
-            temp=front;
-
-            //while loop
-            //while temp.getNext.getArtistName < newNode.getArtistName
-            //temp = temp.getNext
-            while(temp->getNext()->getArtistName()<newNode->getArtistName()){
-                temp=temp->getNext();
-            }
-            newNode->setNext(temp->getNext());
-            temp->setNext(newNode);
-        }
-    }
-}
 
 void Inventory::particularArtist(std::string artistName) {
     SongsLinkedNode*temp=front;
@@ -115,6 +82,41 @@ void Inventory::currentSongs() {
 
 
 
+void Inventory::addSong(std::string artistName,std::string title, double duration) {
+    Songs *newNode = new Songs(artistName, title, duration);
+    Songs *temp = front;
+    if (front == nullptr) {
+        front = newNode;
+        end = newNode;
+    } else {
+        temp = front;
+        //Songs *ahead;
 
+
+        if (newNode->getArtistName() < front->getArtistName()) {
+
+            newNode->setNext(front);
+            front = newNode;}
+
+        else if (newNode->getArtistName() > end->getArtistName()) {
+            end->setNext(newNode);
+            end = newNode;
+        }
+        else{
+            temp=front;
+
+
+            while(temp->getNext()->getArtistName()<newNode->getArtistName()){
+                cout<<"here"<<endl;
+                cout<<"front :"+front->getArtistName()<<endl;
+                cout<<"front oldNext:"+front->getNext()->getArtistName()<<endl;
+                cout<<"newNode:"+newNode->getArtistName()<<endl;
+                temp=temp->getNext();
+            }
+            newNode->setNext(temp->getNext());
+            temp->setNext(newNode);
+        }
+    }
+}
 
 
