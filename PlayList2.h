@@ -78,12 +78,11 @@ public:
 
     void allSongsInPlaylist2();
 
-    void addSongEnd();
     std::string getPlayListName();
 
-    void addSongEnd(std::string playListName, std::string artistName, std::string songTitle);
-
     void ReadFromFile(std::string playListName);
+
+    void addSongUser(std::string playListName, std::string artistName, std::string songTitle);
 };
 
 

@@ -1,7 +1,9 @@
 //
 // Created by emurray2 on 12/15/2019.
 //
-
+//This edition has the necessary properties for a particular playlist
+// to be found by the collection and properties that are needed
+//for the userInterface
 #include "PlayList2.h"
 #include <string>
 #include <fstream>
@@ -107,7 +109,7 @@ void Songs::playNextSong(std::string plName) {
 ///Liz: This  class in particular needs PlayListLinkedQueue to have a name to go into a specific
 ///playlist not just anything
 ///the parameters are based off of the addCommand
-void PlayList2::addSongEnd(string playListName, string artistName, string songTitle ){
+void PlayList2::addSongUser(string playListName, string artistName, string songTitle ){
 
     enqueue(songTitle,artistName,5);
 }
@@ -201,6 +203,7 @@ void PlayList2 :: WriteToFile(std::string songToAdd, std::string artistToAdd, st
         throw std::out_of_range("WriteToFile: Files not open");
     }
 }
+
 
 
 
