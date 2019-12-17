@@ -13,6 +13,7 @@ PlayList2::PlayList2(std::string playListName){
     front = nullptr;
     end = nullptr;
     double duration;
+    this->playListName=playListName;
 }
 
 string PlayList2::getPlayListName() {

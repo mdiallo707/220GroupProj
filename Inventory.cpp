@@ -7,6 +7,9 @@
 #include <stdexcept>
 #include "Inventory.h"
 #include "SongsLinkedNode.h"
+#include <string>
+#include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -71,7 +74,10 @@ void Inventory::currentSongs() {
     while(temp!= nullptr){
 
 
-        cout<<temp->getArtistName() +""+temp->getArtistName();
+       // cout<<temp->getArtistName() +""+temp->getArtistName();
+        std::string str=temp->getSongName()+'\n'+temp->getArtistName();
+        cout<<str<<endl;
+        cout<<'\n';
         //count=count+1;
         temp=temp->getNext();
         //cout<<end->getArtistName()+ " "+end->getSongName()<<endl;
@@ -81,9 +87,7 @@ void Inventory::currentSongs() {
 void Inventory::countSongs() {
     SongsLinkedNode*temp=front;
     while(temp!= nullptr){
-
-
-
+        this->count=this->count+1;
     }
 }
 
@@ -113,10 +117,6 @@ void Inventory::addSong(std::string artistName,std::string title, double duratio
 
 
             while(temp->getNext()->getArtistName()<newNode->getArtistName()){
-                cout<<"here"<<endl;
-                cout<<"front :"+front->getArtistName()<<endl;
-                cout<<"front oldNext:"+front->getNext()->getArtistName()<<endl;
-                cout<<"newNode:"+newNode->getArtistName()<<endl;
                 temp=temp->getNext();
             }
             newNode->setNext(temp->getNext());
@@ -160,4 +160,21 @@ void Inventory::removeSong(string artistName,string songName) {
 
     }
 
+}
+
+void Inventory ::ReadFromFile(std::string playListName) {
+    std::ifstream in;
+    in.open("ListofSongs.txt");
+    std::string songTitle, artistName, duration;
+
+//    std::cout << in.is_open() << std::endl;
+    //PlayList newSonglist = PlaylistLinkedQueue();
+    Inventory newSongsList();
+    while (!in.eof()) {
+        getline(in, songTitle);
+        getline(in, artistName);
+        getline(in, duration);
+        addSong(songTitle, artistName, std::stod(duration));
+
+    }
 }

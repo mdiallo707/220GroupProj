@@ -8,38 +8,52 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "SongsLinkedNode.h"
+#include "Songs.h"
+#include <iostream>
+#include <sstream>
+
+
+#include <string>
+#include <iomanip>
+
 using namespace std;
 
-class Inventory {
+class Inventory2 {
 private:
-    SongsLinkedNode*end;
-    SongsLinkedNode*front;
+    Songs*front;
+    Songs*end;
     int count;
 public:
-    Inventory();
-    void particularSong(string artistName,string songTitle);
+    Inventory2();
     std::string artistAllSongs(std::string artistName);
-    void particularAS(string artist,string songTitle);
+
     void getSongInfo();
     std::string endVal();
     //this will give you the object
-    void addSong(std::string artistName,std::string songTitle);
+    void addSong(std::string artistName,std::string songTitle,double duration);
     void deleteSong(std::string artistName, std::string songName);
     void clearLibrary();
     void play();
     void  displayInventory();
     void time();
-    void currentSongs();
-    void countSongs();
-    int returnSongs();
+    void checkNew();
     void particularArtist(std::string);
     void removeSong(std:: string artistName,std::string sogName);
     void addAlphaSong(std::string artistName, std::string title, double duration);
+    void currentSongs();
 
-    void addSong(string artistName, string title, double duration);
+    void particularSong(string artistName, string songTitle);
 
-    void ReadFromFile(string playListName);
+    void removeFront();
+
+    string removeFrontArtistName();
+
+    string frontSong();
+
+    bool isEmpty();
+
+
+    bool isSongIn(string artistName, string songTitle);
 };
 
 

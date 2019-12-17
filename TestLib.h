@@ -24,18 +24,6 @@ void printAssertEquals(int expected, int actual);
 void printAssertEquals(bool expected, bool actual);
 
 /**
- * reports whether doubles are equal or not
- * @param expected - the value you expect the actual value to be
- * @param actual - the actual value to test
- * @param epsilon - numerical difference between two doubles
- * @post prints only "pass" if the values are equal,
- *      Else it prints "FAIL" and their respective values
- */
-bool printAssertEquals(double expected, double actual,double epsilon = 0.001);
-
-
-
-/**
  * reports whether strings are equal or not
  * @param expected - the value you expect the actual value to be
  * @param actual - the actual value to test
