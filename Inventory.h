@@ -24,7 +24,6 @@ public:
     void getSongInfo();
     std::string endVal();
     //this will give you the object
-    void addSong(std::string artistName,std::string songTitle);
     void deleteSong(std::string artistName, std::string songName);
     void clearLibrary();
     void play();
@@ -35,11 +34,11 @@ public:
     int returnSongs();
     void particularArtist(std::string);
     void removeSong(std:: string artistName,std::string sogName);
-    void addAlphaSong(std::string artistName, std::string title, double duration);
 
-    void addSong(string artistName, string title, double duration);
 
     void ReadFromFile(string playListName);
+
+    void addSong(string artistName, string title, double duration);
 };
 
 

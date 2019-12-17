@@ -3,4 +3,4 @@ project(Project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Project Inventory.cpp  Inventory2.cpp Inventory2Test.cpp TestLib.cpp PlayList2.cpp  Songs.cpp PlaylistLinkedQueue.cpp SongsLinkedNode.cpp   )
+add_executable(Project Inventory.cpp ArrayLib.cpp CollectLinkedNode.cpp CollectLinkedList.cpp Interface.cpp main.cpp Inventory2.cpp  TestLib.cpp  Songs.cpp PlaylistLinkedQueue.cpp SongsLinkedNode.cpp   )

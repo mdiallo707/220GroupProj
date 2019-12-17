@@ -169,7 +169,7 @@ void PlaylistLinkedQueue ::  allSongsInPlaylist(std::string namePL){
     }
 
 }
-
+//"ListofSongs"is hardcod
 //Reads the ListofSongs.txt file
 void PlaylistLinkedQueue ::ReadFromFile(){
     std::ifstream in;

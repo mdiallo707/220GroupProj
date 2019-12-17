@@ -71,6 +71,9 @@ void Inventory::particularAS(std::string artistName,string songtitle) {
 void Inventory::currentSongs() {
     // can  be used for display and to check alphabetical order
     SongsLinkedNode*temp=front;
+    if(front== nullptr&end== nullptr){
+        cout<<"Library is emppty";
+    }
     while(temp!= nullptr){
 
 

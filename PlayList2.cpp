@@ -4,6 +4,7 @@
 //This edition has the necessary properties for a particular playlist
 // to be found by the collection and properties that are needed
 //for the userInterface
+//Out of comission use what's left no more edits
 #include "PlayList2.h"
 #include <string>
 #include <fstream>
@@ -14,6 +15,7 @@ PlayList2::PlayList2(std::string playListName){
     end = nullptr;
     double duration;
     this->playListName=playListName;
+    this->duration;
 }
 
 string PlayList2::getPlayListName() {

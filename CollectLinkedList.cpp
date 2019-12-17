@@ -10,11 +10,11 @@
 /**
     * Constructor
 */
-CollectLinkedList::CollectLinkedList(){
-    this->front = nullptr;
-    this->currCount=0;
-
-}
+//CollectLinkedList::CollectLinkedList(){
+//    this->front = nullptr;
+//    this->currCount=0;
+//
+//}
 
 /**
  * appends the new item to the end of the list
@@ -321,3 +321,8 @@ void CollectLinkedList::RandomList(std::string playlistTitleIn, double Duration)
 
 }
 
+CollectLinkedList::CollectLinkedList() {
+    this->front = nullptr;
+    this->currCount=0;
+
+}

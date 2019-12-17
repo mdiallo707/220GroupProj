@@ -1,6 +1,6 @@
 //
 // Created by emurray2 on 12/11/2019.
-//
+//The best version of the Inventory (no time to update with everything else)
 
 #include <iostream>
 #include <string>
